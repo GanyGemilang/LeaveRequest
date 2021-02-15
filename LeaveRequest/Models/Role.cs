@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LeaveRequest.Models
 {
-    [Table("tb_m_role")]
+    [Table("TB_M_Role")]
     public class Role
     {
         [Key]
@@ -15,5 +15,6 @@ namespace LeaveRequest.Models
         [Required]
         [MaxLength(20)]
         public string Name { get; set; }
+        public virtual List<User> User { get; set; } = new List<User>();
     }
 }

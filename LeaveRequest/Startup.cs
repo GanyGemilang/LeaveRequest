@@ -32,6 +32,12 @@ namespace LeaveRequest
             services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
 
             services.AddScoped<RoleRepository>();
+            services.AddScoped<UserRepository>();
+            services.AddScoped<AccountRepository>();
+
+            services.AddControllersWithViews()
+            .AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

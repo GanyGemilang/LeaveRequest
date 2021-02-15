@@ -88,3 +88,7 @@ C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\obj\Debu
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.dll
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.pdb
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.genruntimeconfig.cache
+C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\Castle.Core.dll
+C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
