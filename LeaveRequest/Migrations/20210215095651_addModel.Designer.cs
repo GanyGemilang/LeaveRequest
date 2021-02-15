@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LeaveRequest.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210215082528_addModel")]
+    [Migration("20210215095651_addModel")]
     partial class addModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,97 @@ namespace LeaveRequest.Migrations
                     b.HasKey("NIK");
 
                     b.ToTable("TB_M_Account");
+                });
+
+            modelBuilder.Entity("LeaveRequest.Models.Parameter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TB_M_Parameter");
+                });
+
+            modelBuilder.Entity("LeaveRequest.Models.Request", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ApprovedManager")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EndDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ManagerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("Notes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("QuotaLeaveRequest")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ReasionRequest")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StartDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UploadProof")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TB_M_Request");
+                });
+
+            modelBuilder.Entity("LeaveRequest.Models.RequestHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("RequestId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SubmitDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(10)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RequestId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("TB_M_RequestHistory");
                 });
 
             modelBuilder.Entity("LeaveRequest.Models.Role", b =>
@@ -116,6 +207,21 @@ namespace LeaveRequest.Migrations
                     b.HasOne("LeaveRequest.Models.User", "User")
                         .WithOne("Account")
                         .HasForeignKey("LeaveRequest.Models.Account", "NIK")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("LeaveRequest.Models.RequestHistory", b =>
+                {
+                    b.HasOne("LeaveRequest.Models.Request", "Request")
+                        .WithMany("RequestHistory")
+                        .HasForeignKey("RequestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LeaveRequest.Models.User", "User")
+                        .WithMany("RequestHistory")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

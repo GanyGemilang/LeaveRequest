@@ -29,6 +29,7 @@ namespace LeaveRequest.Models
         [Required(ErrorMessage = "Tidak boleh kosong")]
         public string Notes { get; set; }
         public string UploadProof { get; set; }
+        public virtual List<RequestHistory> RequestHistory { get; set; } = new List<RequestHistory>();
     }
     public enum ReasionRequest
     {

@@ -34,6 +34,9 @@ namespace LeaveRequest
             services.AddScoped<RoleRepository>();
             services.AddScoped<UserRepository>();
             services.AddScoped<AccountRepository>();
+            services.AddScoped<RequestRepository>();
+            services.AddScoped<RequestHistoryRepository>();
+            services.AddScoped<ParameterRepository>();
 
             services.AddControllersWithViews()
             .AddNewtonsoftJson(options =>
