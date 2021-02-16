@@ -18,6 +18,8 @@ namespace LeaveRequest.Models
         [Required(ErrorMessage = "Tidak boleh kosong")]
         public Status Status { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
+        public FinalStatus FinalStatus { get; set; }
+        [Required(ErrorMessage = "Tidak boleh kosong")]
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
@@ -30,5 +32,10 @@ namespace LeaveRequest.Models
         Waiting,
         Approve,
         Reject
+    }
+    public enum FinalStatus
+    {
+        Success,
+        Failed
     }
 }

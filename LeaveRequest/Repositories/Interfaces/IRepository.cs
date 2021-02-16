@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace LeaveRequest.Repositories.Interfaces
 {
-    public interface IRepository<Entity> where Entity : class
+    public interface IRepository<Entity, Id> where Entity : class
     {
         IEnumerable<Entity> Get();
-        Entity Get(int id);
+        Entity Get(Id id);
         int Create(Entity entity);
-        int Update(int id, Entity entity);
-        int Delete(int id);
+        int Update(Entity entity);
+        int Delete(Id id);
     }
 }

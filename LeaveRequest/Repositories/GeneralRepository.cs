@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LeaveRequest.Repositories
 {
-    public class GeneralRepository<Entity, Context> : IRepository<Entity>
+    public class GeneralRepository<Entity, Context, Id> : IRepository<Entity, Id>
         where Entity : class
         where Context : MyContext
     {
@@ -35,7 +35,7 @@ namespace LeaveRequest.Repositories
             }
         }
 
-        public int Delete(int id)
+        public int Delete(Id id)
         {
             if (entities == null)
             {
@@ -55,12 +55,12 @@ namespace LeaveRequest.Repositories
             return entities.AsEnumerable();
         }
 
-        public Entity Get(int id)
+        public Entity Get(Id id)
         {
             return entities.Find(id);
         }
 
-        public int Update(int id, Entity entity)
+        public int Update(Entity entity)
         {
             if (entity == null)
             {

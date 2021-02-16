@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using LeaveRequest.Context;
 using LeaveRequest.Handler;
 using LeaveRequest.Models;
@@ -14,10 +14,13 @@ using System.Threading.Tasks;
 
 namespace LeaveRequest.Repositories.Data
 {
-    public class AccountRepository : GeneralRepository<Account, MyContext>
+    public class AccountRepository : GeneralRepository<Account, MyContext, string>
     {
+
         private DbSet<Account> accounts;
         private readonly MyContext myContext;
+        private readonly SendEmail sendEmail = new SendEmail();
+
         private readonly UserRepository userRepository;
         public IConfiguration Configuration { get; }
         public AccountRepository(MyContext myContext, UserRepository userRepository, IConfiguration configuration) : base(myContext)
@@ -80,6 +83,20 @@ namespace LeaveRequest.Repositories.Data
             else
             {
                 return 0;
+
+        public int ResetPassword(Account account, string email)
+        {
+            var data = myContext.Users.Where(x => x.Email == email).FirstOrDefault();
+            if (data == null)
+            {
+                return 0;
+            }
+            else
+            {
+                myContext.Entry(account).State = EntityState.Modified;
+                var result = myContext.SaveChanges();
+                sendEmail.Send(email);
+                return result;
             }
         }
     }

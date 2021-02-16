@@ -29,10 +29,13 @@ namespace LeaveRequest.Models
         public Position Position { get; set; }
         [MaxLength(255, ErrorMessage = "Maksimal 255 karakter")]
         public string Address { get; set; }
+        [Required(ErrorMessage = "Tidak boleh kosong")]
+        public int RemainingQuota { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), RegularExpression(@"^08[0-9]{10,11}$", ErrorMessage = "Harus berupa angka diawali 08"), MinLength(11, ErrorMessage = "Minimal 11 karakter"), MaxLength(12, ErrorMessage = "Maksimal 12 karakter")]
-        public string Phone { get; set; }
+        public string PhoneNumber { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), EmailAddress(ErrorMessage = "Masukan format email yang valid"), MaxLength(255, ErrorMessage = "Maksimal 255 karakter")]
         public string Email { get; set; }
+        
         public virtual Account Account { get; set; }
         public int RoleId { get; set; }
         [ForeignKey("RoleId")]

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LeaveRequest.Repositories.Data
 {
-    public class UserRepository : GeneralRepository<User, MyContext>
+    public class UserRepository : GeneralRepository<User, MyContext,string>
     {
         private readonly MyContext myContext;
         private DbSet<User> users;
