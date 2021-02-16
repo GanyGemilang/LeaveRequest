@@ -1,8 +1,8 @@
 ﻿using LeaveRequest.Base.Controller;
 using LeaveRequest.Handler;
 using LeaveRequest.Models;
-using LeaveRequest.ModelViews;
 using LeaveRequest.Repositories.Data;
+using LeaveRequest.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -24,7 +24,7 @@ namespace LeaveRequest.Controllers
         public AccountController(AccountRepository accountRepository, IConfiguration configuration) : base(accountRepository)
         {
             this.accountRepository = accountRepository;
-             this.Configuration = Configuration;
+            this.Configuration = Configuration;
         }
 
         [HttpPost("Register")]

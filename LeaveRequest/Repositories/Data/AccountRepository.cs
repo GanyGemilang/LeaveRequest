@@ -2,7 +2,7 @@ using Dapper;
 using LeaveRequest.Context;
 using LeaveRequest.Handler;
 using LeaveRequest.Models;
-using LeaveRequest.ModelViews;
+using LeaveRequest.ViewModels;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -16,7 +16,6 @@ namespace LeaveRequest.Repositories.Data
 {
     public class AccountRepository : GeneralRepository<Account, MyContext, string>
     {
-
         private DbSet<Account> accounts;
         private readonly MyContext myContext;
         private readonly SendEmail sendEmail = new SendEmail();
@@ -56,12 +55,14 @@ namespace LeaveRequest.Repositories.Data
                 LastName = registerVM.LastName,
                 Password = Hashing.HashPassword("B0o7c@mp"),
                 BirthDate = registerVM.BirthDate,
-                Gender = Gender.Male,
-                MarriedStatus = Married.Single,
-                Position = Position.ApplicationDeveloper,
+                Gender = (Models.Gender)registerVM.Gender,
+                MarriedStatus = (Models.Married)registerVM.MarriedStatus,
+                Position = (Models.Position)registerVM.Position,
                 Address = registerVM.Address,
-                Phone = registerVM.Phone,
-                Email = registerVM.Email   
+                PhoneNumber = registerVM.PhoneNumber,
+                RemainingQuota = registerVM.RemainingQuota,
+                ManagerId = 1,
+                Email = registerVM.Email
             };
 
             var account = new Account()
@@ -83,6 +84,8 @@ namespace LeaveRequest.Repositories.Data
             else
             {
                 return 0;
+            }
+        }
 
         public int ResetPassword(Account account, string email)
         {

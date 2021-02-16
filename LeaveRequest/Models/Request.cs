@@ -20,6 +20,8 @@ namespace LeaveRequest.Models
         public int QuotaLeaveRequest { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
         public Approve ApprovedManager { get; set; }
+        [Required(ErrorMessage = "Tidak boleh kosong")]
+        public Approve ApprovedHrd { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public string StartDate { get; set; }

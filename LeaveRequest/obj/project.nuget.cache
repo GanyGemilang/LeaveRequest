@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "xFOjgdRSXLYpV0dnF5qJZ2Ob07vCDvd/7wnZ7qTxopwyHKvC5923Q4D8rw9PG6w1R+O8IME4YFcJpDP6AU2M1g==",
+  "dgSpecHash": "Z0cePB1hY8Ick7d3hLyozwAEHgz96RQ/rCy5+YDXGlhChDwjJFpMTNYiFG3H+F1URinM/JasH4+opxeIMehTNQ==",
   "success": true,
   "projectFilePath": "F:\\Kerja\\LeaveRequest\\LeaveRequest\\LeaveRequest\\LeaveRequest.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\yohan\\.nuget\\packages\\bcrypt.net-next\\3.1.0\\bcrypt.net-next.3.1.0.nupkg.sha512",
+    "C:\\Users\\yohan\\.nuget\\packages\\bcrypt\\1.0.0\\bcrypt.1.0.0.nupkg.sha512",
+    "C:\\Users\\yohan\\.nuget\\packages\\bcrypt.net\\0.1.0\\bcrypt.net.0.1.0.nupkg.sha512",
     "C:\\Users\\yohan\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\yohan\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",
     "C:\\Users\\yohan\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
@@ -150,6 +151,26 @@
     "C:\\Users\\yohan\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'BCrypt 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "BCrypt",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'BCrypt.Net 0.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "BCrypt.Net",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

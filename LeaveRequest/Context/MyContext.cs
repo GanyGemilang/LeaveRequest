@@ -27,6 +27,7 @@ namespace LeaveRequest.Context
             modelBuilder.Entity<RequestHistory>().HasOne(x => x.Request);
 
         }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseLazyLoadingProxies();

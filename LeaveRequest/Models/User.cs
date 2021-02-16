@@ -44,20 +44,20 @@ namespace LeaveRequest.Models
     }
     public enum Gender
     {
-        Male,
-        Female
+        Male = 0,
+        Female = 1
     }
     public enum Married
     {
-        Single,
-        Married,
-        Widower,
-        Widow
+        Single = 0,
+        Married = 1,
+        Widower = 2,
+        Widow = 3
     }
     public enum Position
     {
-        ApplicationDeveloper,
-        BackendDeveloper,
-        FrontendDeveloper
+        ApplicationDeveloper = 0,
+        BackendDeveloper = 1,
+        FrontendDeveloper = 2
     }
 }

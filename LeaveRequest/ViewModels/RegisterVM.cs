@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LeaveRequest.ModelViews
+namespace LeaveRequest.ViewModels
 {
     public class RegisterVM
     {
@@ -19,9 +19,9 @@ namespace LeaveRequest.ModelViews
         [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(255, ErrorMessage = "Tidak boleh berupa angka")]
         public string Gender { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), RegularExpression(@"^08[0-9]{10,11}$", ErrorMessage = "Harus berupa angka diawali 08"), MinLength(11, ErrorMessage = "Minimal 11 karakter"), MaxLength(12, ErrorMessage = "Maksimal 12 karakter")]
-        public string Phone { get; set; }
+        public string PhoneNumber { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public string ManagerName { get; set; }
+        public int RemainingQuota { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
         public string Position { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
@@ -31,7 +31,24 @@ namespace LeaveRequest.ModelViews
         [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime BirthDate { get; set; }
-        //[Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Password)]
-        //public string Password { get; set; }
     }
+
+/*    public enum Gender
+    {
+        Male,
+        Female
+    }
+    public enum Married
+    {
+        Single,
+        Married,
+        Widower,
+        Widow
+    }
+    public enum Position
+    {
+        ApplicationDeveloper,
+        BackendDeveloper,
+        FrontendDeveloper
+    }*/
 }

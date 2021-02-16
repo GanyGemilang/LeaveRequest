@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LeaveRequest.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210216032934_adaModel")]
-    partial class adaModel
+    [Migration("20210216100050_addModel")]
+    partial class addModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -63,6 +63,9 @@ namespace LeaveRequest.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("ApprovedHrd")
+                        .HasColumnType("int");
+
                     b.Property<int>("ApprovedManager")
                         .HasColumnType("int");
 
@@ -103,6 +106,9 @@ namespace LeaveRequest.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("FinalStatus")
+                        .HasColumnType("int");
 
                     b.Property<int>("RequestId")
                         .HasColumnType("int");
@@ -184,12 +190,15 @@ namespace LeaveRequest.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phone")
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(12)")
                         .HasMaxLength(12);
 
                     b.Property<int>("Position")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RemainingQuota")
                         .HasColumnType("int");
 
                     b.Property<int>("RoleId")

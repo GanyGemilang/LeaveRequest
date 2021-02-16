@@ -147,5 +147,6 @@ F:\Kerja\LeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\System.D
 F:\Kerja\LeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 F:\Kerja\LeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 F:\Kerja\LeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-F:\Kerja\LeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\BCrypt.Net-Next.dll
+F:\Kerja\LeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\DevOne.Security.Cryptography.BCrypt.dll
+F:\Kerja\LeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\BCrypt.Net.dll
 F:\Kerja\LeaveRequest\LeaveRequest\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.csprojAssemblyReference.cache

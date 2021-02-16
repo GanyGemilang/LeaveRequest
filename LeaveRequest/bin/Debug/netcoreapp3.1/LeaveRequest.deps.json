@@ -24,7 +24,8 @@
     ".NETCoreApp,Version=v3.1": {
       "LeaveRequest/1.0.0": {
         "dependencies": {
-          "BCrypt.Net-Next": "3.1.0",
+          "BCrypt": "1.0.0",
+          "BCrypt.Net": "0.1.0",
           "Dapper": "2.0.78",
           "Microsoft.AspNet.WebApi.Core": "5.2.7",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.0",
@@ -326,15 +327,26 @@
           "LeaveRequest.dll": {}
         }
       },
-      "BCrypt.Net-Next/3.1.0": {
+      "BCrypt/1.0.0": {
         "runtime": {
-          "lib/netstandard2.0/BCrypt.Net-Next.dll": {
-            "assemblyVersion": "3.1.0.0",
-            "fileVersion": "3.1.0.0"
+          "lib/DevOne.Security.Cryptography.BCrypt.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         },
         "compile": {
-          "lib/netstandard2.0/BCrypt.Net-Next.dll": {}
+          "lib/DevOne.Security.Cryptography.BCrypt.dll": {}
+        }
+      },
+      "BCrypt.Net/0.1.0": {
+        "runtime": {
+          "lib/net35/BCrypt.Net.dll": {
+            "assemblyVersion": "0.1.4141.31969",
+            "fileVersion": "0.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/net35/BCrypt.Net.dll": {}
         }
       },
       "Castle.Core/4.4.0": {
@@ -3474,12 +3486,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "BCrypt.Net-Next/3.1.0": {
+    "BCrypt/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-zpAiSXd1mvPh/+cG0ItL8bD9dkPZ92D/QmgL4OlikxBBHeb4Vm39eSwk2igAdbXFp7Vx9DnRxf4PjB+5+8V4cA==",
-      "path": "bcrypt.net-next/3.1.0",
-      "hashPath": "bcrypt.net-next.3.1.0.nupkg.sha512"
+      "sha512": "sha512-/ibwe2Sg7MJR26IrEzW2Rde9/+A+AYXB5Kf9w/8BVLDdzSfUe4W2M7i2efy1Wa9wHh1k0y81Q6h9Ty8C6IrUGA==",
+      "path": "bcrypt/1.0.0",
+      "hashPath": "bcrypt.1.0.0.nupkg.sha512"
+    },
+    "BCrypt.Net/0.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sST2w361Dxt9GGMfpOTiK50wXGV64Ybb1hiX3xjEWnhVYZNF43NuySGwADJa7X1R+bA53NsFR+tuDxcYiJeIOA==",
+      "path": "bcrypt.net/0.1.0",
+      "hashPath": "bcrypt.net.0.1.0.nupkg.sha512"
     },
     "Castle.Core/4.4.0": {
       "type": "package",

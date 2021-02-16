@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LeaveRequest.ModelViews
+namespace LeaveRequest.ViewModels
 {
     public class RoleVM
     {

@@ -1,5 +1,5 @@
 ﻿using LeaveRequest.Handler;
-using LeaveRequest.ModelViews;
+using LeaveRequest.ViewModels;
 using LeaveRequest.Repositories.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

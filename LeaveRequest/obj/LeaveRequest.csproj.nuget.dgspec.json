@@ -40,9 +40,13 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "BCrypt.Net-Next": {
+            "BCrypt": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[1.0.0, )"
+            },
+            "BCrypt.Net": {
+              "target": "Package",
+              "version": "[0.1.0, )"
             },
             "Dapper": {
               "target": "Package",
