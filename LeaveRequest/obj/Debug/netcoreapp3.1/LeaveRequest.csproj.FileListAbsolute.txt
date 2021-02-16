@@ -92,3 +92,5 @@ C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\bin\Debu
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\DevOne.Security.Cryptography.BCrypt.dll
+C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\BCrypt.Net-Next.dll

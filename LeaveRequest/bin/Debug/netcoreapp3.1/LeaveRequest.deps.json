@@ -24,6 +24,8 @@
     ".NETCoreApp,Version=v3.1": {
       "LeaveRequest/1.0.0": {
         "dependencies": {
+          "BCrypt": "1.0.0",
+          "BCrypt.Net-Next": "4.0.2",
           "Microsoft.AspNet.WebApi.Core": "5.2.7",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.0",
           "Microsoft.EntityFrameworkCore": "3.1.0",
@@ -319,6 +321,28 @@
         },
         "compile": {
           "LeaveRequest.dll": {}
+        }
+      },
+      "BCrypt/1.0.0": {
+        "runtime": {
+          "lib/DevOne.Security.Cryptography.BCrypt.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/DevOne.Security.Cryptography.BCrypt.dll": {}
+        }
+      },
+      "BCrypt.Net-Next/4.0.2": {
+        "runtime": {
+          "lib/netcoreapp3.1/BCrypt.Net-Next.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.0.2.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/BCrypt.Net-Next.dll": {}
         }
       },
       "Castle.Core/4.4.0": {
@@ -3337,6 +3361,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BCrypt/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/ibwe2Sg7MJR26IrEzW2Rde9/+A+AYXB5Kf9w/8BVLDdzSfUe4W2M7i2efy1Wa9wHh1k0y81Q6h9Ty8C6IrUGA==",
+      "path": "bcrypt/1.0.0",
+      "hashPath": "bcrypt.1.0.0.nupkg.sha512"
+    },
+    "BCrypt.Net-Next/4.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LyNKpIpr4GraRD9+xlTviyxxbZpF6J4xJf7DvraC1mR8PSN/KonGc4rt8C/fjkD3vaEvgA7BcvsbHFCOjgczyQ==",
+      "path": "bcrypt.net-next/4.0.2",
+      "hashPath": "bcrypt.net-next.4.0.2.nupkg.sha512"
     },
     "Castle.Core/4.4.0": {
       "type": "package",

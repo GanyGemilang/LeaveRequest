@@ -60,6 +60,9 @@ namespace LeaveRequest.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("ApprovedHRD")
+                        .HasColumnType("int");
+
                     b.Property<int>("ApprovedManager")
                         .HasColumnType("int");
 
@@ -75,9 +78,6 @@ namespace LeaveRequest.Migrations
                     b.Property<string>("Notes")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("QuotaLeaveRequest")
-                        .HasColumnType("int");
 
                     b.Property<int>("ReasionRequest")
                         .HasColumnType("int");
@@ -100,6 +100,9 @@ namespace LeaveRequest.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("FinalStatus")
+                        .HasColumnType("int");
 
                     b.Property<int>("RequestId")
                         .HasColumnType("int");
@@ -182,12 +185,15 @@ namespace LeaveRequest.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phone")
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(12)")
                         .HasMaxLength(12);
 
                     b.Property<int>("Position")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RemainingQuota")
                         .HasColumnType("int");
 
                     b.Property<int>("RoleId")

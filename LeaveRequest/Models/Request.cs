@@ -17,9 +17,9 @@ namespace LeaveRequest.Models
         [Required(ErrorMessage = "Tidak boleh kosong")]
         public ReasionRequest ReasionRequest { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public int QuotaLeaveRequest { get; set; }
-        [Required(ErrorMessage = "Tidak boleh kosong")]
         public Approve ApprovedManager { get; set; }
+        [Required(ErrorMessage = "Tidak boleh kosong")]
+        public Approve ApprovedHRD { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public string StartDate { get; set; }

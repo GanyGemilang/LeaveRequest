@@ -28,8 +28,8 @@ namespace LeaveRequest.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ManagerName = table.Column<string>(maxLength: 20, nullable: false),
                     ReasionRequest = table.Column<int>(nullable: false),
-                    QuotaLeaveRequest = table.Column<int>(nullable: false),
                     ApprovedManager = table.Column<int>(nullable: false),
+                    ApprovedHRD = table.Column<int>(nullable: false),
                     StartDate = table.Column<string>(nullable: false),
                     EndDate = table.Column<string>(nullable: false),
                     Notes = table.Column<string>(nullable: false),
@@ -67,7 +67,8 @@ namespace LeaveRequest.Migrations
                     ManagerId = table.Column<int>(nullable: false),
                     Position = table.Column<int>(nullable: false),
                     Address = table.Column<string>(maxLength: 255, nullable: true),
-                    Phone = table.Column<string>(maxLength: 12, nullable: false),
+                    RemainingQuota = table.Column<int>(nullable: false),
+                    PhoneNumber = table.Column<string>(maxLength: 12, nullable: false),
                     Email = table.Column<string>(maxLength: 255, nullable: false),
                     RoleId = table.Column<int>(nullable: false)
                 },
@@ -108,6 +109,7 @@ namespace LeaveRequest.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SubmitDate = table.Column<string>(nullable: false),
                     Status = table.Column<int>(nullable: false),
+                    FinalStatus = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: false),
                     RequestId = table.Column<int>(nullable: false)
                 },

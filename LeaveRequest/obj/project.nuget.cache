@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "sZi8dOpj9feJK7UF3oFJDnYsdQQUEQIMnX9dq9NlYZVN3Cdu/AThr+dQ9Y46/fAMWvqsyzJszUHFbOgvEcqFBA==",
+  "dgSpecHash": "ONHHhNg6MWHhS+CtMFt80dw3t74fh8cP9yAyFy6lJZWbm9nR/8Fna6U5z2krR4UMlOKRsIHNlUc9DgeZZm9jkw==",
   "success": true,
   "projectFilePath": "C:\\Users\\asus\\Documents\\GitHub\\TALeaveRequest\\LeaveRequest\\LeaveRequest\\LeaveRequest.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\asus\\.nuget\\packages\\bcrypt\\1.0.0\\bcrypt.1.0.0.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnet.webapi.core\\5.2.7\\microsoft.aspnet.webapi.core.5.2.7.nupkg.sha512",
@@ -140,6 +142,16 @@
     "C:\\Users\\asus\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'BCrypt 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "BCrypt",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",
