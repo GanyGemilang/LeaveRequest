@@ -12,7 +12,7 @@ namespace LeaveRequest.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RequestHistoryController : BaseController<RequestHistory, RequestHistoryRepository>
+    public class RequestHistoryController : BaseController<RequestHistory, RequestHistoryRepository,string>
     {
         public RequestHistoryController(RequestHistoryRepository requestHistoryRepository) : base(requestHistoryRepository)
         {

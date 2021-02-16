@@ -12,7 +12,7 @@ namespace LeaveRequest.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ParameterController : BaseController<Parameter, ParameterRepository>
+    public class ParameterController : BaseController<Parameter, ParameterRepository,string>
     {
         public ParameterController(ParameterRepository parameterRepository) : base(parameterRepository)
         {
