@@ -20,7 +20,7 @@ namespace LeaveRequest.Models
         public string Password { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
-        public string BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
         public Gender Gender { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]

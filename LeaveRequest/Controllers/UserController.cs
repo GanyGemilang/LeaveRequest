@@ -1,4 +1,5 @@
 ﻿using LeaveRequest.Base.Controller;
+using LeaveRequest.Handler;
 using LeaveRequest.Models;
 using LeaveRequest.Repositories.Data;
 using Microsoft.AspNetCore.Http;
@@ -14,9 +15,12 @@ namespace LeaveRequest.Controllers
     [ApiController]
     public class UserController : BaseController<User, UserRepository>
     {
-        public UserController(UserRepository userRepository) : base(userRepository)
+        private readonly IJWTAuthenticationManager jwtAuthenticationManager;
+        private readonly UserRepository userRepository;
+        public UserController(IJWTAuthenticationManager jwtAuthenticationManager, UserRepository userRepository) : base(userRepository)
         {
-
+            this.jwtAuthenticationManager = jwtAuthenticationManager;
+            //this.userRepository = userRepository;
         }
     }
 }

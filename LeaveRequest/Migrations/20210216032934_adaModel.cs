@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LeaveRequest.Migrations
 {
-    public partial class addModel : Migration
+    public partial class adaModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,7 +62,7 @@ namespace LeaveRequest.Migrations
                     FirstName = table.Column<string>(maxLength: 30, nullable: false),
                     LastName = table.Column<string>(maxLength: 255, nullable: true),
                     Password = table.Column<string>(nullable: false),
-                    BirthDate = table.Column<string>(nullable: false),
+                    BirthDate = table.Column<DateTime>(nullable: false),
                     Gender = table.Column<int>(nullable: false),
                     MarriedStatus = table.Column<int>(nullable: false),
                     ManagerId = table.Column<int>(nullable: false),
