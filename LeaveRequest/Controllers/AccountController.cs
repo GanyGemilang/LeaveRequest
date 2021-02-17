@@ -34,7 +34,7 @@ namespace LeaveRequest.Controllers
             var acc = accountRepository.Get(NIK);
             if (acc != null)
             {
-                if (acc.Password == changePasswordVM.OldPassword)
+                if (Hashing.ValidatePassword(changePasswordVM.OldPassword, acc.Password))
                 {
                     var data = accountRepository.ChangePassword(NIK, changePasswordVM.NewPassword);
                     return Ok(new { message = "Password Changed", status = "Ok" });

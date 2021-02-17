@@ -7,12 +7,10 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Threading.Tasks;
 
 namespace LeaveRequest.Repositories.Data
 {
@@ -35,7 +33,7 @@ namespace LeaveRequest.Repositories.Data
         public int ChangePassword(string NIK, string password)
         {
             Account acc = myContext.Accounts.Where(a => a.NIK == NIK).FirstOrDefault();
-            acc.Password = password;
+            acc.Password = Hashing.HashPassword(password);
             myContext.Entry(acc).State = EntityState.Modified;
             var result = myContext.SaveChanges();
             return result;
@@ -46,12 +44,19 @@ namespace LeaveRequest.Repositories.Data
             LoginVM result = null;
 
             string connectStr = Configuration.GetConnectionString("MyConnection");
+            var userCondition = myContext.Users.Where(a => a.Email == email).FirstOrDefault();
 
-            using (IDbConnection db = new SqlConnection(connectStr))
+            if (userCondition != null)
             {
-                string readSp = "sp_retrieve_login";
-                var parameter = new { Email = email, Password = password };
-                result = db.Query<LoginVM>(readSp, parameter, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                if (Hashing.ValidatePassword(password, userCondition.Account.Password))
+                {
+                    using (IDbConnection db = new SqlConnection(connectStr))
+                    {
+                        string readSp = "sp_retrieve_login";
+                        var parameter = new { Email = email, Password = password };
+                        result = db.Query<LoginVM>(readSp, parameter, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    }
+                }
             }
             return result;
         }
@@ -72,7 +77,8 @@ namespace LeaveRequest.Repositories.Data
                 Address = registerVM.Address,
                 PhoneNumber = registerVM.PhoneNumber,
                 RemainingQuota = registerVM.RemainingQuota,
-                Email = registerVM.Email
+                Email = registerVM.Email,
+                RoleId = registerVM.RoleId
             };
 
             var account = new Account()
@@ -102,7 +108,8 @@ namespace LeaveRequest.Repositories.Data
             string resetCode = Guid.NewGuid().ToString();
             var time24 = DateTime.Now.ToString("HH:mm:ss");
 
-            var getuser = myContext.Users.Where(a => a.Email == email).FirstOrDefault();
+            var getuser = myContext.Users.Include(u => u.Account).Where(a => a.Email == email).FirstOrDefault();
+            var userAccount = myContext.Accounts.Where(a=>a.NIK == getuser.NIK).FirstOrDefault();
             if (getuser == null)
             {
                 return 0;
@@ -110,29 +117,10 @@ namespace LeaveRequest.Repositories.Data
             else
             {
                 var password = Hashing.HashPassword(resetCode);
-                //var password = resetCode;
-                var accounts = new Account()
-                {
-                    NIK = account.NIK,
-                    Password = password
-                };
-                myContext.Entry(accounts).State = EntityState.Modified;
+                //account.Password = password;
+                userAccount.Password= password;
                 var result = myContext.SaveChanges();
-
-                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                smtp.Credentials = new NetworkCredential("1997HelloWorld1997@gmail.com", "wwwsawwwsdwwwszwwwsx");
-                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtp.EnableSsl = true;
-                smtp.UseDefaultCredentials = false;
-                NetworkCredential nc = new NetworkCredential("1997HelloWorld1997@gmail.com", "wwwsawwwsdwwwszwwwsx");
-                smtp.Credentials = nc;
-                MailMessage mailMessage = new MailMessage();
-                mailMessage.From = new MailAddress("1997HelloWorld1997@gmail.com", "Leave Request Reset Password");
-                mailMessage.To.Add(new MailAddress(getuser.Email));
-                mailMessage.Subject = "Reset Password " + time24;
-                mailMessage.IsBodyHtml = false;
-                mailMessage.Body = "Hi " + getuser.FirstName + "\nThis is new password for your account. " + resetCode + "\nThank You";
-                smtp.Send(mailMessage);
+                sendEmail.SendForgotPassword(resetCode, email);
                 return result;
             }
         }

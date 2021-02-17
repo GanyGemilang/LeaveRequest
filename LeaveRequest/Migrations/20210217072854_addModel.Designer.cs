@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LeaveRequest.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210217032812_addModel")]
+    [Migration("20210217072854_addModel")]
     partial class addModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -151,6 +151,7 @@ namespace LeaveRequest.Migrations
             modelBuilder.Entity("LeaveRequest.Models.User", b =>
                 {
                     b.Property<string>("NIK")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(10)")
                         .HasMaxLength(10);
 
