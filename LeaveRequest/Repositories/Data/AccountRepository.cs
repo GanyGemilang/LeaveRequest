@@ -26,6 +26,16 @@ namespace LeaveRequest.Repositories.Data
             this.userRepository = userRepository;
             this.Configuration = configuration;
         }
+
+        public int ChangePassword(string NIK, string password)
+        {
+            Account acc = myContext.Accounts.Where(a => a.NIK == NIK).FirstOrDefault();
+            acc.Password = password;
+            myContext.Entry(acc).State = EntityState.Modified;
+            var result = myContext.SaveChanges();
+            return result;
+        }
+
         public int ResetPassword(Account account, string email)
         {
             string resetCode = Guid.NewGuid().ToString();
@@ -39,7 +49,13 @@ namespace LeaveRequest.Repositories.Data
             else
             {
                 var password = Hashing.HashPassword(resetCode);
-                getuser.Password = password;
+                //var password = resetCode;
+                var accounts = new Account()
+                {
+                    NIK = account.NIK,
+                    Password = password
+                };
+                myContext.Entry(accounts).State = EntityState.Modified;
                 var result = myContext.SaveChanges();
 
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);

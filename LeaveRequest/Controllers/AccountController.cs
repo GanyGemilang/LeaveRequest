@@ -1,6 +1,7 @@
 ﻿using LeaveRequest.Base.Controller;
 using LeaveRequest.Models;
 using LeaveRequest.Repositories.Data;
+using LeaveRequest.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -16,13 +17,35 @@ namespace LeaveRequest.Controllers
     public class AccountController : BaseController<Account, AccountRepository,string>
     {
         private readonly AccountRepository accountRepository;
+        private readonly UserRepository userRepository;
 
         private IConfiguration Configuration;
-        public AccountController(AccountRepository accountRepository, IConfiguration configuration) : base(accountRepository)
+        public AccountController(AccountRepository accountRepository, UserRepository userRepository, IConfiguration configuration) : base(accountRepository)
         {
             this.accountRepository = accountRepository;
+            this.userRepository = userRepository;
             this.Configuration = Configuration;
         }
+
+        [HttpPut("ChangePassword/{NIK}")]
+        public ActionResult ChangePassword(string NIK, ChangePasswordVM changePasswordVM)
+        {
+            var acc = accountRepository.Get(NIK);
+            if (acc != null)
+            {
+                if (acc.Password == changePasswordVM.OldPassword)
+                {
+                    var data = accountRepository.ChangePassword(NIK, changePasswordVM.NewPassword);
+                    return Ok(new { message = "Password Changed", status = "Ok" });
+                }
+                else
+                {
+                    return StatusCode(404, new { status = "404", message = "Wrong password" });
+                }
+            }
+            return NotFound();
+        }
+
         [HttpPut("reset/{email}/{id}")]
         public ActionResult ResetPassword(Account account, string email)
         {
