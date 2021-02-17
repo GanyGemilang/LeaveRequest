@@ -1,4 +1,5 @@
 ﻿using LeaveRequest.Base.Controller;
+using LeaveRequest.Handler;
 using LeaveRequest.Models;
 using LeaveRequest.Repositories.Data;
 using LeaveRequest.ViewModels;
@@ -18,7 +19,7 @@ namespace LeaveRequest.Controllers
     {
         private readonly AccountRepository accountRepository;
         private readonly UserRepository userRepository;
-
+        private readonly IJWTAuthenticationManager jwtAuthenticationManager;
         private IConfiguration Configuration;
         public AccountController(AccountRepository accountRepository, UserRepository userRepository, IConfiguration configuration) : base(accountRepository)
         {
@@ -46,11 +47,33 @@ namespace LeaveRequest.Controllers
             return NotFound();
         }
 
+        [HttpPost("Register")]
+        public ActionResult Register(RegisterVM registerVM)
+        {
+            if (ModelState.IsValid)
+            {
+                var data = accountRepository.Register(registerVM);
+                if (data > 0)
+                {
+                    return Ok(new { status = "Registration Successed..." });
+                }
+                else
+                {
+                    return StatusCode(500, new { status = "Internal server error..." });
+                }
+            }
+            else
+            {
+                return BadRequest(new { status = "Bad request...", errorMessage = "Data input is not valid..." });
+            }
+        }
+
         [HttpPut("reset/{email}/{id}")]
         public ActionResult ResetPassword(Account account, string email)
         {
             var data = accountRepository.ResetPassword(account, email);
             return (data > 0) ? (ActionResult)Ok(new { message = "Email has been Sent, password changed", status = "Ok" }) : NotFound(new { message = "Data not exist in our database, please register first", status = 404 });
+
         }
     }
 }

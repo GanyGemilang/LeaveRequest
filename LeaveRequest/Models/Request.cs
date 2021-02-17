@@ -15,11 +15,11 @@ namespace LeaveRequest.Models
         [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(20, ErrorMessage = "Maksimal 20 karakter"), RegularExpression(@"^\D+$", ErrorMessage = "Tidak boleh berupa angka")]
         public string ManagerName { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public ReasionRequest ReasionRequest { get; set; }
+        public string ReasionRequest { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public Approve ApprovedManager { get; set; }
+        public string ApprovedManager { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public Approve ApprovedHRD { get; set; }
+        public string ApprovedHRD { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public string StartDate { get; set; }
@@ -31,7 +31,7 @@ namespace LeaveRequest.Models
         public string UploadProof { get; set; }
         public virtual List<RequestHistory> RequestHistory { get; set; } = new List<RequestHistory>();
     }
-    public enum ReasionRequest
+  /*  public enum ReasionRequest
     {
         Married,
         ChildMarriage,
@@ -40,7 +40,8 @@ namespace LeaveRequest.Models
     }
     public enum Approve
     {
+        Waiting,
         Approve,
-        Reject,
-    }
+        Reject
+    }*/
 }

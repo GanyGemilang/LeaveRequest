@@ -1,4 +1,5 @@
 using LeaveRequest.Context;
+using LeaveRequest.Handler;
 using LeaveRequest.Repositories.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,6 +39,8 @@ namespace LeaveRequest
             services.AddScoped<RequestHistoryRepository>();
             services.AddScoped<ParameterRepository>();
 
+            services.JwtConfigure(Configuration);
+
             services.AddControllersWithViews()
             .AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
@@ -56,6 +59,11 @@ namespace LeaveRequest
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllers();
+            //});
 
             app.UseEndpoints(endpoints =>
             {

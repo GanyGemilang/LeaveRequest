@@ -11,6 +11,7 @@ namespace LeaveRequest.Models
     public class User
     {
         [Key, Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(10, ErrorMessage = "Maksimal 10 karakter"), MinLength(5, ErrorMessage = "Minimal 5 karakter"), RegularExpression(@"^\d+$", ErrorMessage = "Harus berupa angka")]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public string NIK { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(30, ErrorMessage = "Maksimal 30 karakter"), RegularExpression(@"^\D+$", ErrorMessage = "Tidak boleh berupa angka")]
         public string FirstName { get; set; }
@@ -20,13 +21,12 @@ namespace LeaveRequest.Models
         public string Password { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
-        public string BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public Gender Gender { get; set; }
+        public string Gender { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public Married MarriedStatus { get; set; }
-        public int ManagerId { get; set; }
-        public Position Position { get; set; }
+        public string MarriedStatus { get; set; }
+        public string Position { get; set; }
         [MaxLength(255, ErrorMessage = "Maksimal 255 karakter")]
         public string Address { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
@@ -35,14 +35,14 @@ namespace LeaveRequest.Models
         public string PhoneNumber { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), EmailAddress(ErrorMessage = "Masukan format email yang valid"), MaxLength(255, ErrorMessage = "Maksimal 255 karakter")]
         public string Email { get; set; }
-        
+  
         public virtual Account Account { get; set; }
         public int RoleId { get; set; }
         [ForeignKey("RoleId")]
         public virtual Role Role { get; set; }
         public virtual List<RequestHistory> RequestHistory { get; set; } = new List<RequestHistory>();
     }
-    public enum Gender
+  /*  public enum Gender
     {
         Male,
         Female
@@ -59,5 +59,5 @@ namespace LeaveRequest.Models
         ApplicationDeveloper,
         BackendDeveloper,
         FrontendDeveloper
-    }
+    }*/
 }

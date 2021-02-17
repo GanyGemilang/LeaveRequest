@@ -16,26 +16,19 @@ namespace LeaveRequest.Models
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public string SubmitDate { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public Status Status { get; set; }
+        public string Status { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public FinalStatus FinalStatus { get; set; }
-        [Required(ErrorMessage = "Tidak boleh kosong")]
-        public string UserId { get; set; }
-        [ForeignKey("UserId")]
+        public string NIK { get; set; }
+        [ForeignKey("NIK")]
         public virtual User User { get; set; }
         public int RequestId { get; set; }
         [ForeignKey("RequestId")]
         public virtual Request Request { get; set; }
     }
-    public enum Status
+    /*public enum Status
     {
         Waiting,
         Approve,
         Reject
-    }
-    public enum FinalStatus
-    {
-        Success,
-        Failed
-    }
+    }*/
 }
