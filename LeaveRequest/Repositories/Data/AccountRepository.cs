@@ -21,8 +21,8 @@ namespace LeaveRequest.Repositories.Data
         private DbSet<Account> accounts;
         private readonly MyContext myContext;
         private readonly SendEmail sendEmail = new SendEmail();
-
         private readonly UserRepository userRepository;
+
         public IConfiguration Configuration { get; }
         public AccountRepository(MyContext myContext, UserRepository userRepository, IConfiguration configuration) : base(myContext)
         {
@@ -32,18 +32,24 @@ namespace LeaveRequest.Repositories.Data
             this.Configuration = configuration;
         }
 
-
         public LoginVM Login(string email, string password)
         {
             LoginVM result = null;
 
             string connectStr = Configuration.GetConnectionString("MyConnection");
+            var userCondition = myContext.Users.Where(a => a.Email == email).FirstOrDefault();
 
-            using (IDbConnection db = new SqlConnection(connectStr))
+            if (userCondition != null)
             {
-                string readSp = "sp_retrieve_login";
-                var parameter = new { Email = email, Password = password };
-                result = db.Query<LoginVM>(readSp, parameter, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                if (Hashing.ValidatePassword(password, userCondition.Account.Password))
+                {
+                    using (IDbConnection db = new SqlConnection(connectStr))
+                    {
+                        string readSp = "sp_retrieve_login";
+                        var parameter = new { Email = email, Password = password };
+                        result = db.Query<LoginVM>(readSp, parameter, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    }
+                }
             }
             return result;
         }
@@ -64,7 +70,8 @@ namespace LeaveRequest.Repositories.Data
                 Address = registerVM.Address,
                 PhoneNumber = registerVM.PhoneNumber,
                 RemainingQuota = registerVM.RemainingQuota,
-                Email = registerVM.Email
+                Email = registerVM.Email,
+                RoleId = registerVM.RoleId
             };
 
             var account = new Account()
@@ -89,7 +96,6 @@ namespace LeaveRequest.Repositories.Data
             }
         }
 
-
         public int ChangePassword(string NIK, string password)
         {
             Account acc = myContext.Accounts.Where(a => a.NIK == NIK).FirstOrDefault();
@@ -98,7 +104,6 @@ namespace LeaveRequest.Repositories.Data
             var result = myContext.SaveChanges();
             return result;
         }
-
 
         public int ResetPassword(Account account, string email)
         {

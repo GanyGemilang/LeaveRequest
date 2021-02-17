@@ -149,6 +149,7 @@ namespace LeaveRequest.Migrations
             modelBuilder.Entity("LeaveRequest.Models.User", b =>
                 {
                     b.Property<string>("NIK")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(10)")
                         .HasMaxLength(10);
 

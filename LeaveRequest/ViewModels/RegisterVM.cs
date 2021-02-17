@@ -31,6 +31,7 @@ namespace LeaveRequest.ViewModels
         [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime BirthDate { get; set; }
+        public int RoleId{ get; set; }
     }
 
     public enum Gender

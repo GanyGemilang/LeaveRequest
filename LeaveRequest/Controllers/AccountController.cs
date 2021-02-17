@@ -15,7 +15,7 @@ namespace LeaveRequest.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccountController : BaseController<Account, AccountRepository,string>
+    public class AccountController : BaseController<Account, AccountRepository, string>
     {
         private readonly AccountRepository accountRepository;
 
@@ -51,6 +51,7 @@ namespace LeaveRequest.Controllers
             {
                 return BadRequest(new { status = "Bad request...", errorMessage = "Data input is not valid..." });
             }
+        }
 
         [HttpPut("ChangePassword/{NIK}")]
         public ActionResult ChangePassword(string NIK, ChangePasswordVM changePasswordVM)

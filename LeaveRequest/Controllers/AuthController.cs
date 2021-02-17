@@ -33,7 +33,7 @@ namespace LeaveRequest.Controllers
             return Ok(token);
         }
 
-        [HttpPost("/Login")]
+        [HttpPost("Login")]
         public LoginVM Login([FromBody] LoginVM login)
         {
             var user = accountRepository.Login(login.Email, login.Password);
