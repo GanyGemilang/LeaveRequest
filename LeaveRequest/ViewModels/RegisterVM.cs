@@ -33,7 +33,7 @@ namespace LeaveRequest.ViewModels
         public DateTime BirthDate { get; set; }
     }
 
-/*    public enum Gender
+    public enum Gender
     {
         Male,
         Female
@@ -47,8 +47,8 @@ namespace LeaveRequest.ViewModels
     }
     public enum Position
     {
-        ApplicationDeveloper,
+        JuniorApplicationDeveloper,
         BackendDeveloper,
         FrontendDeveloper
-    }*/
+    }
 }

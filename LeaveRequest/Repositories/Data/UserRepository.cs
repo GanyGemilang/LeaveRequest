@@ -10,16 +10,16 @@ namespace LeaveRequest.Repositories.Data
 {
     public class UserRepository : GeneralRepository<User, MyContext,string>
     {
-        private readonly MyContext myContext;
-        private DbSet<User> users;
+        /*private readonly MyContext myContext;
+        private DbSet<User> users;*/
         public UserRepository(MyContext myContext) : base(myContext)
         {
-            this.myContext = myContext;
+           /* this.myContext = myContext;
             myContext.Set<User>();
-            users = myContext.Set<User>();
+            users = myContext.Set<User>();*/
         }
 
-        public User getByNIK(string NIK)
+    /*    public User getByNIK(string NIK)
         {
             var result = myContext.Users.Where(value => value.NIK == NIK).FirstOrDefault();
             return result;
@@ -34,6 +34,6 @@ namespace LeaveRequest.Repositories.Data
         {
             var data = myContext.Users.Where(e => e.Email == email).FirstOrDefault();
             return data;
-        }
+        }*/
     }
 }

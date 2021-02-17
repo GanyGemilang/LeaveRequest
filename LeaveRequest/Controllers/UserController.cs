@@ -15,11 +15,11 @@ namespace LeaveRequest.Controllers
     [ApiController]
     public class UserController : BaseController<User, UserRepository,string>
     {
-        private readonly IJWTAuthenticationManager jwtAuthenticationManager;
-        private readonly UserRepository userRepository;
-        public UserController(IJWTAuthenticationManager jwtAuthenticationManager, UserRepository userRepository) : base(userRepository)
+       /* private readonly IJWTAuthenticationManager jwtAuthenticationManager;
+        private readonly UserRepository userRepository;*/
+        public UserController(UserRepository userRepository) : base(userRepository)
         {
-            this.jwtAuthenticationManager = jwtAuthenticationManager;
+        /*    this.jwtAuthenticationManager = jwtAuthenticationManager;*/
             //this.userRepository = userRepository;
         }
     }

@@ -57,13 +57,12 @@ namespace LeaveRequest.Repositories.Data
                 LastName = registerVM.LastName,
                 Password = Hashing.HashPassword("B0o7c@mp"),
                 BirthDate = registerVM.BirthDate,
-                Gender = (Models.Gender)registerVM.Gender,
-                MarriedStatus = (Models.Married)registerVM.MarriedStatus,
-                Position = (Models.Position)registerVM.Position,
+                Gender = registerVM.Gender,
+                MarriedStatus = registerVM.MarriedStatus,
+                Position = registerVM.Position,
                 Address = registerVM.Address,
                 PhoneNumber = registerVM.PhoneNumber,
                 RemainingQuota = registerVM.RemainingQuota,
-                ManagerId = 1,
                 Email = registerVM.Email
             };
 

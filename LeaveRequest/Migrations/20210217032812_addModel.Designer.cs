@@ -10,11 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LeaveRequest.Migrations
 {
     [DbContext(typeof(MyContext))]
-<<<<<<< HEAD:LeaveRequest/Migrations/20210216100050_addModel.Designer.cs
-    [Migration("20210216100050_addModel")]
-=======
-    [Migration("20210216092257_addModel")]
->>>>>>> origin/gany:LeaveRequest/Migrations/20210216092257_addModel.Designer.cs
+    [Migration("20210217032812_addModel")]
     partial class addModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,15 +63,13 @@ namespace LeaveRequest.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-<<<<<<< HEAD:LeaveRequest/Migrations/20210216100050_addModel.Designer.cs
-                    b.Property<int>("ApprovedHrd")
-=======
-                    b.Property<int>("ApprovedHRD")
->>>>>>> origin/gany:LeaveRequest/Migrations/20210216092257_addModel.Designer.cs
-                        .HasColumnType("int");
+                    b.Property<string>("ApprovedHRD")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ApprovedManager")
-                        .HasColumnType("int");
+                    b.Property<string>("ApprovedManager")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EndDate")
                         .IsRequired()
@@ -90,8 +84,9 @@ namespace LeaveRequest.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ReasionRequest")
-                        .HasColumnType("int");
+                    b.Property<string>("ReasionRequest")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StartDate")
                         .IsRequired()
@@ -112,28 +107,26 @@ namespace LeaveRequest.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("FinalStatus")
-                        .HasColumnType("int");
+                    b.Property<string>("NIK")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<int>("RequestId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SubmitDate")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(10)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("RequestId");
+                    b.HasIndex("NIK");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("RequestId");
 
                     b.ToTable("TB_M_RequestHistory");
                 });
@@ -178,18 +171,17 @@ namespace LeaveRequest.Migrations
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
-                    b.Property<int>("ManagerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MarriedStatus")
-                        .HasColumnType("int");
+                    b.Property<string>("MarriedStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -200,8 +192,8 @@ namespace LeaveRequest.Migrations
                         .HasColumnType("nvarchar(12)")
                         .HasMaxLength(12);
 
-                    b.Property<int>("Position")
-                        .HasColumnType("int");
+                    b.Property<string>("Position")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("RemainingQuota")
                         .HasColumnType("int");
@@ -227,15 +219,15 @@ namespace LeaveRequest.Migrations
 
             modelBuilder.Entity("LeaveRequest.Models.RequestHistory", b =>
                 {
-                    b.HasOne("LeaveRequest.Models.Request", "Request")
+                    b.HasOne("LeaveRequest.Models.User", "User")
                         .WithMany("RequestHistory")
-                        .HasForeignKey("RequestId")
+                        .HasForeignKey("NIK")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LeaveRequest.Models.User", "User")
+                    b.HasOne("LeaveRequest.Models.Request", "Request")
                         .WithMany("RequestHistory")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("RequestId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
