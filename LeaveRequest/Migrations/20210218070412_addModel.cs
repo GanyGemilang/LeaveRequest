@@ -61,7 +61,6 @@ namespace LeaveRequest.Migrations
                     NIK = table.Column<string>(maxLength: 10, nullable: false),
                     FirstName = table.Column<string>(maxLength: 30, nullable: false),
                     LastName = table.Column<string>(maxLength: 255, nullable: true),
-                    Password = table.Column<string>(nullable: false),
                     BirthDate = table.Column<DateTime>(nullable: false),
                     Gender = table.Column<string>(nullable: false),
                     MarriedStatus = table.Column<string>(nullable: false),

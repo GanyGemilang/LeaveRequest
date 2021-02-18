@@ -69,7 +69,6 @@ namespace LeaveRequest.Repositories.Data
                 NIK = registerVM.NIK,
                 FirstName = registerVM.FirstName,
                 LastName = registerVM.LastName,
-                Password = Hashing.HashPassword("B0o7c@mp"),
                 BirthDate = registerVM.BirthDate,
                 Gender = registerVM.Gender,
                 MarriedStatus = registerVM.MarriedStatus,
@@ -78,7 +77,7 @@ namespace LeaveRequest.Repositories.Data
                 PhoneNumber = registerVM.PhoneNumber,
                 RemainingQuota = registerVM.RemainingQuota,
                 Email = registerVM.Email,
-                RoleId = registerVM.RoleId
+                RoleId = 5
             };
 
             var account = new Account()
@@ -95,6 +94,7 @@ namespace LeaveRequest.Repositories.Data
 
             if (resAccount > 0 && resUser > 0)
             {
+                sendEmail.SendRegister(user.Email);
                 return 1;
             }
             else

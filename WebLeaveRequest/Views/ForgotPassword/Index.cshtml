@@ -1,0 +1,36 @@
+﻿
+<a href="javascript:void(0)" class="btn bg-transparant text-success" data-toggle="modal" data-target="#addModal"><i class="fas fa-plus"></i></a>
+
+<div class="container-fluid mt-5">
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">Forgot Password</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formrole">
+                        <div class="form-group" hidden>
+                            <label for="id" class="col-form-label">Id:</label>
+                            <input type="text" class="form-control" id="id" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-form-label">Email:</label>
+                            <input type="text" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="form-check agree">
+                            <input type="checkbox" for="agreement" class="form-check-input" id="agreement" name="agreement">
+                            <label class="form-check-label" for="agreement">I agree the Term and Conditions</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="buttonsubmit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
