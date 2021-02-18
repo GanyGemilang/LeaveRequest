@@ -25,7 +25,6 @@ namespace LeaveRequest.Context
             modelBuilder.Entity<User>().HasOne(x => x.Role);
             modelBuilder.Entity<RequestHistory>().HasOne(x => x.User);
             modelBuilder.Entity<RequestHistory>().HasOne(x => x.Request);
-
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
