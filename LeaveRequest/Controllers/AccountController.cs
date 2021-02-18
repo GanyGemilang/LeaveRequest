@@ -19,7 +19,6 @@ namespace LeaveRequest.Controllers
     {
         private readonly AccountRepository accountRepository;
         private readonly UserRepository userRepository;
-        private readonly IJWTAuthenticationManager jwtAuthenticationManager;
         private IConfiguration Configuration;
         public AccountController(AccountRepository accountRepository, UserRepository userRepository, IConfiguration configuration) : base(accountRepository)
 

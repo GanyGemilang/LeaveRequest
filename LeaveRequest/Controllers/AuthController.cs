@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace LeaveRequest.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
