@@ -19,8 +19,8 @@ namespace LeaveRequest.Repositories.Data
         private DbSet<Account> accounts;
         private readonly MyContext myContext;
         private readonly SendEmail sendEmail = new SendEmail();
-
         private readonly UserRepository userRepository;
+
         public IConfiguration Configuration { get; }
         public AccountRepository(MyContext myContext, UserRepository userRepository, IConfiguration configuration) : base(myContext)
         {
@@ -38,7 +38,7 @@ namespace LeaveRequest.Repositories.Data
             var result = myContext.SaveChanges();
             return result;
         }
-
+        
         public LoginVM Login(string email, string password)
         {
             LoginVM result = null;
