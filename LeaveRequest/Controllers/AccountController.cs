@@ -28,6 +28,24 @@ namespace LeaveRequest.Controllers
             this.Configuration = Configuration;
         }
 
+        [HttpPut("ChangePassword/{NIK}")]
+        public ActionResult ChangePassword(string NIK, ChangePasswordVM changePasswordVM)
+        {
+            var acc = accountRepository.Get(NIK);
+            if (acc != null)
+            {
+                if (Hashing.ValidatePassword(changePasswordVM.OldPassword, acc.Password))
+                {
+                    var data = accountRepository.ChangePassword(NIK, changePasswordVM.NewPassword);
+                    return Ok(new { message = "Password Changed", status = "Ok" });
+                }
+                else
+                {
+                    return StatusCode(404, new { status = "404", message = "Wrong password" });
+                }
+            }
+            return NotFound();
+        }
         [HttpPost("Register")]
         public ActionResult Register(RegisterVM registerVM)
         {
@@ -47,25 +65,6 @@ namespace LeaveRequest.Controllers
             {
                 return BadRequest(new { status = "Bad request...", errorMessage = "Data input is not valid..." });
             }
-        }
-
-        [HttpPut("ChangePassword/{NIK}")]
-        public ActionResult ChangePassword(string NIK, ChangePasswordVM changePasswordVM)
-        {
-            var acc = accountRepository.Get(NIK);
-            if (acc != null)
-            {
-                if (acc.Password == changePasswordVM.OldPassword)
-                {
-                    var data = accountRepository.ChangePassword(NIK, changePasswordVM.NewPassword);
-                    return Ok(new { message = "Password Changed", status = "Ok" });
-                }
-                else
-                {
-                    return StatusCode(404, new { status = "404", message = "Wrong password" });
-                }
-            }
-            return NotFound();
         }
 
         [HttpPut("reset/{email}/{id}")]

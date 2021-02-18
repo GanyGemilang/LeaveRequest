@@ -38,7 +38,7 @@ namespace LeaveRequest.Repositories.Data
             var result = myContext.SaveChanges();
             return result;
         }
-        
+<
         public LoginVM Login(string email, string password)
         {
             LoginVM result = null;
@@ -63,12 +63,11 @@ namespace LeaveRequest.Repositories.Data
 
         public int Register(RegisterVM registerVM)
         {
-
             var user = new User()
             {
                 NIK = registerVM.NIK,
                 FirstName = registerVM.FirstName,
-                LastName = registerVM.LastName,
+                LastName = registerVM.LastName, 
                 BirthDate = registerVM.BirthDate,
                 Gender = registerVM.Gender,
                 MarriedStatus = registerVM.MarriedStatus,
@@ -109,7 +108,7 @@ namespace LeaveRequest.Repositories.Data
             var time24 = DateTime.Now.ToString("HH:mm:ss");
 
             var getuser = myContext.Users.Include(u => u.Account).Where(a => a.Email == email).FirstOrDefault();
-            var userAccount = myContext.Accounts.Where(a=>a.NIK == getuser.NIK).FirstOrDefault();
+            var userAccount = myContext.Accounts.Where(a => a.NIK == getuser.NIK).FirstOrDefault();
             if (getuser == null)
             {
                 return 0;
@@ -118,7 +117,7 @@ namespace LeaveRequest.Repositories.Data
             {
                 var password = Hashing.HashPassword(resetCode);
                 //account.Password = password;
-                userAccount.Password= password;
+                userAccount.Password = password;
                 var result = myContext.SaveChanges();
                 sendEmail.SendForgotPassword(resetCode, email);
                 return result;
