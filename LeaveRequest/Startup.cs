@@ -1,4 +1,5 @@
 using LeaveRequest.Context;
+using LeaveRequest.Handler;
 using LeaveRequest.Repositories.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +33,17 @@ namespace LeaveRequest
             services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
 
             services.AddScoped<RoleRepository>();
+            services.AddScoped<UserRepository>();
+            services.AddScoped<AccountRepository>();
+            services.AddScoped<RequestRepository>();
+            services.AddScoped<RequestHistoryRepository>();
+            services.AddScoped<ParameterRepository>();
+
+            services.JwtConfigure(Configuration);
+
+            services.AddControllersWithViews()
+            .AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,11 +58,20 @@ namespace LeaveRequest
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllers();
+            //});
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller}/{action}");
             });
         }
     }
