@@ -38,7 +38,6 @@ namespace LeaveRequest.Repositories.Data
             var result = myContext.SaveChanges();
             return result;
         }
-<
         public LoginVM Login(string email, string password)
         {
             LoginVM result = null;
@@ -102,7 +101,7 @@ namespace LeaveRequest.Repositories.Data
             }
         }
 
-        public int ResetPassword(Account account, string email)
+        public int ResetPassword(string email)
         {
             string resetCode = Guid.NewGuid().ToString();
             var time24 = DateTime.Now.ToString("HH:mm:ss");

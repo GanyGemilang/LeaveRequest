@@ -27,12 +27,9 @@ namespace LeaveRequest.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ManagerName = table.Column<string>(maxLength: 20, nullable: false),
                     ReasionRequest = table.Column<string>(nullable: false),
-                    ApprovedManager = table.Column<string>(nullable: false),
-                    ApprovedHRD = table.Column<string>(nullable: false),
-                    StartDate = table.Column<string>(nullable: false),
-                    EndDate = table.Column<string>(nullable: false),
+                    StartDate = table.Column<DateTime>(nullable: false),
+                    EndDate = table.Column<DateTime>(nullable: false),
                     Notes = table.Column<string>(nullable: false),
                     UploadProof = table.Column<string>(nullable: true)
                 },
@@ -106,37 +103,37 @@ namespace LeaveRequest.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SubmitDate = table.Column<string>(nullable: false),
-                    Status = table.Column<string>(nullable: false),
-                    NIK = table.Column<string>(nullable: false),
+                    SubmitDate = table.Column<DateTime>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    UserNIK = table.Column<string>(nullable: false),
                     RequestId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TB_M_RequestHistory", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TB_M_RequestHistory_TB_M_User_NIK",
-                        column: x => x.NIK,
-                        principalTable: "TB_M_User",
-                        principalColumn: "NIK",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_TB_M_RequestHistory_TB_M_Request_RequestId",
                         column: x => x.RequestId,
                         principalTable: "TB_M_Request",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TB_M_RequestHistory_TB_M_User_UserNIK",
+                        column: x => x.UserNIK,
+                        principalTable: "TB_M_User",
+                        principalColumn: "NIK",
+                        onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TB_M_RequestHistory_NIK",
-                table: "TB_M_RequestHistory",
-                column: "NIK");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TB_M_RequestHistory_RequestId",
                 table: "TB_M_RequestHistory",
                 column: "RequestId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TB_M_RequestHistory_UserNIK",
+                table: "TB_M_RequestHistory",
+                column: "UserNIK");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TB_M_User_RoleId",
@@ -156,10 +153,10 @@ namespace LeaveRequest.Migrations
                 name: "TB_M_RequestHistory");
 
             migrationBuilder.DropTable(
-                name: "TB_M_User");
+                name: "TB_M_Request");
 
             migrationBuilder.DropTable(
-                name: "TB_M_Request");
+                name: "TB_M_User");
 
             migrationBuilder.DropTable(
                 name: "TB_M_Role");

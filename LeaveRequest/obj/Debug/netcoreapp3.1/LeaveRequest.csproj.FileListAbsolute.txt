@@ -165,3 +165,4 @@ C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\bin\Debu
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.csprojAssemblyReference.cache
