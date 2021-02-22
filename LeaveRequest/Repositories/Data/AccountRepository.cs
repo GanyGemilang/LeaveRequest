@@ -65,6 +65,7 @@ namespace LeaveRequest.Repositories.Data
         {
             var user = new User()
             {
+                RoleId = 5,
                 NIK = registerVM.NIK,
                 FirstName = registerVM.FirstName,
                 LastName = registerVM.LastName,  
@@ -75,8 +76,7 @@ namespace LeaveRequest.Repositories.Data
                 Address = registerVM.Address,
                 PhoneNumber = registerVM.PhoneNumber,
                 RemainingQuota = registerVM.RemainingQuota,
-                Email = registerVM.Email,
-                RoleId = 5
+                Email = registerVM.Email               
             };
 
             var account = new Account()
@@ -116,7 +116,6 @@ namespace LeaveRequest.Repositories.Data
             else
             {
                 var password = Hashing.HashPassword(resetCode);
-                //account.Password = password;
                 userAccount.Password = password;
                 var result = myContext.SaveChanges();
                 sendEmail.SendForgotPassword(resetCode, email);
