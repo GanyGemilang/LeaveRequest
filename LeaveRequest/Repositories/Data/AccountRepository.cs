@@ -20,13 +20,15 @@ namespace LeaveRequest.Repositories.Data
         private readonly MyContext myContext;
         private readonly SendEmail sendEmail = new SendEmail();
         private readonly UserRepository userRepository;
+        private readonly ParameterRepository parameterRepository;
 
         public IConfiguration Configuration { get; }
-        public AccountRepository(MyContext myContext, UserRepository userRepository, IConfiguration configuration) : base(myContext)
+        public AccountRepository(MyContext myContext, UserRepository userRepository, IConfiguration configuration, ParameterRepository parameterRepository) : base(myContext)
         {
             myContext.Set<Account>();
             this.myContext = myContext;
             this.userRepository = userRepository;
+            this.parameterRepository = parameterRepository;
             this.Configuration = configuration;
         }
 
@@ -62,6 +64,7 @@ namespace LeaveRequest.Repositories.Data
 
         public int Register(RegisterVM registerVM)
         {
+            Parameter parameter = parameterRepository.getByName("Quota Leave Yearly");
             var user = new User()
             {
                 NIK = registerVM.NIK,
@@ -73,7 +76,7 @@ namespace LeaveRequest.Repositories.Data
                 Position = registerVM.Position,
                 Address = registerVM.Address,
                 PhoneNumber = registerVM.PhoneNumber,
-                RemainingQuota = registerVM.RemainingQuota,
+                RemainingQuota = parameter.Value,
                 Email = registerVM.Email,
                 RoleId = 5
             };
