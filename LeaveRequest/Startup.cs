@@ -36,7 +36,7 @@ namespace LeaveRequest
             services.AddScoped<UserRepository>();
             services.AddScoped<AccountRepository>();
             services.AddScoped<RequestRepository>();
-            services.AddScoped<RequestHistoryRepository>();
+            /*services.AddScoped<RequestHistoryRepository>();*/
             services.AddScoped<ParameterRepository>();
 
             services.JwtConfigure(Configuration);

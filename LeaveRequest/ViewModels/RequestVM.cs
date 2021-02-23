@@ -12,7 +12,7 @@ namespace LeaveRequest.ViewModels
         /*[Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(20, ErrorMessage = "Maksimal 20 karakter"), RegularExpression(@"^\D+$", ErrorMessage = "Tidak boleh berupa angka")]
         public string ManagerName { get; set; }*/
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public string ReasionRequest { get; set; }
+        public string ReasonRequest { get; set; }
         //[Required(ErrorMessage = "Tidak boleh kosong")]
         /*public string ApprovedManager { get; set; }
         //[Required(ErrorMessage = "Tidak boleh kosong")]
@@ -24,7 +24,7 @@ namespace LeaveRequest.ViewModels
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime EndDate { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public string UserNIK { get; set; }
+        public string NIK { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
         public string Notes { get; set; }
         public string UploadProof { get; set; }

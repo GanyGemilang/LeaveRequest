@@ -20,13 +20,28 @@ namespace LeaveRequest.Controllers
         {
             this.requestRepository = requestRepository;
         }
+
         [HttpPost("SubmitRequest")]
-        public ActionResult Request(RequestVM requestVM)
+        public ActionResult SubmitRequest(RequestVM requestVM)
         {
             var data = requestRepository.Request(requestVM);
             if (data == 1)
             {
-                return Ok(new { status = "Request successed" });
+                return Ok(new { status = "Request success" });
+            }
+            else
+            {
+                return StatusCode(500, new { status = "Internal Server Error" });
+            }
+        }
+
+        [HttpPost("SubmitApproved")]
+        public ActionResult SubmitApproved(ApproveRequestVM approveRequestVM)
+        {
+            var data = requestRepository.Approved(approveRequestVM);
+            if (data == 1)
+            {
+                return Ok(new { status = "Approved success" });
             }
             else
             {

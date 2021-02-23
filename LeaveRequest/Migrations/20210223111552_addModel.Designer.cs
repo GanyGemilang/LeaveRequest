@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LeaveRequest.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210223014508_addModel")]
+    [Migration("20210223111552_addModel")]
     partial class addModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,19 +63,31 @@ namespace LeaveRequest.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("ApprovedHRD")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ApprovedManager")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("NIK")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Notes")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ReasionRequest")
+                    b.Property<string>("ReasonRequest")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<string>("UploadProof")
                         .HasColumnType("nvarchar(max)");
@@ -83,35 +95,6 @@ namespace LeaveRequest.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TB_M_Request");
-                });
-
-            modelBuilder.Entity("LeaveRequest.Models.RequestHistory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("RequestId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("SubmitDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UserNIK")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(10)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RequestId");
-
-                    b.HasIndex("UserNIK");
-
-                    b.ToTable("TB_M_RequestHistory");
                 });
 
             modelBuilder.Entity("LeaveRequest.Models.Role", b =>
@@ -193,21 +176,6 @@ namespace LeaveRequest.Migrations
                     b.HasOne("LeaveRequest.Models.User", "User")
                         .WithOne("Account")
                         .HasForeignKey("LeaveRequest.Models.Account", "NIK")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("LeaveRequest.Models.RequestHistory", b =>
-                {
-                    b.HasOne("LeaveRequest.Models.Request", "Request")
-                        .WithMany("RequestHistory")
-                        .HasForeignKey("RequestId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LeaveRequest.Models.User", "User")
-                        .WithMany("RequestHistory")
-                        .HasForeignKey("UserNIK")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

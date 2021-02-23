@@ -12,36 +12,37 @@ namespace LeaveRequest.Models
     {
         [Key]
         public int Id { get; set; }
-        /*[Required(ErrorMessage = "Tidak boleh kosong"), MaxLength(20, ErrorMessage = "Maksimal 20 karakter"), RegularExpression(@"^\D+$", ErrorMessage = "Tidak boleh berupa angka")]
-        public string ManagerName { get; set; }*/
+        public string NIK{ get; set; }
+
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public string ReasionRequest { get; set; }
+        public string ReasonRequest { get; set; }
+
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        /*public string ApprovedManager { get; set; }
-        [Required(ErrorMessage = "Tidak boleh kosong")]
-        public string ApprovedHRD { get; set; }
-        [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date)]*/
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime StartDate { get; set; }
+
         [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime EndDate { get; set; }
+
+        [Required(ErrorMessage = "Tidak boleh kosong")]
+        public Status Status { get; set; }
+
         [Required(ErrorMessage = "Tidak boleh kosong")]
         public string Notes { get; set; }
         public string UploadProof { get; set; }
-        public virtual List<RequestHistory> RequestHistory { get; set; } = new List<RequestHistory>();
+        public string ApprovedHRD { get; set; }
+        public string ApprovedManager { get; set; }
+
+
+        /*  public virtual List<RequestHistory> RequestHistory { get; set; } = new List<RequestHistory>();*/
     }
-  /*  public enum ReasionRequest
-    {
-        Married,
-        ChildMarriage,
-        CircumciseTheChild,
-        Religious
-    }
-    public enum Approve
+    public enum Status
     {
         Waiting,
-        Approve,
-        Reject
-    }*/
+        ApprovedByHRD,
+        RejectByHRD,
+        ApprovedByManager,
+        RejectByManager
+    }
 }

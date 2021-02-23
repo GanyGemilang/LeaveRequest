@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,10 +16,6 @@ namespace LeaveRequest.Models
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime SubmitDate { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public Status Status { get; set; }
-        /*[Required(ErrorMessage = "Tidak boleh kosong")]
-        public int RemainingQuota { get; set; }*/
-        [Required(ErrorMessage = "Tidak boleh kosong")]
         public string UserNIK { get; set; }
         [ForeignKey("UserNIK")]
         public virtual User User { get; set; }
@@ -27,10 +23,5 @@ namespace LeaveRequest.Models
         [ForeignKey("RequestId")]
         public virtual Request Request { get; set; }
     }
-    public enum Status
-    {
-        Waiting,
-        Approve,
-        Reject
-    }
 }
+*/
