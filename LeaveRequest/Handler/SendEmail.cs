@@ -61,7 +61,7 @@ namespace LeaveRequest.Handler
             MailMessage mailMessage = new MailMessage();
             mailMessage.From = new MailAddress("1997HelloWorld1997@gmail.com", "Leave Request");
             mailMessage.To.Add(new MailAddress(email));
-            mailMessage.Subject = "Leave Request" + time24;
+            mailMessage.Subject = "Leave Request " + time24;
             mailMessage.IsBodyHtml = false;
             mailMessage.Body = "Hi " + "\nThank You For You Request. Your Request Is Being Processed" + "\nThank You";
             smtp.Send(mailMessage);

@@ -27,7 +27,8 @@ namespace LeaveRequest.ViewModels
         public string UserNIK { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
         public string Notes { get; set; }
-        public string Email { get; set; }
         public string UploadProof { get; set; }
+        public string Email { get; set; }
+        public int RemainingQuota { get; set; }
     }
 }

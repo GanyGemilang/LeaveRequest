@@ -71,15 +71,23 @@ namespace LeaveRequest.Repositories.Data
                 }
             }
 
-            if (resRequest > 0 && resRequestHis > 0)
+            if(TotalDay <= result.RemainingQuota)
             {
-                sendEmail.SendRequest(result.Email);
-                return 1;
+                if (resRequest > 0 && resRequestHis > 0)
+                {
+                    sendEmail.SendRequest(result.Email);
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
             }
             else
             {
                 return 0;
             }
+            
         }
     }
 }
