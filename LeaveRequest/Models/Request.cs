@@ -12,7 +12,6 @@ namespace LeaveRequest.Models
     {
         [Key]
         public int Id { get; set; }
-        public string NIK{ get; set; }
 
         [Required(ErrorMessage = "Tidak boleh kosong")]
         public string ReasonRequest { get; set; }
@@ -33,8 +32,8 @@ namespace LeaveRequest.Models
         public string UploadProof { get; set; }
         public string ApprovedHRD { get; set; }
         public string ApprovedManager { get; set; }
-        public string UserNIK { get; set; }
-        [ForeignKey("UserNIK")]
+        public string NIK { get; set; }
+        [ForeignKey("NIK")]
         public virtual User User { get; set; }
 
         /*  public virtual List<RequestHistory> RequestHistory { get; set; } = new List<RequestHistory>();*/

@@ -176,7 +176,7 @@ namespace LeaveRequest.Repositories.Data
                     var parameter2 = new { RoleId = 3 };
                     result2 = db.Query<RequestVM>(readSp, parameter2, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 }
-                sendEmail.SendAproveHRD(result2.Email,input.IdRequest);
+                sendEmail.SendApproveHRD(result2.Email,input.IdRequest);
             }
             else if (data.Status == Status.ApprovedByHRD && dataUser.Role.Name == "Manager")
             {
@@ -186,7 +186,7 @@ namespace LeaveRequest.Repositories.Data
                 data.ApprovedManager = dataUser.NIK;
 
 
-                /*ApproveRequestVM result3 = null;
+                ApproveRequestVM result3 = null;
                 string connectStr3 = Configuration.GetConnectionString("MyConnection");
                 var userCondition3 = myContext.Requests.Where(b => b.Id == input.IdRequest).FirstOrDefault();
                 if (userCondition3 != null)
@@ -198,7 +198,7 @@ namespace LeaveRequest.Repositories.Data
                         result3 = db.Query<ApproveRequestVM>(readSp, parameter3, commandType: CommandType.StoredProcedure).FirstOrDefault();
                     }
                 }
-                sendEmail.SendAproveManager(result3.Email, input.IdRequest);*/
+                sendEmail.SendApproveManager(result3.Email, input.IdRequest);
                 myContext.Update(data);
             }
             else
@@ -241,35 +241,39 @@ namespace LeaveRequest.Repositories.Data
                 data.ApprovedManager = dataUser.NIK;
                 myContext.Update(data);
 
-                /*RequestVM result2 = null;
-                string connectStr2 = Configuration.GetConnectionString("MyConnection");
-                using (IDbConnection db = new SqlConnection(connectStr2))
+                ApproveRequestVM result4 = null;
+                string connectStr4 = Configuration.GetConnectionString("MyConnection");
+                var userCondition4 = myContext.Requests.Where(b => b.Id == input.IdRequest).FirstOrDefault();
+                if (userCondition4 != null)
                 {
-                    string readSp = "sp_email_HRD";
-                    var parameter2 = new { RoleId = 3 };
-                    result2 = db.Query<RequestVM>(readSp, parameter2, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    using (IDbConnection db = new SqlConnection(connectStr4))
+                    {
+                        string readSp = "sp_email_approveManager";
+                        var parameter4 = new { IdRequest = input.IdRequest };
+                        result4 = db.Query<ApproveRequestVM>(readSp, parameter4, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    }
                 }
-                sendEmail.SendAproveHRD(result2.Email, input.IdRequest);*/
+                sendEmail.SendReject(result4.Email, input.IdRequest);
             }
             else if (data.Status == Status.ApprovedByHRD && dataUser.Role.Name == "Manager")
             {
                 data.Status = Status.RejectByManager;
                 data.ApprovedManager = dataUser.NIK;
                 myContext.Update(data);
-
-                /*RequestVM result3 = null;
-                string connectStr3 = Configuration.GetConnectionString("MyConnection");
-                var userCondition3 = myContext.Requests.Where(b => b.Id == input.IdRequest).FirstOrDefault();
-                if (userCondition3 != null)
+                
+                ApproveRequestVM result4 = null;
+                string connectStr4 = Configuration.GetConnectionString("MyConnection");
+                var userCondition4 = myContext.Requests.Where(b => b.Id == input.IdRequest).FirstOrDefault();
+                if (userCondition4 != null)
                 {
-                    using (IDbConnection db = new SqlConnection(connectStr3))
+                    using (IDbConnection db = new SqlConnection(connectStr4))
                     {
                         string readSp = "sp_email_approveManager";
-                        var parameter3 = new { IdRequest = input.IdRequest };
-                        result3 = db.Query<RequestVM>(readSp, parameter3, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                        var parameter4 = new { IdRequest = input.IdRequest };
+                        result4 = db.Query<ApproveRequestVM>(readSp, parameter4, commandType: CommandType.StoredProcedure).FirstOrDefault();
                     }
                 }
-                sendEmail.SendAproveManager(result3.Email, input.IdRequest);*/
+                sendEmail.SendReject(result4.Email, input.IdRequest);
 
             }
             else
