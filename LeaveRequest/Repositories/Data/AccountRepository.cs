@@ -67,6 +67,7 @@ namespace LeaveRequest.Repositories.Data
             Parameter parameter = parameterRepository.getByName("Quota Leave Yearly");
             var user = new User()
             {
+                RoleId = 5,
                 NIK = registerVM.NIK,
                 FirstName = registerVM.FirstName,
                 LastName = registerVM.LastName, 
@@ -118,7 +119,6 @@ namespace LeaveRequest.Repositories.Data
             else
             {
                 var password = Hashing.HashPassword(resetCode);
-                //account.Password = password;
                 userAccount.Password = password;
                 var result = myContext.SaveChanges();
                 sendEmail.SendForgotPassword(resetCode, email);

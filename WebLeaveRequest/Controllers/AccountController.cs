@@ -1,4 +1,6 @@
-﻿using LeaveRequest.ViewModels;
+using LeaveRequest.Models;
+using LeaveRequest.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -24,6 +26,14 @@ namespace WebLeaveRequest.Controllers
             var httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(registerVM), Encoding.UTF8, "application/json");
             var result = httpClient.PutAsync("https://localhost:44330/api/account/reset/", content).Result;
+        }    
+       
+        [HttpPost]
+        public HttpStatusCode Register(RegisterVM registerVM)
+        {
+            var httpClient = new HttpClient();
+            StringContent content = new StringContent(JsonConvert.SerializeObject(registerVM), Encoding.UTF8, "application/json");
+            var result = httpClient.PostAsync("https://localhost:44330/api/account/register/", content).Result;
             return result.StatusCode;
         }
     }
