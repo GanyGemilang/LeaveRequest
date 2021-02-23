@@ -10,7 +10,11 @@ namespace LeaveRequest.ViewModels
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public string ReasionRequest { get; set; }
+        public string ReasonRequest { get; set; }
+        //[Required(ErrorMessage = "Tidak boleh kosong")]
+        /*public string ApprovedManager { get; set; }
+        //[Required(ErrorMessage = "Tidak boleh kosong")]
+        public string ApprovedHRD { get; set; }*/
         [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime StartDate { get; set; }
@@ -18,7 +22,7 @@ namespace LeaveRequest.ViewModels
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime EndDate { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public string UserNIK { get; set; }
+        public string NIK { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
         public string Notes { get; set; }
         public string UploadProof { get; set; }

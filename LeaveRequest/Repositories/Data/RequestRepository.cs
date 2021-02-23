@@ -15,16 +15,16 @@ namespace LeaveRequest.Repositories.Data
 {
     public class RequestRepository : GeneralRepository<Request, MyContext, int>
     {
-        private readonly RequestHistoryRepository requestHistoryRepository;
         private readonly SendEmail sendEmail = new SendEmail();
-        private readonly MyContext myContext;
+        private MyContext myContext;
+        private readonly UserRepository userRepository;
 
         public IConfiguration Configuration { get; }
-        public RequestRepository(MyContext myContext, IConfiguration configuration) : base(myContext)
+        public RequestRepository(MyContext myContext, IConfiguration configuration, UserRepository userRepository) : base(myContext)
         {
-            this.requestHistoryRepository = requestHistoryRepository;
             this.Configuration = configuration;
             this.myContext = myContext;
+            this.userRepository = userRepository;
         }
 
         public int Request(RequestVM requestVM)
@@ -32,39 +32,39 @@ namespace LeaveRequest.Repositories.Data
             var TotalDay = (requestVM.EndDate - requestVM.StartDate).TotalDays;
             var request = new Request()
             {
-                ReasionRequest = requestVM.ReasionRequest,
+                NIK = requestVM.NIK,
                 StartDate = requestVM.StartDate,
+                ReasonRequest = requestVM.ReasonRequest,
                 EndDate = requestVM.EndDate,
                 Notes = requestVM.Notes,
-                UploadProof = requestVM.UploadProof
+                UploadProof = requestVM.UploadProof,
+                Status = Status.Waiting
             };
 
             myContext.Add(request);
-            var resRequest = myContext.SaveChanges();
 
             DateTime Date = DateTime.Now;
-            var requestHis = new RequestHistory()
+           /* var requestHis = new RequestHistory()
             {
                 SubmitDate = Date,
                 Status = Status.Waiting,
                 UserNIK = requestVM.UserNIK,
                 RequestId = request.Id
             };
-            myContext.Add(requestHis);
-            var resRequestHis = myContext.SaveChanges();
+            myContext.Add(requestHis);*/
+            /*var resRequestHis = myContext.SaveChanges();*/
 
             RequestVM resultEmployee = null;
             string connectStr = Configuration.GetConnectionString("MyConnection");
-            var userCondition = myContext.Users.Where(b => b.NIK == requestVM.UserNIK).FirstOrDefault();
+            var userCondition = myContext.Users.Where(b => b.NIK == requestVM.NIK).FirstOrDefault();
 
             if (userCondition != null)
             {
-
                 using (IDbConnection db = new SqlConnection(connectStr))
                 {
                     string readSp = "sp_email_employee";
-                    var parameterEmployee = new { NIK = requestVM.UserNIK  };
-                    resultEmployee = db.Query<RequestVM>(readSp, parameterEmployee, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    var parameter = new { NIK = requestVM.NIK  };
+                    result = db.Query<RequestVM>(readSp, parameter, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 }
             }
 
@@ -117,6 +117,7 @@ namespace LeaveRequest.Repositories.Data
             }
             //End Condition For ReasionRequest
 
+            var resRequest = myContext.SaveChanges();
             if (resRequest > 0 && resRequestHis > 0)
             {
                 sendEmail.SendRequestEmployee(resultEmployee.Email);
@@ -127,6 +128,53 @@ namespace LeaveRequest.Repositories.Data
             {
                 return 0;
             }
+        }
+
+        public int Approved(ApproveRequestVM input)
+        {
+            var data = myContext.Requests.Where(e => e.Id == input.IdRequest).FirstOrDefault();
+            if (data == null)
+            {
+                return 0;
+            }
+            if (data.Status == Status.ApprovedByManager)
+            {
+                return 0;
+            }
+            if (data.Status == Status.RejectByHRD || data.Status ==Status.RejectByManager)
+            {
+                return 0;
+            }
+
+            User dataUser = userRepository.GetDataByEmail(input.Email);
+            if (dataUser == null)
+            {
+                return 0;
+            }
+            if (data.NIK == dataUser.NIK || (data.ApprovedHRD != null && data.ApprovedHRD == dataUser.NIK)) //biar tidak bisa mengapproved data diri sendiri 
+            {
+                return 0;
+            }
+            if (data.Status == Status.Waiting && dataUser.Role.Name == "HRD")
+            {
+                data.Status = Status.ApprovedByHRD;
+                data.ApprovedHRD = dataUser.NIK;
+                myContext.Update(data);
+            }
+            else if (data.Status == Status.ApprovedByHRD && dataUser.Role.Name == "Manager")
+            {
+                var TotalDay = (data.EndDate - data.StartDate).TotalDays;
+                userRepository.UpdateRemainingLeave(data.NIK, TotalDay);
+                data.Status = Status.ApprovedByManager;
+                data.ApprovedManager = dataUser.NIK;
+                myContext.Update(data);
+            }
+            else 
+            {
+                return 0;
+            }
+            myContext.SaveChanges();
+            return 1;
         }
     }
 }
