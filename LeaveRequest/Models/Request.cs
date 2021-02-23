@@ -31,14 +31,18 @@ namespace LeaveRequest.Models
         public string UploadProof { get; set; }
         public virtual List<RequestHistory> RequestHistory { get; set; } = new List<RequestHistory>();
     }
-  /*  public enum ReasionRequest
+    /*public enum ReasionRequest
     {
+        Normal_leave,
+        Maternity_leave,
+        Sick_leave,
         Married,
-        ChildMarriage,
-        CircumciseTheChild,
-        Religious
-    }
-    public enum Approve
+        Marry_or_Circumcise_or_Baptize_Children,
+        Wife_gave_birth_or_had_a_miscarriage,
+        Husband_or_Wife_Parents_or_In_laws_Children_or_Son_In_law_have_passed_away,
+        Family_member_in_one_house_died
+    }*/
+    /*public enum Approve
     {
         Waiting,
         Approve,

@@ -28,9 +28,29 @@ namespace LeaveRequest.Controllers
             {
                 return Ok(new { status = "Request successed" });
             }
-            else
+            else if(data==2)
             {
-                return StatusCode(500, new { status = "Internal Server Error" });
+                return StatusCode(500, new { status = "Input Total Day Request less than Remaining Quota And Less Than 5 day" });
+            }
+            else if (data == 3)
+            {
+                return StatusCode(500, new { status = "Input Total Day Request 90 day" });
+            }
+            else if (data == 4)
+            {
+                return StatusCode(500, new { status = "Input Total Day Request 3 day" });
+            }
+            else if (data == 5)
+            {
+                return StatusCode(500, new { status = "Input Total Day Request 2 day" });
+            }
+            else if (data == 6)
+            {
+                return StatusCode(500, new { status = "Input Total Day Request 1 day" });
+            }
+            else 
+            {
+                return StatusCode(500, new { status = "Interlan Server Error" });
             }
         }
     }

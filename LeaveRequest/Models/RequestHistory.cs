@@ -30,7 +30,9 @@ namespace LeaveRequest.Models
     public enum Status
     {
         Waiting,
-        Approve,
-        Reject
+        ApproveByHrd,
+        RejectByHrd,
+        ApproveByManager,
+        RejectByManager
     }
 }
