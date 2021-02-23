@@ -17,7 +17,7 @@ namespace LeaveRequest.Models
         public string FirstName { get; set; }
         [MaxLength(255, ErrorMessage = "Maksimal 255 karakter"), RegularExpression(@"^\D+$", ErrorMessage = "Tidak boleh berupa angka")]
         public string LastName { get; set; }
-        [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Password)]
+        [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime BirthDate { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]

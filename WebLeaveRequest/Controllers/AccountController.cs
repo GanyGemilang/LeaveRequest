@@ -1,4 +1,4 @@
-﻿using LeaveRequest.Models;
+using LeaveRequest.Models;
 using LeaveRequest.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +20,13 @@ namespace WebLeaveRequest.Controllers
             return View();
         }
 
+        [HttpPut]
+        public HttpStatusCode ForgotPassword(RegisterVM registerVM)
+        {
+            var httpClient = new HttpClient();
+            StringContent content = new StringContent(JsonConvert.SerializeObject(registerVM), Encoding.UTF8, "application/json");
+            var result = httpClient.PutAsync("https://localhost:44330/api/account/reset/", content).Result;
+        }    
        
         [HttpPost]
         public HttpStatusCode Register(RegisterVM registerVM)

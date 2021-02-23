@@ -19,9 +19,9 @@ namespace LeaveRequest.Controllers
     {
         private readonly AccountRepository accountRepository;
         private readonly UserRepository userRepository;
+        private readonly IJWTAuthenticationManager jwtAuthenticationManager;
         private IConfiguration Configuration;
         public AccountController(AccountRepository accountRepository, UserRepository userRepository, IConfiguration configuration) : base(accountRepository)
-
         {
             this.accountRepository = accountRepository;
             this.userRepository = userRepository;
@@ -46,7 +46,6 @@ namespace LeaveRequest.Controllers
             }
             return NotFound();
         }
-
         [HttpPost("Register")]
         public ActionResult Register(RegisterVM registerVM)
         {
@@ -68,10 +67,10 @@ namespace LeaveRequest.Controllers
             }
         }
 
-        [HttpPut("reset/{email}/{id}")]
-        public ActionResult ResetPassword(Account account, string email)
+        [HttpPut("reset")]
+        public ActionResult ResetPassword(RegisterVM registerVM)
         {
-            var data = accountRepository.ResetPassword(account, email);
+            var data = accountRepository.ResetPassword(registerVM.Email);
             return (data > 0) ? (ActionResult)Ok(new { message = "Email has been Sent, password changed", status = "Ok" }) : NotFound(new { message = "Data not exist in our database, please register first", status = 404 });
 
         }
