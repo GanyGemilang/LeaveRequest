@@ -75,7 +75,6 @@ namespace LeaveRequest.Repositories.Data
             {
                 if (resRequest > 0 && resRequestHis > 0)
                 {
-                    sendEmail.SendRequest(result.Email);
                     return 1;
                 }
                 else

@@ -26,6 +26,7 @@ namespace WebLeaveRequest.Controllers
             var httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(registerVM), Encoding.UTF8, "application/json");
             var result = httpClient.PutAsync("https://localhost:44330/api/account/reset/", content).Result;
+            return result.StatusCode;
         }    
        
         [HttpPost]
