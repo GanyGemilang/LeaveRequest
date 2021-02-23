@@ -90,7 +90,12 @@ namespace LeaveRequest.Migrations
                     b.Property<string>("UploadProof")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserNIK")
+                        .HasColumnType("nvarchar(10)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserNIK");
 
                     b.ToTable("TB_M_Request");
                 });
@@ -176,6 +181,13 @@ namespace LeaveRequest.Migrations
                         .HasForeignKey("LeaveRequest.Models.Account", "NIK")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("LeaveRequest.Models.Request", b =>
+                {
+                    b.HasOne("LeaveRequest.Models.User", "User")
+                        .WithMany("Request")
+                        .HasForeignKey("UserNIK");
                 });
 
             modelBuilder.Entity("LeaveRequest.Models.User", b =>

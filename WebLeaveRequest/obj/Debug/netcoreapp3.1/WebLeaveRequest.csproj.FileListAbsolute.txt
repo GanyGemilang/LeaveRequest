@@ -79,7 +79,6 @@ C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\D
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.pdb
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.genruntimeconfig.cache
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
-C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.MvcApplicationPartsAssemblyInfo.cs
 F:\Kerja\LeaveRequest\LeaveRequest\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.deps.json
 F:\Kerja\LeaveRequest\LeaveRequest\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
 F:\Kerja\LeaveRequest\LeaveRequest\WebLeaveRequest\bin\Debug\netcoreapp3.1\LeaveRequest.exe

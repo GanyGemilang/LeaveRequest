@@ -7656,19 +7656,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\yohan\\.nuget\\packages\\": {}
+    "C:\\Users\\asus\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Kerja\\Final Project\\LeaveRequest\\WebLeaveRequest\\WebLeaveRequest.csproj",
+      "projectUniqueName": "C:\\Users\\asus\\Documents\\GitHub\\TALeaveRequest\\LeaveRequest\\WebLeaveRequest\\WebLeaveRequest.csproj",
       "projectName": "WebLeaveRequest",
-      "projectPath": "F:\\Kerja\\Final Project\\LeaveRequest\\WebLeaveRequest\\WebLeaveRequest.csproj",
-      "packagesPath": "C:\\Users\\yohan\\.nuget\\packages\\",
-      "outputPath": "F:\\Kerja\\Final Project\\LeaveRequest\\WebLeaveRequest\\obj\\",
+      "projectPath": "C:\\Users\\asus\\Documents\\GitHub\\TALeaveRequest\\LeaveRequest\\WebLeaveRequest\\WebLeaveRequest.csproj",
+      "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\asus\\Documents\\GitHub\\TALeaveRequest\\LeaveRequest\\WebLeaveRequest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\yohan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7682,8 +7682,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "F:\\Kerja\\Final Project\\LeaveRequest\\LeaveRequest\\LeaveRequest.csproj": {
-              "projectPath": "F:\\Kerja\\Final Project\\LeaveRequest\\LeaveRequest\\LeaveRequest.csproj"
+            "C:\\Users\\asus\\Documents\\GitHub\\TALeaveRequest\\LeaveRequest\\LeaveRequest\\LeaveRequest.csproj": {
+              "projectPath": "C:\\Users\\asus\\Documents\\GitHub\\TALeaveRequest\\LeaveRequest\\LeaveRequest\\LeaveRequest.csproj"
             }
           }
         }

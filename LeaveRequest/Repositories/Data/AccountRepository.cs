@@ -77,7 +77,8 @@ namespace LeaveRequest.Repositories.Data
                 Address = registerVM.Address,
                 PhoneNumber = registerVM.PhoneNumber,
                 RemainingQuota = parameter.Value,
-                Email = registerVM.Email
+                Email = registerVM.Email,
+                RoleId = 4
             };
 
             var account = new Account()

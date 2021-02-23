@@ -86,5 +86,44 @@ namespace LeaveRequest.Handler
             mailMessage.Body = "Hi " + "\n, Employee Has Been Request. Plise Approve Or Reject Employee Request " + "\nThank You";
             smtp.Send(mailMessage);
         }
+        public void SendAproveHRD(string email, int IdRequest)
+        {
+            var time24 = DateTime.Now.ToString("HH:mm:ss");
+
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential("1997HelloWorld1997@gmail.com", "wwwsawwwsdwwwszwwwsx");
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtp.EnableSsl = true;
+            smtp.UseDefaultCredentials = false;
+            NetworkCredential nc = new NetworkCredential("1997HelloWorld1997@gmail.com", "wwwsawwwsdwwwszwwwsx");
+            smtp.Credentials = nc;
+            MailMessage mailMessage = new MailMessage();
+            mailMessage.From = new MailAddress("1997HelloWorld1997@gmail.com", "Approval HRD");
+            mailMessage.To.Add(new MailAddress(email));
+            mailMessage.Subject = "Approval From HRD " + time24;
+            mailMessage.IsBodyHtml = false;
+            mailMessage.Body = "Hi! " + "\n HRD Has Been Approve with Id Request " + IdRequest + "\n. Plise Approve Or Reject Employee Request " + "\nThank You";
+            smtp.Send(mailMessage);
+        }
+        
+        public void SendAproveManager(string email, int IdRequest)
+        {
+            var time24 = DateTime.Now.ToString("HH:mm:ss");
+
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential("1997HelloWorld1997@gmail.com", "wwwsawwwsdwwwszwwwsx");
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtp.EnableSsl = true;
+            smtp.UseDefaultCredentials = false;
+            NetworkCredential nc = new NetworkCredential("1997HelloWorld1997@gmail.com", "wwwsawwwsdwwwszwwwsx");
+            smtp.Credentials = nc;
+            MailMessage mailMessage = new MailMessage();
+            mailMessage.From = new MailAddress("1997HelloWorld1997@gmail.com", "Approval Request");
+            mailMessage.To.Add(new MailAddress(email));
+            mailMessage.Subject = "Approval Request " + time24;
+            mailMessage.IsBodyHtml = false;
+            mailMessage.Body = "Hi! " + "\n Your Request Has Been Approve with Id Request " + IdRequest + "\nThank You";
+            smtp.Send(mailMessage);
+        }
     }
 }

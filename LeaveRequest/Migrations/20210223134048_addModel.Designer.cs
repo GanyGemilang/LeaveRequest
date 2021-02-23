@@ -10,11 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LeaveRequest.Migrations
 {
     [DbContext(typeof(MyContext))]
-<<<<<<< HEAD:LeaveRequest/Migrations/20210223083553_addModel.Designer.cs
-    [Migration("20210223083553_addModel")]
-=======
-    [Migration("20210223111552_addModel")]
->>>>>>> panji:LeaveRequest/Migrations/20210223111552_addModel.Designer.cs
+    [Migration("20210223134048_addModel")]
     partial class addModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -33,7 +33,9 @@ namespace LeaveRequest.Models
         public string UploadProof { get; set; }
         public string ApprovedHRD { get; set; }
         public string ApprovedManager { get; set; }
-
+        public string UserNIK { get; set; }
+        [ForeignKey("UserNIK")]
+        public virtual User User { get; set; }
 
         /*  public virtual List<RequestHistory> RequestHistory { get; set; } = new List<RequestHistory>();*/
     }

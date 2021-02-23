@@ -29,21 +29,7 @@ namespace LeaveRequest.Controllers
             {
                 return Ok(new { status = "Request success" });
             }
-            else
-            {
-                return StatusCode(500, new { status = "Internal Server Error" });
-            }
-        }
-
-        [HttpPost("SubmitApproved")]
-        public ActionResult SubmitApproved(ApproveRequestVM approveRequestVM)
-        {
-            var data = requestRepository.Approved(approveRequestVM);
-            if (data == 1)
-            {
-                return Ok(new { status = "Approved success" });
-            }
-            else if(data==2)
+            else if (data == 2)
             {
                 return StatusCode(500, new { status = "Input Total Day Request less than Remaining Quota And Less Than 5 day" });
             }
@@ -63,10 +49,40 @@ namespace LeaveRequest.Controllers
             {
                 return StatusCode(500, new { status = "Input Total Day Request 1 day" });
             }
-            else 
+            else
             {
                 return StatusCode(500, new { status = "Interlan Server Error" });
             }
+        }
+
+        [HttpPost("SubmitApproved")]
+        public ActionResult SubmitApproved(ApproveRequestVM approveRequestVM)
+        {
+            var data = requestRepository.Approved(approveRequestVM);
+            if (data == 1)
+            {
+                return Ok(new { status = "Approved success" });
+            }
+            else
+            {
+                return StatusCode(500, new { status = "Internal Server Error" });
+            }
+            
+        }
+        
+        [HttpPost("SubmitReject")]
+        public ActionResult SubmitReject(ApproveRequestVM approveRequestVM)
+        {
+            var data = requestRepository.Reject(approveRequestVM);
+            if (data == 1)
+            {
+                return Ok(new { status = "Reject success" });
+            }
+            else
+            {
+                return StatusCode(500, new { status = "Internal Server Error" });
+            }
+            
         }
     }
 }
