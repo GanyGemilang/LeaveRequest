@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace WebLeaveRequest.Controllers
 {
+
     public class AuthenticationController : Controller
     {
         private MyContext myContext = new MyContext();
@@ -30,29 +31,30 @@ namespace WebLeaveRequest.Controllers
             return result.StatusCode;
         }
 
-     /*   [HttpPost]
+        [HttpPost]
         public HttpStatusCode Register(RegisterVM registerVM)
         {
-            ViewBag.Id_Customer = new SelectList(myContext.Users, "Nik", "Name");
             var httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(registerVM), Encoding.UTF8, "application/json");
             var result = httpClient.PostAsync("https://localhost:44330/api/Account/Register/", content).Result;
             return result.StatusCode;
-        }*/
+        }
+
         [HttpPut]
         public HttpStatusCode ForgotPassword(RegisterVM registerVM)
         {
             var httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(registerVM), Encoding.UTF8, "application/json");
-            var result = httpClient.PutAsync("https://localhost:44330/api/Account/reset/", content).Result;
+            var result = httpClient.PutAsync("https://localhost:44330/api/Account/Reset/", content).Result;
             return result.StatusCode;
         }
+
         [HttpPut]
         public HttpStatusCode ChangePassword(ChangePasswordVM changePasswordViewModels)
         {
             var httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(changePasswordViewModels), Encoding.UTF8, "application/json");
-            var result = httpClient.PutAsync("https://localhost:44346/api/Account/ChangePassword/", content).Result;
+            var result = httpClient.PutAsync("https://localhost:44330/api/Account/ChangePassword/", content).Result;
             return result.StatusCode;
         }
 

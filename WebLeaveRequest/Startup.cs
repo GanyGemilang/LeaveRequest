@@ -45,14 +45,16 @@ namespace WebLeaveRequest
             
             app.UseRouting();
 
+            //to be add for razor
             app.UseAuthorization();
-            //app.UseAuthentication(); //to call razor useauthentication function inside configure method
+           //app.UseAuthentication(); //to call razor useauthentication function inside configure method
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                //to be added
                 //endpoints.MapRazorPages();
             });
         }

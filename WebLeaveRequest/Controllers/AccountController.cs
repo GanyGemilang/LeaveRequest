@@ -1,4 +1,4 @@
-using LeaveRequest.Models;
+/*using LeaveRequest.Models;
 using LeaveRequest.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,14 +20,14 @@ namespace WebLeaveRequest.Controllers
             return View();
         }
 
-        [HttpPut]
+    *//*    [HttpPut]
         public HttpStatusCode ForgotPassword(RegisterVM registerVM)
         {
             var httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(registerVM), Encoding.UTF8, "application/json");
             var result = httpClient.PutAsync("https://localhost:44330/api/account/reset/", content).Result;
             return result.StatusCode;
-        }    
+        }    *//*
        
         [HttpPost]
         public HttpStatusCode Register(RegisterVM registerVM)
@@ -39,3 +39,4 @@ namespace WebLeaveRequest.Controllers
         }
     }
 }
+*/

@@ -14,7 +14,7 @@
             </div>
             <div class="modal-body">
                 <form id="registerform" action="Account/Register">
-                    < <div class="form-group">
+                    <div class="form-group">
                         <label for="nik" class="col-form-label">NIK</label>
                         <input type="text" class="form-control" id="nik" name="nik">
                     </div>
@@ -22,7 +22,10 @@
                         <label for="firstname" class="col-form-label">First Name</label>
                         <input type="text" class="form-control" id="firstname" name="firstname">
                     </div>
-
+                    <div class="form-group">
+                        <label for="lastname" class="col-form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastname" name="lastname">
+                    </div>
                     <div class="form-group">
                         <label for="birthdate" class="col-form-label">BirthDate</label>
                         <input type="text" class="form-control" id="birthdate" name="birthdate">
@@ -49,10 +52,6 @@
                         <input type="text" class="form-control" id="email" name="email">
                     </div>
                     <div class="form-group">
-                        <label for="lastname" class="col-form-label">Last Name</label>
-                        <input type="text" class="form-control" id="lastname" name="lastname">
-                    </div>
-                    <div class="form-group">
                         <label for="gender" class="col-form-label">Gender</label>
                         <select id="gender" class="form-control" name="gender">
                             <option value="Male">Male</option>
@@ -75,12 +74,12 @@
                         <label for="name" class="col-form-label">RoleId</label>
                         <input type="text" class="form-control" id="roleid" name="roleid">
                     </div>
-                    <div class="form-group">
-                        <label for="userid" class="col-form-label">User Id</label>
-                        @Html.DropDownList("Username",
-                                new SelectList(Enumerable.Empty<SelectListItem>(), "userid", "username"),
-                                new { @class = "form-control", @onchange = "FillCustomer()" })
-                    </div>
+                    @*<div class="form-group">
+            <label for="userid" class="col-form-label">User Id</label>
+            @Html.DropDownList("Username",
+                    new SelectList(Enumerable.Empty<SelectListItem>(), "userid", "username"),
+                    new { @class = "form-control", @onchange = "FillCustomer()" })
+        </div>*@
                 </form>
             </div>
             <div class="modal-footer">
@@ -193,10 +192,10 @@
         User.Quota = $("#quota").val();
         User.PhoneNumber = $("#phonenumber").val();
         User.Email = $("#email").val();
-        User.UserId = $("#userid").val();
+        @*User.UserId = $("#userid").val();*@
         $.ajax({
             type: 'post',
-            url: '/account/register',
+            url: '/authentication/register',
             data: User
         }).done((result) => {
             console.log(result);
@@ -216,7 +215,7 @@
         console.log(Login);
         $.ajax({
             type: 'post',
-            url: '/authentication/login',
+            url: '/auth/login',
             data: Login
         }).done((result) => {
             console.log(result);
