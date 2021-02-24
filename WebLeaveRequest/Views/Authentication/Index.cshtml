@@ -14,7 +14,7 @@
             </div>
             <div class="modal-body">
                 <form id="registerform" action="Account/Register">
-                    < <div class="form-group">
+                    <div class="form-group">
                         <label for="nik" class="col-form-label">NIK</label>
                         <input type="text" class="form-control" id="nik" name="nik">
                     </div>
@@ -75,12 +75,12 @@
                         <label for="name" class="col-form-label">RoleId</label>
                         <input type="text" class="form-control" id="roleid" name="roleid">
                     </div>
-                    <div class="form-group">
+                    @*<div class="form-group">
                         <label for="userid" class="col-form-label">User Id</label>
                         @Html.DropDownList("Username",
                                 new SelectList(Enumerable.Empty<SelectListItem>(), "userid", "username"),
                                 new { @class = "form-control", @onchange = "FillCustomer()" })
-                    </div>
+                    </div>*@
                 </form>
             </div>
             <div class="modal-footer">
@@ -160,14 +160,14 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="roleform" action="Account/">
+                <form id="roleform" action="Auth/Login">
                     <div class="form-group">
                         <label for="email" class="col-form-label">Email</label>
-                        <input type="text" class="form-control" id="email" name="email">
+                        <input type="text" class="form-control" id="emaillogin" name="emaillogin">
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-form-label">Password</label>
-                        <input type="text" class="form-control" id="password" name="password">
+                        <input type="text" class="form-control" id="passwordlogin" name="passwordlogin">
                     </div>
                 </form>
             </div>
@@ -193,10 +193,10 @@
         User.Quota = $("#quota").val();
         User.PhoneNumber = $("#phonenumber").val();
         User.Email = $("#email").val();
-        User.UserId = $("#userid").val();
+        @*User.UserId = $("#userid").val();*@
         $.ajax({
             type: 'post',
-            url: '/account/register',
+            url: '/authentication/register',
             data: User
         }).done((result) => {
             console.log(result);
@@ -242,7 +242,7 @@
         User.Email = $("#emailforgot").val();
         $.ajax({
             type: 'PUT',
-            url: '/account/ForgotPassword',
+            url: '/authentication/ForgotPassword',
             data: User
         }).done((result) => {
             if (result == 200) {
@@ -262,7 +262,7 @@
         Account.ConfirmPassword = $("#confirmpassword").val();
         $.ajax({
             type: 'PUT',
-            url: '/account/ChangePassword',
+            url: '/authentication/ChangePassword',
             data: Account
         }).done((result) => {
             if (result == 200) {

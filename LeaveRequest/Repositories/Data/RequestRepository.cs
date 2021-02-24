@@ -43,7 +43,24 @@ namespace LeaveRequest.Repositories.Data
 
             myContext.Add(request);
             var resRequest = myContext.SaveChanges();
+            
+            RequestVM result5 = null;
+            string connectStr5 = Configuration.GetConnectionString("MyConnection");
+            var userCondition5 = myContext.Users.Where(b => b.NIK == requestVM.NIK).FirstOrDefault();
 
+            if (userCondition5 != null)
+            {
+                using (IDbConnection db = new SqlConnection(connectStr5))
+                {
+                    string readSp = "sp_user_RemainingQuota";
+                    var parameter5 = new { NIK = requestVM.NIK };
+                    result5 = db.Query<RequestVM>(readSp, parameter5, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+            }
+            if (TotalDay > result5.RemainingQuota)
+            {
+                return 0;
+            }
             //DateTime Date = DateTime.Now;
             /* var requestHis = new RequestHistory()
              {

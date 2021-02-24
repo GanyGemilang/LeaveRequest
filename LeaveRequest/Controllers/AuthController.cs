@@ -11,7 +11,7 @@ using LeaveRequest.Context;
 
 namespace LeaveRequest.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase

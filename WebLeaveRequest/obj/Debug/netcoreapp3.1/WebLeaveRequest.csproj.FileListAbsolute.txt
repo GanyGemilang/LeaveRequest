@@ -163,3 +163,5 @@ F:\Kerja\LeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLe
 F:\Kerja\LeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.pdb
 F:\Kerja\LeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.genruntimeconfig.cache
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Authentication\Index.cshtml.g.cs
+C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Request\Index.cshtml.g.cs
