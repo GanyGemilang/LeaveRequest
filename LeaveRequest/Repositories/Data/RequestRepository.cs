@@ -42,20 +42,37 @@ namespace LeaveRequest.Repositories.Data
             };
 
             myContext.Add(request);
+            var resRequest = myContext.SaveChanges();
+            
+            RequestVM result5 = null;
+            string connectStr5 = Configuration.GetConnectionString("MyConnection");
+            var userCondition5 = myContext.Users.Where(b => b.NIK == requestVM.NIK).FirstOrDefault();
 
-            DateTime Date = DateTime.Now;
-           /* var requestHis = new RequestHistory()
+            if (userCondition5 != null)
             {
-                SubmitDate = Date,
-                Status = Status.Waiting,
-                UserNIK = requestVM.UserNIK,
-                RequestId = request.Id
-            };
-            myContext.Add(requestHis);*/
+                using (IDbConnection db = new SqlConnection(connectStr5))
+                {
+                    string readSp = "sp_user_RemainingQuota";
+                    var parameter5 = new { NIK = requestVM.NIK };
+                    result5 = db.Query<RequestVM>(readSp, parameter5, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+            }
+            if (TotalDay > result5.RemainingQuota)
+            {
+                return 0;
+            }
+            //DateTime Date = DateTime.Now;
+            /* var requestHis = new RequestHistory()
+             {
+                 SubmitDate = Date,
+                 Status = Status.Waiting,
+                 UserNIK = requestVM.UserNIK,
+                 RequestId = request.Id
+             };
+             myContext.Add(requestHis);*/
             /*var resRequestHis = myContext.SaveChanges();*/
 
             RequestVM result = null;
-
             string connectStr = Configuration.GetConnectionString("MyConnection");
             var userCondition = myContext.Users.Where(b => b.NIK == requestVM.NIK).FirstOrDefault();
 
@@ -64,22 +81,72 @@ namespace LeaveRequest.Repositories.Data
                 using (IDbConnection db = new SqlConnection(connectStr))
                 {
                     string readSp = "sp_email_employee";
-                    var parameter = new { NIK = requestVM.NIK  };
+                    var parameter = new { NIK = requestVM.NIK };
                     result = db.Query<RequestVM>(readSp, parameter, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 }
             }
 
-            if(TotalDay <= result.RemainingQuota)
+            RequestVM result1 = null;
+            string connectStr1 = Configuration.GetConnectionString("MyConnection");
+            var userCondition1 = myContext.Users.Where(b => b.NIK == requestVM.NIK).FirstOrDefault();
+
+            if (userCondition1 != null)
             {
-                var resRequest = myContext.SaveChanges();
-                if (resRequest > 0)
+                using (IDbConnection db = new SqlConnection(connectStr1))
                 {
-                    return 1;
+                    string readSp = "sp_email_HRD";
+                    var parameter1 = new { RoleId = 2 };
+                    result1 = db.Query<RequestVM>(readSp, parameter1, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 }
-                else
+            }
+
+            //Condition For ReasionRequest
+            if (requestVM.ReasonRequest == "Normal leave")
+            {
+                if (TotalDay > result.RemainingQuota && TotalDay > 5)
                 {
-                    return 0;
+                    return 2;
                 }
+            }
+            else if (requestVM.ReasonRequest == "Maternity leave")
+            {
+                if (TotalDay != 90)
+                {
+                    return 3;
+                }
+            }
+            else if (requestVM.ReasonRequest == "Married")
+            {
+                if (TotalDay != 3)
+                {
+                    return 4;
+                }
+            }
+            else if (requestVM.ReasonRequest == "Marry or Circumcise or Baptize Children" ||
+                requestVM.ReasonRequest == "Wife gave birth or had a miscarriage" ||
+                requestVM.ReasonRequest == "Husband or Wife Parents or In laws Children or Son In law have passed away")
+            {
+                if (TotalDay != 2)
+                {
+                    return 5;
+                }
+
+            }
+            else if (requestVM.ReasonRequest == "Family member in one house died")
+            {
+                if (TotalDay != 1)
+                {
+                    return 6;
+                }
+            }
+            //End Condition For ReasionRequest
+
+
+            if (resRequest > 0)
+            {
+                sendEmail.SendRequestEmployee(result.Email);
+                sendEmail.SendRequestHRD(result1.Email);
+                return 1;
             }
             else
             {
@@ -98,7 +165,7 @@ namespace LeaveRequest.Repositories.Data
             {
                 return 0;
             }
-            if (data.Status == Status.RejectByHRD || data.Status ==Status.RejectByManager)
+            if (data.Status == Status.RejectByHRD || data.Status == Status.RejectByManager)
             {
                 return 0;
             }
@@ -117,6 +184,16 @@ namespace LeaveRequest.Repositories.Data
                 data.Status = Status.ApprovedByHRD;
                 data.ApprovedHRD = dataUser.NIK;
                 myContext.Update(data);
+
+                RequestVM result2 = null;
+                string connectStr2 = Configuration.GetConnectionString("MyConnection");
+                using (IDbConnection db = new SqlConnection(connectStr2))
+                {
+                    string readSp = "sp_email_HRD";
+                    var parameter2 = new { RoleId = 3 };
+                    result2 = db.Query<RequestVM>(readSp, parameter2, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+                sendEmail.SendApproveHRD(result2.Email,input.IdRequest);
             }
             else if (data.Status == Status.ApprovedByHRD && dataUser.Role.Name == "Manager")
             {
@@ -124,14 +201,106 @@ namespace LeaveRequest.Repositories.Data
                 userRepository.UpdateRemainingLeave(data.NIK, TotalDay);
                 data.Status = Status.ApprovedByManager;
                 data.ApprovedManager = dataUser.NIK;
+
+
+                ApproveRequestVM result3 = null;
+                string connectStr3 = Configuration.GetConnectionString("MyConnection");
+                var userCondition3 = myContext.Requests.Where(b => b.Id == input.IdRequest).FirstOrDefault();
+                if (userCondition3 != null)
+                {
+                    using (IDbConnection db = new SqlConnection(connectStr3))
+                    {
+                        string readSp = "sp_email_approveManager";
+                        var parameter3 = new { IdRequest = input.IdRequest };
+                        result3 = db.Query<ApproveRequestVM>(readSp, parameter3, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    }
+                }
+                sendEmail.SendApproveManager(result3.Email, input.IdRequest);
                 myContext.Update(data);
             }
-            else 
+            else
             {
                 return 0;
             }
             myContext.SaveChanges();
             return 1;
         }
+
+        public int Reject(ApproveRequestVM input)
+        {
+            var data = myContext.Requests.Where(e => e.Id == input.IdRequest).FirstOrDefault();
+            if (data == null)
+            {
+                return 0;
+            }
+            if (data.Status == Status.ApprovedByManager)
+            {
+                return 0;
+            }
+            if (data.Status == Status.RejectByHRD || data.Status == Status.RejectByManager)
+            {
+                return 0;
+            }
+
+            User dataUser = userRepository.GetDataByEmail(input.Email);
+            if (dataUser == null)
+            {
+                return 0;
+            }
+            if (data.NIK == dataUser.NIK || (data.ApprovedHRD != null && data.ApprovedHRD == dataUser.NIK)) //biar tidak bisa mengapproved data diri sendiri 
+            {
+                return 0;
+            }
+            if (data.Status == Status.Waiting && dataUser.Role.Name == "HRD")
+            {
+                data.Status = Status.RejectByManager;
+                data.ApprovedHRD = dataUser.NIK;
+                data.ApprovedManager = dataUser.NIK;
+                myContext.Update(data);
+
+                ApproveRequestVM result4 = null;
+                string connectStr4 = Configuration.GetConnectionString("MyConnection");
+                var userCondition4 = myContext.Requests.Where(b => b.Id == input.IdRequest).FirstOrDefault();
+                if (userCondition4 != null)
+                {
+                    using (IDbConnection db = new SqlConnection(connectStr4))
+                    {
+                        string readSp = "sp_email_approveManager";
+                        var parameter4 = new { IdRequest = input.IdRequest };
+                        result4 = db.Query<ApproveRequestVM>(readSp, parameter4, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    }
+                }
+                sendEmail.SendReject(result4.Email, input.IdRequest);
+            }
+            else if (data.Status == Status.ApprovedByHRD && dataUser.Role.Name == "Manager")
+            {
+                data.Status = Status.RejectByManager;
+                data.ApprovedManager = dataUser.NIK;
+                myContext.Update(data);
+                
+                ApproveRequestVM result4 = null;
+                string connectStr4 = Configuration.GetConnectionString("MyConnection");
+                var userCondition4 = myContext.Requests.Where(b => b.Id == input.IdRequest).FirstOrDefault();
+                if (userCondition4 != null)
+                {
+                    using (IDbConnection db = new SqlConnection(connectStr4))
+                    {
+                        string readSp = "sp_email_approveManager";
+                        var parameter4 = new { IdRequest = input.IdRequest };
+                        result4 = db.Query<ApproveRequestVM>(readSp, parameter4, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    }
+                }
+                sendEmail.SendReject(result4.Email, input.IdRequest);
+
+            }
+            else
+            {
+                return 0;
+            }
+            myContext.SaveChanges();
+            return 1;
+        }
+
+
     }
 }

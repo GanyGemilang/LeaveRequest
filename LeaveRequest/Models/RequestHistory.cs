@@ -23,5 +23,13 @@ namespace LeaveRequest.Models
         [ForeignKey("RequestId")]
         public virtual Request Request { get; set; }
     }
+    public enum Status
+    {
+        Waiting,
+        ApproveByHrd,
+        RejectByHrd,
+        ApproveByManager,
+        RejectByManager
+    }
 }
 */

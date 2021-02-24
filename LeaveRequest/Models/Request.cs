@@ -12,7 +12,6 @@ namespace LeaveRequest.Models
     {
         [Key]
         public int Id { get; set; }
-        public string NIK{ get; set; }
 
         [Required(ErrorMessage = "Tidak boleh kosong")]
         public string ReasonRequest { get; set; }
@@ -33,7 +32,9 @@ namespace LeaveRequest.Models
         public string UploadProof { get; set; }
         public string ApprovedHRD { get; set; }
         public string ApprovedManager { get; set; }
-
+        public string NIK { get; set; }
+        [ForeignKey("NIK")]
+        public virtual User User { get; set; }
 
         /*  public virtual List<RequestHistory> RequestHistory { get; set; } = new List<RequestHistory>();*/
     }
@@ -45,4 +46,16 @@ namespace LeaveRequest.Models
         ApprovedByManager,
         RejectByManager
     }
+    /*public enum ReasionRequest
+    {
+        Normal_leave,
+        Maternity_leave,
+        Sick_leave,
+        Married,
+        Marry_or_Circumcise_or_Baptize_Children,
+        Wife_gave_birth_or_had_a_miscarriage,
+        Husband_or_Wife_Parents_or_In_laws_Children_or_Son_In_law_have_passed_away,
+        Family_member_in_one_house_died
+    }*/
+       
 }

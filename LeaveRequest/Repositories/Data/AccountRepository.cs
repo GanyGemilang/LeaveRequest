@@ -67,7 +67,6 @@ namespace LeaveRequest.Repositories.Data
             Parameter parameter = parameterRepository.getByName("Quota Leave Yearly");
             var user = new User()
             {
-                RoleId = 5,
                 NIK = registerVM.NIK,
                 FirstName = registerVM.FirstName,
                 LastName = registerVM.LastName, 
@@ -78,7 +77,8 @@ namespace LeaveRequest.Repositories.Data
                 Address = registerVM.Address,
                 PhoneNumber = registerVM.PhoneNumber,
                 RemainingQuota = parameter.Value,
-                Email = registerVM.Email
+                Email = registerVM.Email,
+                RoleId = 4
             };
 
             var account = new Account()

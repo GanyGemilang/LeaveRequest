@@ -4,14 +4,16 @@ using LeaveRequest.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LeaveRequest.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20210223134048_addModel")]
+    partial class addModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,7 +73,7 @@ namespace LeaveRequest.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("NIK")
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Notes")
                         .IsRequired()
@@ -91,8 +93,6 @@ namespace LeaveRequest.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("NIK");
 
                     b.ToTable("TB_M_Request");
                 });
@@ -178,13 +178,6 @@ namespace LeaveRequest.Migrations
                         .HasForeignKey("LeaveRequest.Models.Account", "NIK")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("LeaveRequest.Models.Request", b =>
-                {
-                    b.HasOne("LeaveRequest.Models.User", "User")
-                        .WithMany("Request")
-                        .HasForeignKey("NIK");
                 });
 
             modelBuilder.Entity("LeaveRequest.Models.User", b =>

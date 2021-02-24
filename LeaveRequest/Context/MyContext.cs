@@ -23,8 +23,9 @@ namespace LeaveRequest.Context
         {
             modelBuilder.Entity<Account>().HasOne(a => a.User).WithOne(b => b.Account).HasForeignKey<Account>(a => a.NIK);
             modelBuilder.Entity<User>().HasOne(x => x.Role);
-           /* modelBuilder.Entity<RequestHistory>().HasOne(x => x.User);
-            modelBuilder.Entity<RequestHistory>().HasOne(x => x.Request);*/
+            modelBuilder.Entity<Request>().HasOne(x => x.User);
+            /* modelBuilder.Entity<RequestHistory>().HasOne(x => x.User);
+             modelBuilder.Entity<RequestHistory>().HasOne(x => x.Request);*/
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

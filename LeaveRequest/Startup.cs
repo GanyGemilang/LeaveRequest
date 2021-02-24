@@ -41,6 +41,11 @@ namespace LeaveRequest
 
             services.JwtConfigure(Configuration);
 
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44349"));
+            });
+
             services.AddControllersWithViews()
             .AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
@@ -60,6 +65,8 @@ namespace LeaveRequest
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseCors(options => options.WithOrigins("https://localhost:44349"));
 
             //app.UseEndpoints(endpoints =>
             //{

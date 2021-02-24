@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LeaveRequest.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210223111552_addModel")]
-    partial class addModel
+    [Migration("20210223150331_addModel1")]
+    partial class addModel1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -92,7 +92,12 @@ namespace LeaveRequest.Migrations
                     b.Property<string>("UploadProof")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserNIK")
+                        .HasColumnType("nvarchar(10)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserNIK");
 
                     b.ToTable("TB_M_Request");
                 });
@@ -178,6 +183,13 @@ namespace LeaveRequest.Migrations
                         .HasForeignKey("LeaveRequest.Models.Account", "NIK")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("LeaveRequest.Models.Request", b =>
+                {
+                    b.HasOne("LeaveRequest.Models.User", "User")
+                        .WithMany("Request")
+                        .HasForeignKey("UserNIK");
                 });
 
             modelBuilder.Entity("LeaveRequest.Models.User", b =>

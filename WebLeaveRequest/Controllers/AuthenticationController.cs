@@ -36,7 +36,7 @@ namespace WebLeaveRequest.Controllers
         {
             var httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(registerVM), Encoding.UTF8, "application/json");
-            var result = httpClient.PostAsync("https://localhost:44330/api/Account/Register/", content).Result;
+            var result = httpClient.PostAsync("https://localhost:44330/api/account/register/", content).Result;
             return result.StatusCode;
         }
 
