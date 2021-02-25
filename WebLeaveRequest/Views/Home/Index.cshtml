@@ -2,7 +2,237 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to Leave Request System</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid ">
+    <div class="col-lg-6 m-5">
+        <div class=" card" style="margin-left:250px; width:550px">
+            <div class="card-body m-2">
+                <div class="p-3">
+                    <h4 class="text-muted font-18 m-b-5 text-center">Welcome</h4>
+                    <p class="text-muted text-center">Sign in to continue to Leave Request System.</p>
+
+                    <form id="roleform">
+
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <input type="text" id="emaillogin" class="form-control" name="email">
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="pass">Password</label>
+                            <input type="password" id="passwordlogin" class="form-control" name="pass">
+                        </div>
+                        <div class="mb-1 d-flex">
+                            <a href="javascript:void(0)" data-toggle="modal" data-target="#forgotpassword">
+                            <small class="m-3">Forgot Password?</small>
+                            </a>
+                            <a href="javascript:void(0)" data-toggle="modal" data-target="#Register">
+                                <small class="m-3">Register</small>
+                            </a>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-3" onclick="Login()">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<div class="modal fade" id="forgotpassword" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">Forgot Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="registerform" action="Account/ForgotPassword">
+                    <div class="form-group">
+                        <label for="email" class="col-form-label">Email</label>
+                        <input type="text" class="form-control" id="emailforgot" name="emailforgot">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="ForgotPassword()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Register" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">Register</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="registerform" action="Account/Register">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="nik" class="col-form-label">NIK</label>
+                                <input type="text" class="form-control" id="nik" name="nik">
+                            </div>
+                            <div class="form-group">
+                                <label for="firstname" class="col-form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstname" name="firstname">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname" class="col-form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastname" name="lastname">
+                            </div>
+                            <div class="form-group">
+                                <label for="birthdate" class="col-form-label">BirthDate</label>
+                                <input type="date" class="form-control" id="birthdate" name="birthdate">
+                            </div>
+                            <div class="form-group">
+                                <label for="marriedstatus" class="col-form-label">Married Status</label>
+                                <select id="marriedstatus" class="form-control" name="marriedstatus">
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Widower">Widower</option>
+                                    <option value="Widow">Widow</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group" hidden>
+                                <label for="quota" class="col-form-label">Quota</label>
+                                <input type="text" class="form-control" id="quota" name="quota">
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">PhoneNumber</label>
+                                <input type="text" class="form-control" id="phonenumber" name="phonenumber">
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Email</label>
+                                <input type="text" class="form-control" id="email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="gender" class="col-form-label">Gender</label>
+                                <select id="gender" class="form-control" name="gender">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="position" class="col-form-label">Position</label>
+                                <select id="position" class="form-control" name="position">
+                                    <option value="Application Developer">Application Developer</option>
+                                    <option value="Backend Develope">Backend Developer</option>
+                                    <option value=" Frontend Developer">Frontend Developer</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="col-form-label">Address</label>
+                                <textarea type="text" class="form-control" id="address" name="address"></textarea>
+                            </div>
+                            <div class="form-group" hidden>
+                                <label for="name" class="col-form-label">RoleId</label>
+                                <input type="text" class="form-control" id="roleid" name="roleid">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="Submit()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Login() {
+        var Login = new Object();
+        Login.Email = $("#emaillogin").val();
+        Login.Password = $("#passwordlogin").val();
+        console.log(Login);
+        $.ajax({
+            type: 'post',
+            url: '/authentication/login',
+            data: Login
+        }).done((result) => {
+            console.log("ok");
+            if (result == 200) {
+                alert("Successed to Login");
+                window.location.href = "https://localhost:44349/request";
+            }
+            else {
+                alert("Failed to Login");
+            }
+        }).fail((result) => {
+            console.log(result);
+            if (result != 200) {
+                alert("Failed to Login");
+            }
+        })
+    }
+
+    function ForgotPassword() {
+        var User = new Object();
+        User.Email = $("#emailforgot").val();
+        $.ajax({
+            type: 'PUT',
+            url: '/authentication/ForgotPassword',
+            data: User
+        }).done((result) => {
+            if (result == 200) {
+                alert("Check Your Email for New Password!");
+                $('#forgotpassword').modal('hide');
+                $("#emailforgot").val(null);
+            }
+        }).fail((result) => {
+            console.log(result);
+            alert("Failed to Send Email!");
+            $('#forgotpassword').modal('hide');
+            $("#emailforgot").val(null);
+        })
+    }
+
+    function Submit() {
+        var User = new Object();
+        User.Nik = $("#nik").val();
+        User.Firstname = $("#firstname").val();
+        User.Lastname = $("#lastname").val();
+        User.BirthDate = $("#birthdate").val();
+        User.Gender = $("#gender").val();
+        User.MarriedStatus = $("#marriedstatus").val();
+        User.Position = $("#position").val();
+        User.Address = $("#address").val();
+        User.Quota = $("#quota").val();
+        User.PhoneNumber = $("#phonenumber").val();
+        User.Email = $("#email").val();
+        $.ajax({
+            type: 'post',
+            url: '/authentication/register',
+            data: User
+        }).done((result) => {
+            console.log(result);
+            if (result == 200) {
+                alert("Successed to Add Data!");
+                $('#Register').modal('hide');
+                $("#firstname").val(null);
+                $("#lastname").val(null);
+                $("#birthdate").val(null);
+                $("#gender").val(null);
+                $("#marriedstatus").val(null);
+                $("#position").val(null);
+                $("#address").val(null);
+                $("#quota").val(null);
+                $("#phonenumber").val(null);
+                $("#email").val(null);
+            }
+        }).fail((result) => {
+            console.log(result);
+            alert("Failed to Add Data!");
+        })
+    }
+</script>
+
