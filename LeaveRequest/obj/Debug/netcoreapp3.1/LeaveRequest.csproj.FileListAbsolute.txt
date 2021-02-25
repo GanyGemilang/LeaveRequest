@@ -165,7 +165,6 @@ F:\Kerja\LeaveRequest\LeaveRequest\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveReq
 F:\Kerja\LeaveRequest\LeaveRequest\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.dll
 F:\Kerja\LeaveRequest\LeaveRequest\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.pdb
 F:\Kerja\LeaveRequest\LeaveRequest\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.genruntimeconfig.cache
-C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.csprojAssemblyReference.cache
 F:\Kerja\Final Project\LeaveRequest\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.AssemblyInfoInputs.cache
 F:\Kerja\Final Project\LeaveRequest\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.AssemblyInfo.cs
 F:\Kerja\Final Project\LeaveRequest\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.csproj.CoreCompileInputs.cache
