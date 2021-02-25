@@ -15,30 +15,31 @@ namespace LeaveRequest.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IJWTAuthenticationManager jWTAuthenticationManager;
         private readonly AccountRepository accountRepository;
+        private readonly IJWTAuthenticationManager jWTAuthenticationManager;
+       
 
         public AuthController(IJWTAuthenticationManager jWTAuthenticationManager, AccountRepository accountRepository)
         {
-            this.jWTAuthenticationManager = jWTAuthenticationManager;
             this.accountRepository = accountRepository;
+            this.jWTAuthenticationManager = jWTAuthenticationManager;
+        }
+
+        [HttpPost("Login")]
+        public LoginVM Login([FromBody] LoginVM loginVM)
+        {
+            var user = accountRepository.Login(loginVM.Email, loginVM.Password);
+            return user;
         }
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public IActionResult Authenticate([FromBody] LoginVM loginVM)
+        public IActionResult Authenticate(LoginVM loginVM)
         {
             var token = jWTAuthenticationManager.Generate(Login(loginVM));
             if (token == null)
                 return Unauthorized();
             return Ok(token);
-        }
-
-        [HttpPost("Login")]
-        public LoginVM Login([FromBody] LoginVM login)
-        {
-            var user = accountRepository.Login(login.Email, login.Password);
-            return user;
-        }
+        }       
     }
 }

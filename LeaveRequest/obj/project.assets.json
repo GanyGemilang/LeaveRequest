@@ -7899,19 +7899,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\asus\\.nuget\\packages\\": {}
+    "C:\\Users\\yohan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\asus\\Documents\\GitHub\\TALeaveRequest\\LeaveRequest\\LeaveRequest\\LeaveRequest.csproj",
+      "projectUniqueName": "F:\\Kerja\\Final Project\\LeaveRequest\\LeaveRequest\\LeaveRequest.csproj",
       "projectName": "LeaveRequest",
-      "projectPath": "C:\\Users\\asus\\Documents\\GitHub\\TALeaveRequest\\LeaveRequest\\LeaveRequest\\LeaveRequest.csproj",
-      "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\asus\\Documents\\GitHub\\TALeaveRequest\\LeaveRequest\\LeaveRequest\\obj\\",
+      "projectPath": "F:\\Kerja\\Final Project\\LeaveRequest\\LeaveRequest\\LeaveRequest.csproj",
+      "packagesPath": "C:\\Users\\yohan\\.nuget\\packages\\",
+      "outputPath": "F:\\Kerja\\Final Project\\LeaveRequest\\LeaveRequest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\yohan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

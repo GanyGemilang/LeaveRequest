@@ -13,7 +13,6 @@ using System.Threading.Tasks;
 
 namespace WebLeaveRequest.Controllers
 {
-
     public class AuthenticationController : Controller
     {
         private MyContext myContext = new MyContext();
@@ -27,7 +26,7 @@ namespace WebLeaveRequest.Controllers
         {
             var httpclient = new HttpClient();
             StringContent stringContent = new StringContent(JsonConvert.SerializeObject(loginVM), Encoding.UTF8, "application/json");
-            var result = httpclient.PostAsync("https://localhost:44330/api/Auth/Login/", stringContent).Result;
+            var result = httpclient.PostAsync("https://localhost:44330/api/auth/authenticate/", stringContent).Result;
             return result.StatusCode;
         }
 
