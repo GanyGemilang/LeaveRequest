@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,21 +14,22 @@ namespace LeaveRequest.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
-        public string SubmitDate { get; set; }
+        public DateTime SubmitDate { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong")]
-        public string Status { get; set; }
-        [Required(ErrorMessage = "Tidak boleh kosong")]
-        public string NIK { get; set; }
-        [ForeignKey("NIK")]
+        public string UserNIK { get; set; }
+        [ForeignKey("UserNIK")]
         public virtual User User { get; set; }
         public int RequestId { get; set; }
         [ForeignKey("RequestId")]
         public virtual Request Request { get; set; }
     }
-    /*public enum Status
+    public enum Status
     {
         Waiting,
-        Approve,
-        Reject
-    }*/
+        ApproveByHrd,
+        RejectByHrd,
+        ApproveByManager,
+        RejectByManager
+    }
 }
+*/

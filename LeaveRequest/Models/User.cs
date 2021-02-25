@@ -38,7 +38,8 @@ namespace LeaveRequest.Models
         public int RoleId { get; set; }
         [ForeignKey("RoleId")]
         public virtual Role Role { get; set; }
-        public virtual List<RequestHistory> RequestHistory { get; set; } = new List<RequestHistory>();
+        public virtual List<Request> Request { get; set; } = new List<Request>();
+        /* public virtual List<RequestHistory> RequestHistory { get; set; } = new List<RequestHistory>();*/
     }
   /*  public enum Gender
     {

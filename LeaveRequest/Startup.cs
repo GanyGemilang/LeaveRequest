@@ -36,10 +36,15 @@ namespace LeaveRequest
             services.AddScoped<UserRepository>();
             services.AddScoped<AccountRepository>();
             services.AddScoped<RequestRepository>();
-            services.AddScoped<RequestHistoryRepository>();
+            /*services.AddScoped<RequestHistoryRepository>();*/
             services.AddScoped<ParameterRepository>();
 
             services.JwtConfigure(Configuration);
+
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44349"));
+            });
 
             services.AddControllersWithViews()
             .AddNewtonsoftJson(options =>
@@ -60,6 +65,8 @@ namespace LeaveRequest
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseCors(options => options.WithOrigins("https://localhost:44349"));
 
             //app.UseEndpoints(endpoints =>
             //{

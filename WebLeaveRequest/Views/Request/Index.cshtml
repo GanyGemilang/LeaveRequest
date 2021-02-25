@@ -1,0 +1,215 @@
+﻿<a href="javascript:void(0)" class="btn bg-transparant text-success" data-toggle="modal" data-target="#Request">Add Request</a>
+
+<div class="container-fluid mt-5">
+    <table id="myTable" class="table table-striped table-bordered dataTable" style="width:100%">
+        <thead class="thead-light">
+            <tr role="row">
+                <th>No</th>
+                <th>Id</th>
+                <th>NIK</th>
+                <th>Reason Request</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Status</th>
+                <th>Notes</th>
+                <th>Approved HRD</th>
+                <th>Approved Manager</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>No</th>
+                <th>Id</th>
+                <th>NIK</th>
+                <th>Reason Request</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Status</th>
+                <th>Notes</th>
+                <th>Approved HRD</th>
+                <th>Approved Manager</th>
+            </tr>
+        </tfoot>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="Request" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">Add Request</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formrole">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="id" class="col-form-label">NIK:</label>
+                                <input type="text" class="form-control" id="nik" name="nik">
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Start Date:</label>
+                                <input type="date" class="form-control" id="startdate" name="startdate">
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Notes:</label>
+                                <textarea  type="text" class="form-control" id="notes" name="notes"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Reason Request:</label>
+                                <select id="reasonrequest" class="form-control" name="reasonrequest">
+                                    <option value="Normal leave">Normal leave</option>
+                                    <option value="Maternity leave">Maternity leave</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
+                                    <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
+                                    <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
+                                    <option value="Family member in one house died">Family member in one house died</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">End Date:</label>
+                                <input type="date" class="form-control" id="enddate" name="enddate">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="SubmitRequest()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        var table = null;
+        $(document).ready(function () {
+            table = $("#myTable").DataTable({
+                "filter": true,
+                "orderMulti": false,
+                "ajax": {
+                    "url": "https://localhost:44330/api/request",
+                    "type": "get",
+                    "datatype": "json",
+                    "dataSrc": "data"
+                },
+                "columnDefs": [
+                    {
+                        "targets": [1],
+                        "visible": false,
+
+                    },
+                    {
+                        "targets": [0, 2],
+                        "searchable": true
+                    },
+                    {
+                        "targets": [3],
+                        "searchable": false,
+                        "orderable": false
+                    },
+                ],
+                "columns": [
+                    {
+                        "data": null,
+                        "render": function (data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                    },
+                    {
+                        "data": 'id'
+                    },
+                    {
+                        "data": 'nik'
+                    },
+                    {
+                        "data": 'reasonRequest'
+                    },
+                    {
+                        "data": 'startDate'
+                    },
+                    {
+                        "data": 'endDate'
+                    },
+                    {
+                        "data": 'status'
+                    },
+                    {
+                        "data": 'notes'
+                    },
+                    {
+                        "data": 'approvedHRD'
+                    },
+                    {
+                        "data": 'approvedManager'
+                    }
+                ]
+            });
+        });
+
+        function Get(id) {
+            console.log(id);
+            $.ajax({
+                url: "/Request/Get",
+                data: { id: id }
+            }).done((result) => {
+                console.log(result);
+                var obj = JSON.parse(result);
+                $("#Request").modal("show");
+                $("#nik").val(obj.data.nik);
+                $("#id").val(obj.data.id);
+                $("#reasonrequest").val(obj.data.reasonRequest);
+                $("#startdate").val(obj.data.startDate);
+                $("#enddate").val(obj.data.endDate);
+                $("#notes").val(obj.data.notes);
+                $("#ApprovedHRD").val(obj.data.approvedHRD);
+                $("#ApprovedManager").val(obj.data.approvedManager);
+            }).fail((error) => {
+                console.log(error);
+            })
+        }
+            function SubmitRequest() {
+                console.log("ok");
+                var Request = new Object();
+                Request.nik = $('#nik').val();
+                Request.reasonrequest = $('#reasonrequest').val();
+                Request.startdate = $('#startdate').val();
+                Request.enddate = $('#enddate').val();
+                Request.notes = $('#notes').val();
+                $.ajax({
+                    url: '/request/SubmitRequest',
+                    type: "POST",
+                    data: Request
+                }).done((result) => {
+                    if (result == 200) {
+                        swal('Success', 'Request Has Been Added, Cek Your Email', 'success');
+                        $('#Request').modal('hide');
+                        $("#nik").val(null);
+                        $("#id").val(null);
+                        $("#reasonrequest").val(null);
+                        $("#startdate").val(null);
+                        $("#enddate").val(null);
+                        $("#notes").val(null);
+                        $("#ApprovedHRD").val(null);
+                        $("#ApprovedManager").val(null);
+                        table.ajax.reload();
+                    }
+                    else {
+                        swal('Error', 'Something Went Wrong', 'error');
+                    }
+                }).fail((error) => {
+                    console.log(error)
+                });
+        }
+
+    </script>
+}

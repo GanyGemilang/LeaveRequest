@@ -20,13 +20,15 @@ namespace LeaveRequest.Repositories.Data
         private readonly MyContext myContext;
         private readonly SendEmail sendEmail = new SendEmail();
         private readonly UserRepository userRepository;
+        private readonly ParameterRepository parameterRepository;
 
         public IConfiguration Configuration { get; }
-        public AccountRepository(MyContext myContext, UserRepository userRepository, IConfiguration configuration) : base(myContext)
+        public AccountRepository(MyContext myContext, UserRepository userRepository, IConfiguration configuration, ParameterRepository parameterRepository) : base(myContext)
         {
             myContext.Set<Account>();
             this.myContext = myContext;
             this.userRepository = userRepository;
+            this.parameterRepository = parameterRepository;
             this.Configuration = configuration;
         }
 
@@ -38,7 +40,6 @@ namespace LeaveRequest.Repositories.Data
             var result = myContext.SaveChanges();
             return result;
         }
-<
         public LoginVM Login(string email, string password)
         {
             LoginVM result = null;
@@ -63,6 +64,7 @@ namespace LeaveRequest.Repositories.Data
 
         public int Register(RegisterVM registerVM)
         {
+            Parameter parameter = parameterRepository.getByName("Quota Leave Yearly");
             var user = new User()
             {
                 NIK = registerVM.NIK,
@@ -74,9 +76,9 @@ namespace LeaveRequest.Repositories.Data
                 Position = registerVM.Position,
                 Address = registerVM.Address,
                 PhoneNumber = registerVM.PhoneNumber,
-                RemainingQuota = registerVM.RemainingQuota,
+                RemainingQuota = parameter.Value,
                 Email = registerVM.Email,
-                RoleId = 5
+                RoleId = 4
             };
 
             var account = new Account()
@@ -102,7 +104,7 @@ namespace LeaveRequest.Repositories.Data
             }
         }
 
-        public int ResetPassword(Account account, string email)
+        public int ResetPassword(string email)
         {
             string resetCode = Guid.NewGuid().ToString();
             var time24 = DateTime.Now.ToString("HH:mm:ss");
@@ -116,7 +118,6 @@ namespace LeaveRequest.Repositories.Data
             else
             {
                 var password = Hashing.HashPassword(resetCode);
-                //account.Password = password;
                 userAccount.Password = password;
                 var result = myContext.SaveChanges();
                 sendEmail.SendForgotPassword(resetCode, email);

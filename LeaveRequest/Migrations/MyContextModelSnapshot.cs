@@ -62,71 +62,39 @@ namespace LeaveRequest.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ApprovedHRD")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ApprovedManager")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EndDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("ManagerName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasMaxLength(20);
+                    b.Property<string>("NIK")
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Notes")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ReasionRequest")
+                    b.Property<string>("ReasonRequest")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("StartDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<string>("UploadProof")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("TB_M_Request");
-                });
-
-            modelBuilder.Entity("LeaveRequest.Models.RequestHistory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("NIK")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<int>("RequestId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SubmitDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
                     b.HasIndex("NIK");
 
-                    b.HasIndex("RequestId");
-
-                    b.ToTable("TB_M_RequestHistory");
+                    b.ToTable("TB_M_Request");
                 });
 
             modelBuilder.Entity("LeaveRequest.Models.Role", b =>
@@ -212,19 +180,11 @@ namespace LeaveRequest.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("LeaveRequest.Models.RequestHistory", b =>
+            modelBuilder.Entity("LeaveRequest.Models.Request", b =>
                 {
                     b.HasOne("LeaveRequest.Models.User", "User")
-                        .WithMany("RequestHistory")
-                        .HasForeignKey("NIK")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LeaveRequest.Models.Request", "Request")
-                        .WithMany("RequestHistory")
-                        .HasForeignKey("RequestId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Request")
+                        .HasForeignKey("NIK");
                 });
 
             modelBuilder.Entity("LeaveRequest.Models.User", b =>
