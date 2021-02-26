@@ -166,3 +166,4 @@ C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\D
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Request\Index.cshtml.g.cs
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Approve\Index.cshtml.g.cs
+C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
