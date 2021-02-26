@@ -145,7 +145,21 @@
                             "data": 'endDate'
                         },
                         {
-                            "data": 'status'
+                            "data": 'status',
+                            "render": function (status) {
+                                if (status == "0") {
+                                    return "Waiting Approve";
+                                }
+                                else if (status == "1") {
+                                    return "Approved By HRD";
+                                }
+                                else if (status == "1") {
+                                    return "Approved";
+                                }
+                                else {
+                                    return "Reject";
+                                }
+                            }
                         },
                         {
                             "data": 'notes'

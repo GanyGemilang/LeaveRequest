@@ -11,6 +11,7 @@
                     <th>Id</th>
                     <th>NIK</th>
                     <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Reason Request</th>
                     <th>Start Date</th>
                     <th>End Date</th>
@@ -27,6 +28,7 @@
                     <th>Id</th>
                     <th>NIK</th>
                     <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Reason Request</th>
                     <th>Start Date</th>
                     <th>End Date</th>
@@ -42,145 +44,235 @@
     </div>
 </div>
 
+<div class="modal fade" id="Request" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">Approve Request</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formrole">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="id" class="col-form-label">Id:</label>
+                                <input type="text" class="form-control" id="id" name="id">
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Start Date:</label>
+                                <input type="text" class="form-control" id="startdate" name="startdate">
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Reason Request:</label>
+                                <input id="reasonrequest" class="form-control" name="reasonrequest">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="id" class="col-form-label">NIK:</label>
+                                <input type="text" class="form-control" id="nik" name="nik">
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">End Date:</label>
+                                <input type="text" class="form-control" id="enddate" name="enddate">
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Notes:</label>
+                                <textarea type="text" class="form-control" id="notes" name="notes"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="approve()">Approve</button>
+                <button type="button" class="btn btn-primary" onclick="reject()">Reject</button>
+            </div>
+        </div>
+    </div>
+</div>
 @section scripts
 {
     <script>
-            var table = null;
-            $(document).ready(function () {
-                table = $("#myTable").DataTable({
-                    "filter": true,
-                    "orderMulti": false,
-                    "ajax": {
-                        "url": "https://localhost:44330/api/request",
-                        "type": "get",
-                        "datatype": "json",
-                        "dataSrc": "data"
-                    },
-                    "columnDefs": [
-                        {
-                            "targets": [1, 8, 9],
-                            "visible": false,
+        var table = null;
+        $(document).ready(function () {
+            table = $("#myTable").DataTable({
+                "filter": true,
+                "orderMulti": false,
+                "ajax": {
+                    "url": "https://localhost:44330/api/request",
+                    "type": "get",
+                    "datatype": "json",
+                    "dataSrc": "data"
+                },
+                "columnDefs": [
+                    {
+                        "targets": [1, 10, 11],
+                        "visible": false,
 
-                        },
-                        {
-                            "targets": [0, 2],
-                            "searchable": true
-                        },
-                        {
-                            "targets": [3],
-                            "searchable": false,
-                            "orderable": false
-                        },
-                    ],
-                    "columns": [
-                        {
-                            "data": null,
-                            "render": function (data, type, row, meta) {
-                                return meta.row + meta.settings._iDisplayStart + 1;
+                    },
+                    {
+                        "targets": [0, 2],
+                        "searchable": true
+                    },
+                    {
+                        "targets": [3],
+                        "searchable": false,
+                        "orderable": false
+                    },
+                ],
+                "columns": [
+                    {
+                        "data": null,
+                        "render": function (data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                    },
+                    {
+                        "data": 'id'
+                    },
+                    {
+                        "data": 'nik'
+                    },
+                    {
+                        "data": 'user.firstName'
+                    },
+                    {
+                        "data": 'user.lastName'
+                    },
+                    {
+                        "data": 'reasonRequest'
+                    },
+                    {
+                        "data": 'startDate'
+                    },
+                    {
+                        "data": 'endDate'
+                    },
+                    {
+                        "data": 'status',
+                        "render": function (status) {
+                            if (status == "0") {
+                                return "Waiting Approve";
                             }
-                        },
-                        {
-                            "data": 'id'
-                        },
-                        {
-                            "data": 'nik'
-                        },
-                        {
-                            "data": 'User.firstName'
-                        },
-                        {
-                            "data": 'reasonRequest'
-                        },
-                        {
-                            "data": 'startDate'
-                        },
-                        {
-                            "data": 'endDate'
-                        },
-                        {
-                            "data": 'status'
-                        },
-                        {
-                            "data": 'notes'
-                        },
-                        {
-                            "data": 'approvedHRD'
-                        },
-                        {
-                            "data": 'approvedManager'
-                        },
-                        {
-                            "data": 'id',
-                            "render": function (data, type, row, meta) {
-                                return '<a href="javascript:void(0)" class="far fa-check-circle table-action text-dark" data-toggle="tooltip" data-placement="top" title="Approve" onclick="Approve(\'' + row['id'] + '\')"></a> ' +
-                                    '<a href="javascript:void(0)" class="far fa-times-circle table-action text-danger" data-toggle="tooltip" data-placement="top" title="Reject" onclick="Reject(\'' + row['id'] + '\')"></a>'
+                            else if (status == "1") {
+                                return "Approved By HRD";
+                            }
+                            else if (status == "1") {
+                                return "Approved";
+                            }
+                            else {
+                                return "Reject";
                             }
                         }
-                    ]
-                });
+                    },
+                    {
+                        "data": 'notes'
+                    },
+                    {
+                        "data": 'approvedHRD'
+                    },
+                    {
+                        "data": 'approvedManager'
+                    },
+                    {
+                        "data": 'id',
+                        "render": function (data, type, row, meta) {
+                            return '<a href="javascript:void(0)" class="far fa-check-square table-action text-dark" data-toggle="tooltip" data-placement="top" title="Approve" onclick="Get(\'' + row['id'] + '\')"></a> ' 
+                        }
+                    }
+                ]
             });
+        });
 
-            function Get(id) {
-                console.log(id);
-                $.ajax({
-                    url: "/Request/Get",
-                    data: { id: id }
-                }).done((result) => {
-                    console.log(result);
-                    var obj = JSON.parse(result);
-                    $("#Request").modal("show");
-                    $("#nik").val(obj.data.nik);
-                    $("#id").val(obj.data.id);
-                    $("#reasonrequest").val(obj.data.reasonRequest);
-                    $("#startdate").val(obj.data.startDate);
-                    $("#enddate").val(obj.data.endDate);
-                    $("#notes").val(obj.data.notes);
-                    $("#ApprovedHRD").val(obj.data.approvedHRD);
-                    $("#ApprovedManager").val(obj.data.approvedManager);
-                }).fail((error) => {
-                    console.log(error);
-                })
-            }
+        function approve() {
+            var id = $('#id').val();
+            console.log("put accessed");
+            Approve(id);
+        }
 
-            function Approve(id) {
-                var request = new Object();
-                request.id = $('#name').val();
-                $.ajax({
-                    type: "PUT",
-                    url: '/approve/Approve',
-                    data: { id: id }
-                }).done((result) => {
-                    console.log("ok");
-                    if (result == 200) {
-                        swal('Success', 'Update Successfully', 'success');
-                        table.ajax.reload();
-                    }
-                    else {
-                        swal('Error', 'Something Went Wrong', 'error');
-                    }
-                }).fail((error) => {
-                    console.log(error)
-                });
-            }
+        function reject() {
+            var id = $('#id').val();
+            console.log("put accessed");
+            Reject(id);
+        }
 
-            function Reject(id) {
-                $.ajax({
-                    type: "PUT",
-                    url: '/approve/Reject',
-                    data: request
-                }).done((result) => {
 
-                    if (result == 200) {
-                        swal('Success', 'Update Successfully', 'success');
-                        table.ajax.reload();
-                    }
-                    else {
-                        swal('Error', 'Something Went Wrong', 'error');
-                    }
-                }).fail((error) => {
-                    console.log(error)
-                });
-            }
+        function Get(id) {
+            console.log(id);
+            $.ajax({
+                url: "/Request/Get",
+                data: { id: id }
+            }).done((result) => {
+                console.log(result);
+                var obj = JSON.parse(result);
+                $("#Request").modal("show");
+                $("#nik").val(obj.data.nik);
+                $("#id").val(obj.data.id);
+                $("#reasonrequest").val(obj.data.reasonRequest);
+                $("#startdate").val(obj.data.startDate);
+                $("#enddate").val(obj.data.endDate);
+                $("#notes").val(obj.data.notes);
+                $("#ApprovedHRD").val(obj.data.approvedHRD);
+                $("#ApprovedManager").val(obj.data.approvedManager);
+            }).fail((error) => {
+                console.log(error);
+            })
+        }
+
+        function Approve(id) {
+            var approve = new Object();
+            approve.id = $('#id').val();
+            $.ajax({
+                type: "PUT",
+                url: '/approve/Approve',
+                data: approve
+            }).done((result) => {
+                console.log("ok");
+                if (result == 200) {
+                    swal('Success', 'Update Successfully', 'success');
+                    $('#Request').modal('hide');
+                    $("#nik").val(null);
+                    $("#id").val(null);
+                    $("#reasonrequest").val(null);
+                    $("#startdate").val(null);
+                    $("#enddate").val(null);
+                    $("#notes").val(null);
+                    $("#ApprovedHRD").val(null);
+                    $("#ApprovedManager").val(null);
+                    table.ajax.reload();
+                }
+                else {
+                    swal('Error', 'Something Went Wrong', 'error');
+                }
+            }).fail((error) => {
+                console.log(error)
+            });
+        }
+
+        function Reject(id) {
+            var reject = new Object();
+            reject.id = $('#id').val();
+            $.ajax({
+                type: "PUT",
+                url: '/approve/Reject',
+                data: reject
+            }).done((result) => {
+
+                if (result == 200) {
+                    swal('Success', 'Update Successfully', 'success');
+                    table.ajax.reload();
+                }
+                else {
+                    swal('Error', 'Something Went Wrong', 'error');
+                }
+            }).fail((error) => {
+                console.log(error)
+            });
+        }
 
     </script>
 }

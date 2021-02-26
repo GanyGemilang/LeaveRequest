@@ -55,7 +55,7 @@ namespace LeaveRequest.Controllers
             }
         }
 
-        [HttpPost("SubmitApproved")]
+        [HttpPut("SubmitApproved")]
         public ActionResult SubmitApproved(ApproveRequestVM approveRequestVM)
         {
             var data = requestRepository.Approved(approveRequestVM);
@@ -70,7 +70,7 @@ namespace LeaveRequest.Controllers
             
         }
         
-        [HttpPost("SubmitReject")]
+        [HttpPut("SubmitReject")]
         public ActionResult SubmitReject(ApproveRequestVM approveRequestVM)
         {
             var data = requestRepository.Reject(approveRequestVM);
