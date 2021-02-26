@@ -1,0 +1,112 @@
+﻿<div class="container-fluid mt-5">
+    <table id="myTable" class="table table-striped table-bordered dataTable" style="width:100%">
+        <thead class="thead-light">
+            <tr role="row">
+                <th>No</th>
+                <th>NIK</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Birthdate</th>
+                <th>Position</th>
+                <th>Married Status</th>
+                <th>Address</th>
+                <th>Role Id</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section scripts
+    {
+    <script>
+        var table = null;
+        $(document).ready(function () {
+            table = $("#myTable").DataTable({
+                "filter": true,
+                "orderMulti": false,
+                "ajax": {
+                    "url": "https://localhost:44330/api/user",
+                    "type": "get",
+                    "datatype": "json",
+                    "dataSrc": "data"
+                },
+                "columnDefs": [
+                    {
+                        "targets": [1],
+                        "visible": false,
+
+                    },
+                    {
+                        "targets": [0, 2],
+                        "searchable": true
+                    },
+                    {
+                        "targets": [3],
+                        "searchable": false,
+                        "orderable": false
+                    },
+                ],
+                "columns": [
+                    {
+                        "data": null,
+                        "render": function (data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                    },
+                    {
+                        "data": 'nik'
+                    },
+                    {
+                        "data": 'name'
+                    },
+                    {
+                        "data": 'email'
+                    },
+                    {
+                        "data": 'gender'
+                    },
+                    {
+                        "data": 'birthdate'
+                    },
+                    {
+                        "data": 'position'
+                    },
+                    {
+                        "data": 'marriedStatus'
+                    },
+                    {
+                        "data": 'address'
+                    },
+                    {
+                        "data": 'roleId'
+                    }
+                ]
+            });
+        });
+
+        function Get(id) {
+            console.log(id);
+            $.ajax({
+                url: "/User/Get",
+                data: { id: id }
+            }).done((result) => {
+                console.log(result);
+                var obj = JSON.parse(result);
+                $("#nik").val(obj.data.nik);
+                $("#name").val(obj.data.name);
+                $("#email").val(obj.data.email);
+                $("#gender").val(obj.data.gender);
+                $("#birthdate").val(obj.data.birthdate);
+                $("#position").val(obj.data.position);
+                $("#marriedStatus").val(obj.data.marriedStatus);
+                $("#address").val(obj.data.address);
+                $("#roleId").val(obj.data.roleId);
+            }).fail((error) => {
+                console.log(error);
+            })
+        }
+    </script>
+}
+

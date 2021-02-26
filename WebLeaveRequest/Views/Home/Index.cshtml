@@ -29,9 +29,8 @@
                                 <small class="m-3">Register</small>
                             </a>
                         </div>
-                        <button type="button" class="btn btn-primary mt-3" onclick="Login()">Submit</button>
+                        <button type="button" class="btn btn-primary mt-3" onclick="Login()">Login</button>
                     </form>
-
                 </div>
             </div>
         </div>
@@ -158,9 +157,18 @@
             type: 'post',
             url: '/authentication/login',
             data: Login
-        }).done((result) => {
-            console.log("ok");
-            if (result == 200) {
+        }).done((result) => {         
+            var obj = JSON.parse(result);
+            if (obj.role == 'Admin') {
+                alert("Successed to Login");
+                window.location.href = "https://localhost:44349/admin";
+            } else if (obj.role == 'HRD') {
+                alert("Successed to Login");
+                window.location.href = "https://localhost:44349/approve";
+            } else if (obj.role == 'Manager') {
+                alert("Successed to Login");
+                window.location.href = "https://localhost:44349/approve";
+            } else if (obj.role == 'Employee') {
                 alert("Successed to Login");
                 window.location.href = "https://localhost:44349/request";
             }
@@ -168,10 +176,7 @@
                 alert("Failed to Login");
             }
         }).fail((result) => {
-            console.log(result);
-            if (result != 200) {
                 alert("Failed to Login");
-            }
         })
     }
 

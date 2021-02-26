@@ -42,7 +42,7 @@ namespace LeaveRequest.Repositories.Data
             };
 
             myContext.Add(request);
-            var resRequest = myContext.SaveChanges();
+            
             
             RequestVM result5 = null;
             string connectStr5 = Configuration.GetConnectionString("MyConnection");
@@ -141,7 +141,7 @@ namespace LeaveRequest.Repositories.Data
             }
             //End Condition For ReasionRequest
 
-
+            var resRequest = myContext.SaveChanges();
             if (resRequest > 0)
             {
                 sendEmail.SendRequestEmployee(result.Email);

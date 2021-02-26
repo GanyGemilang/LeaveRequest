@@ -1,4 +1,5 @@
 ﻿using LeaveRequest.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -13,6 +14,7 @@ namespace WebLeaveRequest.Controllers
 {
     public class ApproveController : Controller
     {
+        //[Authorize(Roles = "HRD,Manager")]
         public IActionResult Index()
         {
             return View();

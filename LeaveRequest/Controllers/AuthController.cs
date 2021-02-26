@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LeaveRequest.Context;
+using Microsoft.Extensions.Configuration;
 
 namespace LeaveRequest.Controllers
 {
@@ -17,14 +18,16 @@ namespace LeaveRequest.Controllers
     {
         private readonly IJWTAuthenticationManager jWTAuthenticationManager;
         private readonly AccountRepository accountRepository;
+        private IConfiguration iconfiguration;
 
-        public AuthController(IJWTAuthenticationManager jWTAuthenticationManager, AccountRepository accountRepository)
+        public AuthController(IJWTAuthenticationManager jWTAuthenticationManager, AccountRepository accountRepository, IConfiguration iconfiguration)
         {
             this.jWTAuthenticationManager = jWTAuthenticationManager;
             this.accountRepository = accountRepository;
+            this.iconfiguration = iconfiguration;
         }
 
-        [AllowAnonymous]
+        /*[AllowAnonymous]
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody] LoginVM loginVM)
         {
@@ -32,13 +35,18 @@ namespace LeaveRequest.Controllers
             if (token == null)
                 return Unauthorized();
             return Ok(token);
-        }
+        }*/
 
         [HttpPost("Login")]
-        public LoginVM Login([FromBody] LoginVM login)
+        public LoginResponseVM Login([FromBody] LoginVM login)
         {
-            var user = accountRepository.Login(login.Email, login.Password);
-            return user;
+            var response = accountRepository.Login(login.Email, login.Password);
+            var token = jWTAuthenticationManager.Generate(response);
+            LoginResponseVM result = new LoginResponseVM();
+            result.Token = token;
+            result.Role = response.Role;
+            result.Email = response.Email;
+            return result;
         }
     }
 }
