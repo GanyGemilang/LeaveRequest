@@ -20,12 +20,20 @@ namespace WebLeaveRequest.Controllers
             return View();
         }
 
+        [HttpGet]
+        public String Get(int id)
+        {
+            var httpClient = new HttpClient();
+            var response = httpClient.GetAsync("https://localhost:44330/api/request/" + id).Result;
+            var apiResponse = response.Content.ReadAsStringAsync();
+            return apiResponse.Result;
+        }
         [HttpPut]
         public HttpStatusCode Approve(ApproveRequestVM approveRequestVM)
         {
             var httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(approveRequestVM), Encoding.UTF8, "application/json");
-            var result = httpClient.PutAsync("https://localhost:44330/api/request/SubmitApproved/", content).Result;
+            var result = httpClient.PutAsync("https://localhost:44330/api/request/SubmitApproved", content).Result;
             return result.StatusCode;
         }
 
@@ -34,7 +42,7 @@ namespace WebLeaveRequest.Controllers
         {
             var httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(approveRequestVM), Encoding.UTF8, "application/json");
-            var result = httpClient.PutAsync("https://localhost:44330/api/request/SubmitReject/", content).Result;
+            var result = httpClient.PutAsync("https://localhost:44330/api/request/SubmitReject", content).Result;
             return result.StatusCode;
         }
     }

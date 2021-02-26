@@ -7,7 +7,7 @@ namespace LeaveRequest.ViewModels
 {
     public class ApproveRequestVM
     {
-        public int IdRequest { get; set; }
+        public int Id { get; set; }
         public string Email { get; set; }
         public Boolean IsApproved { get; set; } 
     }
