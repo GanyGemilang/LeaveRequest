@@ -54,34 +54,39 @@
                 <form id="formrole">
                     <div class="row">
                         <div class="col-6">
-                            <div class="form-group">
+                            <div class="form-group" hidden>
                                 <label for="id" class="col-form-label">NIK:</label>
                                 <input type="text" class="form-control" id="nik" name="nik">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" hidden>
                                 <label for="name" class="col-form-label">First Name:</label>
                                 <input type="date" class="form-control" id="firstName" name="firstName">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" hidden>
                                 <label for="name" class="col-form-label">Last Name:</label>
                                 <input type="text" class="form-control" id="lastName" name="lastName">
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="form-group">
+                            <div class="form-group" hidden>
                                 <label for="name" class="col-form-label">Email:</label>
                                 <input type="date" class="form-control" id="email" name="email">
                             </div>
-                            <div class="form-group">
-                                <label for="name" class="col-form-label">Role Id:</label>
-                                <input type="date" class="form-control" id="roleId" name="roleId">
-                            </div>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-form-label">Role Id:</label>
+                        <select id="roleId" class="form-control" name="roleId">
+                            <option value="1">Admin</option>
+                            <option value="2">HRD</option>
+                            <option value="3">Manager</option>
+                            <option value="4">Employee</option>
+                        </select>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="buttonsubmit">Submit</button>
+                <button type="button" class="btn btn-primary" id="buttonsubmit" onclick="Update()">Submit</button>
             </div>
         </div>
     </div>
@@ -152,13 +157,27 @@
                             "data": 'email'
                         },
                         {
-                            "data": 'roleId'
+                            "data": 'roleId',
+                            "render": function (roleId) {
+                                if (roleId == "1" || roleId == "Admin") {
+                                    return "Admin";
+                                }
+                                else if (roleId == "2" || roleId == "HRD") {
+                                    return "HRD";
+                                }
+                                else if (roleId == "3" || roleId == "Manager") {
+                                    return "Manager";
+                                }
+                                else if (roleId == "4" || roleId == "Employee") {
+                                    return "Employee";
+                                }
+                            }
                         },
                         {
-                            "data": 'id',
+                            "data": 'nik',
                             "render": function (data, type, row, meta) {
-                                return '<a href="javascript:void(0)" class="far fa-check-circle table-action text-dark" data-toggle="tooltip" data-placement="top" title="Approve" onclick="Get(\'' + row['id'] + '\')"></a> ' +
-                                    '<a href="javascript:void(0)" class="far fa-times-circle table-action text-danger" data-toggle="tooltip" data-placement="top" title="Reject" onclick="Reject(\'' + row['id'] + '\')"></a>'
+                                return '<a href="javascript:void(0)" class="far fa-edit table-action text-dark" data-toggle="tooltip" data-placement="top" title="Edit" onclick="Get(\'' + row['nik'] + '\')"></a> '
+                                  
                             }
                         }
                     ]
@@ -168,7 +187,7 @@
             function Get(id) {
                 console.log(id);
                 $.ajax({
-                    url: "/Admin/Get",
+                    url: "/admin/Get",
                     data: { id: id }
                 }).done((result) => {
                     console.log(result);
@@ -196,6 +215,7 @@
                     url: '/admin/Update',
                     data: user
                 }).done((result) => {
+                    console.log(result, "Ok")
                     if (result == 200) {
                         swal('Success', 'Update Successfully', 'success');
                         $('#addModal').modal('hide');
@@ -207,6 +227,7 @@
                         table.ajax.reload();
                     }
                     else {
+                        console.log(result, "gagal")
                         swal('Error', 'Something Went Wrong', 'error');
                     }
                 }).fail((error) => {

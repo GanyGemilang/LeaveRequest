@@ -154,7 +154,7 @@ namespace LeaveRequest.Repositories.Data
             }
         }
 
-        public int Approved(ApproveRequestVM input)
+        public int ApprovedHRD(ApproveRequestVM input)
         {
             var data = myContext.Requests.Where(e => e.Id == input.Id).FirstOrDefault();
             if (data == null)
@@ -170,15 +170,6 @@ namespace LeaveRequest.Repositories.Data
                 return 0;
             }
 
-            /*User dataUser = userRepository.GetDataByEmail(input.Email);
-            if (dataUser == null)
-            {
-                return 0;
-            }
-            if (data.NIK == dataUser.NIK || (data.ApprovedHRD != null && data.ApprovedHRD == dataUser.NIK)) //biar tidak bisa mengapproved data diri sendiri 
-            {
-                return 0;
-            }*/
             if (data.Status == Status.Waiting)
             {
                 data.Status = Status.ApprovedByHRD;
@@ -195,14 +186,36 @@ namespace LeaveRequest.Repositories.Data
                 }
                 sendEmail.SendApproveHRD(result2.Email,input.Id);
             }
-            else if (data.Status == Status.ApprovedByHRD)
+            else
+            {
+                return 0;
+            }
+            myContext.SaveChanges();
+            return 1;
+        }
+        
+        public int ApprovedManager(ApproveRequestVM input)
+        {
+            var data = myContext.Requests.Where(e => e.Id == input.Id).FirstOrDefault();
+            if (data == null)
+            {
+                return 0;
+            }
+            if (data.Status == Status.ApprovedByManager)
+            {
+                return 0;
+            }
+            if (data.Status == Status.RejectByHRD || data.Status == Status.RejectByManager)
+            {
+                return 0;
+            }
+
+            if (data.Status == Status.ApprovedByHRD)
             {
                 var TotalDay = (data.EndDate - data.StartDate).TotalDays;
                 userRepository.UpdateRemainingLeave(data.NIK, TotalDay);
                 data.Status = Status.ApprovedByManager;
-                //data.ApprovedManager = dataUser.NIK;
-
-
+                
                 ApproveRequestVM result3 = null;
                 string connectStr3 = Configuration.GetConnectionString("MyConnection");
                 var userCondition3 = myContext.Requests.Where(b => b.Id == input.Id).FirstOrDefault();
@@ -226,7 +239,7 @@ namespace LeaveRequest.Repositories.Data
             return 1;
         }
 
-        public int Reject(ApproveRequestVM input)
+        public int RejectHRD(ApproveRequestVM input)
         {
             var data = myContext.Requests.Where(e => e.Id == input.Id).FirstOrDefault();
             if (data == null)
@@ -242,21 +255,9 @@ namespace LeaveRequest.Repositories.Data
                 return 0;
             }
 
-            /*User dataUser = userRepository.GetDataByEmail(input.Email);
-            if (dataUser == null)
-            {
-                return 0;
-            }
-            if (data.NIK == dataUser.NIK || (data.ApprovedHRD != null && data.ApprovedHRD == dataUser.NIK)) //biar tidak bisa mengapproved data diri sendiri 
-            {
-                return 0;
-            }*/
-            //if (data.Status == Status.Waiting && dataUser.Role.Name == "HRD")
             if (data.Status == Status.Waiting)
             {
                 data.Status = Status.RejectByManager;
-                //data.ApprovedHRD = dataUser.NIK;
-                //data.ApprovedManager = dataUser.NIK;
                 myContext.Update(data);
 
                 ApproveRequestVM result4 = null;
@@ -273,8 +274,31 @@ namespace LeaveRequest.Repositories.Data
                 }
                 sendEmail.SendReject(result4.Email, input.Id);
             }
-            //else if (data.Status == Status.ApprovedByHRD && dataUser.Role.Name == "Manager")
-            else if (data.Status == Status.ApprovedByHRD)
+            else
+            {
+                return 0;
+            }
+            myContext.SaveChanges();
+            return 1;
+        }
+        
+        public int RejectManager(ApproveRequestVM input)
+        {
+            var data = myContext.Requests.Where(e => e.Id == input.Id).FirstOrDefault();
+            if (data == null)
+            {
+                return 0;
+            }
+            if (data.Status == Status.ApprovedByManager)
+            {
+                return 0;
+            }
+            if (data.Status == Status.RejectByHRD || data.Status == Status.RejectByManager)
+            {
+                return 0;
+            }
+
+            if (data.Status == Status.ApprovedByHRD)
             {
                 data.Status = Status.RejectByManager;
                 //data.ApprovedManager = dataUser.NIK;
