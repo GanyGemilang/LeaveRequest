@@ -11,7 +11,7 @@ using LeaveRequest.Context;
 using Microsoft.Extensions.Configuration;
 
 namespace LeaveRequest.Controllers
-{
+{  
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase

@@ -55,10 +55,6 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group" hidden>
-                                <label for="id" class="col-form-label">NIK:</label>
-                                <input type="text" class="form-control" id="nik" name="nik">
-                            </div>
-                            <div class="form-group" hidden>
                                 <label for="name" class="col-form-label">First Name:</label>
                                 <input type="date" class="form-control" id="firstName" name="firstName">
                             </div>
@@ -73,6 +69,10 @@
                                 <input type="date" class="form-control" id="email" name="email">
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="id" class="col-form-label">NIK:</label>
+                        <input disabled type="text" class="form-control" id="nik" name="nik">
                     </div>
                     <div class="form-group">
                         <label for="name" class="col-form-label">Role Id:</label>
@@ -218,13 +218,13 @@
                     console.log(result, "Ok")
                     if (result == 200) {
                         swal('Success', 'Update Successfully', 'success');
+                        table.ajax.reload();
                         $('#addModal').modal('hide');
                         $("#nik").val(obj.data.nik);
                         $("#firstName").val(obj.data.firstName);
                         $("#lastName").val(obj.data.lastName);
                         $("#email").val(obj.data.email);
                         $("#roleId").val(obj.data.roleId);
-                        table.ajax.reload();
                     }
                     else {
                         console.log(result, "gagal")
