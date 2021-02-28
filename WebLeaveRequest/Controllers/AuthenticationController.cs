@@ -60,7 +60,7 @@ namespace WebLeaveRequest.Controllers
         {
             var httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(changePasswordViewModels), Encoding.UTF8, "application/json");
-            var result = httpClient.PutAsync("https://localhost:44330/api/Account/ChangePassword/", content).Result;
+            var result = httpClient.PutAsync("https://localhost:44330/api/Account/ChangePassword/" + changePasswordViewModels.NIK, content).Result;
             return result.StatusCode;
         }
     }

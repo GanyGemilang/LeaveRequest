@@ -17,5 +17,7 @@ namespace LeaveRequest.ViewModels
 
         [Compare("NewPassword"), Required]
         public string ConfirmPassword { get; set; }
+
+        public string NIK { get; set; }
     }
 }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LeaveRequest.Context;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Http;
 
 namespace LeaveRequest.Controllers
 {  
@@ -53,7 +54,14 @@ namespace LeaveRequest.Controllers
             LoginResponseVM result = new LoginResponseVM();
             result.Token = token;
             result.Role = response.Role;
-            result.Email = response.Email;
+            result.Email = response.NIK;
+
+            HttpContext.Session.SetString("nik", response.NIK);
+            string valuenik = HttpContext.Session.GetString("nik");
+            //HttpContext.Session.SetString("name", tempResult.Name);
+            //HttpContext.Session.SetString("email", loginViewModels.Email);
+            //HttpContext.Session.SetString("rolename", tempResult.RoleName);
+
             return result;
         }
     }

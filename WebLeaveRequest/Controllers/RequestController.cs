@@ -18,6 +18,16 @@ namespace WebLeaveRequest.Controllers
             return View();
         }
 
+        public IActionResult requestAction()
+        {
+            return View();
+        }
+
+        public IActionResult requestHistory()
+        {
+            return View();
+        }
+
         [HttpGet]
         public String Get(int id)
         {
