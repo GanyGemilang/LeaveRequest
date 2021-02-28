@@ -7,6 +7,9 @@ namespace LeaveRequest.Models
 {
     public class Dashboard
     {
-        public int request_count { get; set; }
+        public string approval { get; set; }
+        public int statusWaiting { get; set; }
+        public int statusApprove { get; set; }
+        public int statusReject { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using LeaveRequest.Handler;
 using LeaveRequest.Repositories.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -38,6 +39,15 @@ namespace LeaveRequest
             services.AddScoped<RequestRepository>();
             /*services.AddScoped<RequestHistoryRepository>();*/
             services.AddScoped<ParameterRepository>();
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.CheckConsentNeeded = context => false; // consent required
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromHours(12);//You can set Time   
+                options.Cookie.IsEssential = true;
+            });
 
             services.JwtConfigure(Configuration);
 
@@ -46,9 +56,11 @@ namespace LeaveRequest
                 c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44349"));
             });
 
+
             services.AddControllersWithViews()
             .AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -59,7 +71,7 @@ namespace LeaveRequest
             }
 
             app.UseHttpsRedirection();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthentication();

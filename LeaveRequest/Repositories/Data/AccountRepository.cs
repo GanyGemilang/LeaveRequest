@@ -40,6 +40,7 @@ namespace LeaveRequest.Repositories.Data
             var result = myContext.SaveChanges();
             return result;
         }
+
         public LoginVM Login(string email, string password)
         {
             LoginVM result = null;

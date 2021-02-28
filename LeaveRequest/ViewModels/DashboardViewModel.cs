@@ -7,6 +7,8 @@ namespace LeaveRequest.ViewModels
 {
     public class DashboardViewModel
     {
-        public int request_count { get; set; }
+        public int waiting_count { get; set; }
+        public int approve_count { get; set; }
+        public int reject_count { get; set; }
     }
 }

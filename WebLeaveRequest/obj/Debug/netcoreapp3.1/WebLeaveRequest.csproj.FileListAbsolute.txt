@@ -237,8 +237,6 @@ F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebL
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.TagHelpers.output.cache
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.RazorCoreGenerate.cache
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
-F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Approve\Index.cshtml.g.cs
-F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Index.cshtml.g.cs
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Request\Index.cshtml.g.cs
@@ -253,3 +251,8 @@ F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebL
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.Views.pdb
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.csproj.CopyComplete
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.genruntimeconfig.cache
+F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\ApproveHRD\Index.cshtml.g.cs
+F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\ApproveManager\Index.cshtml.g.cs
+F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Index.cshtml.g.cs
+F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Request\requestAction.cshtml.g.cs
+F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Request\requestHistory.cshtml.g.cs

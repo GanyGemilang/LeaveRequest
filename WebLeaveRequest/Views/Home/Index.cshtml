@@ -159,15 +159,21 @@
             data: Login
         }).done((result) => {         
             var obj = JSON.parse(result);
+            console.log("login obj : ", obj);
+            console.log("login nik : ", obj.email);
+            sessionStorage.setItem("nik", obj.email);
             if (obj.role == 'Admin') {
                 alert("Successed to Login");
-                window.location.href = "https://localhost:44349/admin";
+                document.cookie = "admin";
+                window.location.href = "https://localhost:44349/dashboard";
             } else if (obj.role == 'HRD') {
                 alert("Successed to Login");
-                window.location.href = "https://localhost:44349/approve";
+                document.cookie = "hrd";
+                window.location.href = "https://localhost:44349/dashboard";
             } else if (obj.role == 'Manager') {
                 alert("Successed to Login");
-                window.location.href = "https://localhost:44349/approve";
+                document.cookie = "manager";
+                window.location.href = "https://localhost:44349/dashboard";
             } else if (obj.role == 'Employee') {
                 alert("Successed to Login");
                 document.cookie = "employee";

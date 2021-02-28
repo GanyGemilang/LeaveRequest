@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +25,15 @@ namespace WebLeaveRequest
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.CheckConsentNeeded = context => false; // consent required
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromHours(12);//You can set Time   
+                options.Cookie.IsEssential = true;
+            });
             //services.AddRazorPages(); //add razor page
         }
 
@@ -40,6 +50,7 @@ namespace WebLeaveRequest
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();       
             
