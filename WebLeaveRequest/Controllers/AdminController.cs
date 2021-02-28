@@ -22,7 +22,7 @@ namespace WebLeaveRequest.Controllers
         public String Get(int id)
         {
             var httpClient = new HttpClient();
-            var response = httpClient.GetAsync("https://localhost:44383/api/User/" + id).Result;
+            var response = httpClient.GetAsync("https://localhost:44330/api/User/" + id).Result;
             var apiResponse = response.Content.ReadAsStringAsync();
             return apiResponse.Result;
         }
@@ -32,7 +32,7 @@ namespace WebLeaveRequest.Controllers
         {
             var httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(registerVM), Encoding.UTF8, "application/json");
-            var result = httpClient.PutAsync("https://localhost:44383/api/User/", content).Result;
+            var result = httpClient.PutAsync("https://localhost:44330/api/User/", content).Result;
             return result.StatusCode;
         }
     }

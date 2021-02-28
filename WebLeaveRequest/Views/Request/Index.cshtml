@@ -58,10 +58,6 @@
                                     <label for="name" class="col-form-label">Start Date:</label>
                                     <input type="date" class="form-control" id="startdate" name="startdate">
                                 </div>
-                                <div class="form-group">
-                                    <label for="name" class="col-form-label">Notes:</label>
-                                    <textarea type="text" class="form-control" id="notes" name="notes"></textarea>
-                                </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
@@ -81,6 +77,10 @@
                                     <input type="date" class="form-control" id="enddate" name="enddate">
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-form-label">Notes:</label>
+                            <textarea type="text" class="form-control" id="notes" name="notes"></textarea>
                         </div>
                     </form>
                 </div>
@@ -153,7 +153,7 @@
                                 else if (status == "1") {
                                     return "Approved By HRD";
                                 }
-                                else if (status == "1") {
+                                else if (status == "3") {
                                     return "Approved";
                                 }
                                 else {

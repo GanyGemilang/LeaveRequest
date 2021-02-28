@@ -47,7 +47,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="registerform" action="Account/ForgotPassword">
+                <form id="forgotPasswordform" action="Account/ForgotPassword">
                     <div class="form-group">
                         <label for="email" class="col-form-label">Email</label>
                         <input type="text" class="form-control" id="emailforgot" name="emailforgot">
@@ -189,6 +189,7 @@
             url: '/authentication/ForgotPassword',
             data: User
         }).done((result) => {
+            console.log("ok");
             if (result == 200) {
                 alert("Check Your Email for New Password!");
                 $('#forgotpassword').modal('hide');

@@ -1,5 +1,4 @@
 ﻿using LeaveRequest.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -12,37 +11,28 @@ using System.Threading.Tasks;
 
 namespace WebLeaveRequest.Controllers
 {
-    public class ApproveController : Controller
+    public class ApproveManagerController : Controller
     {
-        //[Authorize(Roles = "HRD,Manager")]
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpGet]
-        public String Get(int id)
-        {
-            var httpClient = new HttpClient();
-            var response = httpClient.GetAsync("https://localhost:44330/api/request/" + id).Result;
-            var apiResponse = response.Content.ReadAsStringAsync();
-            return apiResponse.Result;
-        }
         [HttpPut]
-        public HttpStatusCode Approve(ApproveRequestVM approveRequestVM)
+        public HttpStatusCode ApproveManager(ApproveRequestVM approveRequestVM)
         {
             var httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(approveRequestVM), Encoding.UTF8, "application/json");
-            var result = httpClient.PutAsync("https://localhost:44330/api/request/SubmitApproved", content).Result;
+            var result = httpClient.PutAsync("https://localhost:44330/api/request/SubmitApprovedManager", content).Result;
             return result.StatusCode;
         }
 
         [HttpPut]
-        public HttpStatusCode Reject(ApproveRequestVM approveRequestVM)
+        public HttpStatusCode RejectManager(ApproveRequestVM approveRequestVM)
         {
             var httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(approveRequestVM), Encoding.UTF8, "application/json");
-            var result = httpClient.PutAsync("https://localhost:44330/api/request/SubmitReject", content).Result;
+            var result = httpClient.PutAsync("https://localhost:44330/api/request/SubmitRejectManager", content).Result;
             return result.StatusCode;
         }
     }

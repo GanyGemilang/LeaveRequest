@@ -59,10 +59,10 @@ namespace LeaveRequest.Controllers
             }
         }
 
-        [HttpPut("SubmitApproved")]
-        public ActionResult SubmitApproved(ApproveRequestVM approveRequestVM)
+        [HttpPut("SubmitApprovedHRD")]
+        public ActionResult SubmitApprovedHRD(ApproveRequestVM approveRequestVM)
         {
-            var data = requestRepository.Approved(approveRequestVM);
+            var data = requestRepository.ApprovedHRD(approveRequestVM);
             if (data == 1)
             {
                 return Ok(new { status = "Approved success" });
@@ -74,10 +74,40 @@ namespace LeaveRequest.Controllers
             
         }
         
-        [HttpPut("SubmitReject")]
-        public ActionResult SubmitReject(ApproveRequestVM approveRequestVM)
+        [HttpPut("SubmitRejectHRD")]
+        public ActionResult SubmitRejectHRD(ApproveRequestVM approveRequestVM)
         {
-            var data = requestRepository.Reject(approveRequestVM);
+            var data = requestRepository.RejectHRD(approveRequestVM);
+            if (data == 1)
+            {
+                return Ok(new { status = "Reject success" });
+            }
+            else
+            {
+                return StatusCode(500, new { status = "Internal Server Error" });
+            }
+            
+        }
+        
+        [HttpPut("SubmitApprovedManager")]
+        public ActionResult SubmitApprovedManager(ApproveRequestVM approveRequestVM)
+        {
+            var data = requestRepository.ApprovedManager(approveRequestVM);
+            if (data == 1)
+            {
+                return Ok(new { status = "Approved success" });
+            }
+            else
+            {
+                return StatusCode(500, new { status = "Internal Server Error" });
+            }
+            
+        }
+        
+        [HttpPut("SubmitRejectManager")]
+        public ActionResult SubmitRejectManager(ApproveRequestVM approveRequestVM)
+        {
+            var data = requestRepository.RejectManager(approveRequestVM);
             if (data == 1)
             {
                 return Ok(new { status = "Reject success" });
