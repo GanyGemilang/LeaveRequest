@@ -1,5 +1,167 @@
-﻿
-<div class="p-3">
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Overtime Request Application</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="#" class="brand-link">
+                <img src="dist/img/Logo_Mii.png" alt="MII Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">Leave Request System</span>
+            </a>
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="ApproveHRD" asp-action="Index"><i class="nav-icon fas fa-th"></i>Approve HRD Form</a>
+                    </li>
+                    @*       <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Role" asp-action="Index"><i class="nav-icon fas fa-th"></i>Manage Role</a>
+                        </li>*@
+                    @* <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Check Request Leave Request
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right"></span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="pages/layout/top-nav.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Actual</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>History</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>*@
+                    @* <li class="nav-item" id="reportItem">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Report
+                                </p>
+                            </a>
+                        </li>*@
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-copy"></i>
+                            <p>
+                                Employees Leave Request
+                                <i class="fas fa-angle-left right"></i>
+                                <span class="badge badge-info right"></span>m
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="pages/layout/top-nav.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Actual</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>History</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-table"></i>
+                            <p>
+                                Profile
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Authentication" asp-action="Index">Change Password</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+            <!-- /.sidebar -->
+        </aside>
+        <!-- ./wrapper -->
+        <!-- jQuery -->
+        <script src="plugins/jquery/jquery.min.js"></script>
+        <!-- jQuery UI 1.11.4 -->
+        <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>$.widget.bridge('uibutton', $.ui.button)</script>
+        <!-- Bootstrap 4 -->
+        <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- ChartJS -->
+        <script src="plugins/chart.js/Chart.min.js"></script>
+        <!-- Sparkline -->
+        <script src="plugins/sparklines/sparkline.js"></script>
+        <!-- JQVMap -->
+        <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+        <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+        <!-- daterangepicker -->
+        <script src="plugins/moment/moment.min.js"></script>
+        <script src="plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+        <!-- Summernote -->
+        <script src="plugins/summernote/summernote-bs4.min.js"></script>
+        <!-- overlayScrollbars -->
+        <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="dist/js/adminlte.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="dist/js/demo.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="dist/js/pages/dashboard.js"></script>
+</body>
+</html>
+<div class="p-3" style="margin-left:150px;margin-bottom:150px">
     <h4 class="text-muted font-18 m-b-5 text-center">Welcome</h4>
     <p class="text-muted text-center">Approve HRD Data Leave Request.</p>
 
@@ -180,7 +342,7 @@
                     {
                         "data": 'id',
                         "render": function (data, type, row, meta) {
-                            return '<a href="javascript:void(0)" class="far fa-check-square table-action text-dark" data-toggle="tooltip" data-placement="top" title="Approve" onclick="Get(\'' + row['id'] + '\')"></a> ' 
+                            return '<a href="javascript:void(0)" class="far fa-check-square table-action text-dark" data-toggle="tooltip" data-placement="top" title="Approve" onclick="Get(\'' + row['id'] + '\')"></a> '
                         }
                     }
                 ]

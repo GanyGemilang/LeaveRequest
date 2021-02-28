@@ -8,6 +8,8 @@ namespace LeaveRequest.ViewModels
 {
     public class LoginVM
     {
+        public string NIK { get; set; }
+        public string Name { get; set; }
         [Required(ErrorMessage = "Tidak boleh kosong"), EmailAddress(ErrorMessage = "Masukan format email yang valid"), MaxLength(255, ErrorMessage = "Maksimal 255 karakter")]
         public string Email { get; set; }
         public string Password { get; set; }

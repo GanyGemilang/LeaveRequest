@@ -1,0 +1,57 @@
+﻿<div class="container-fluid ">
+    <div class="col-lg-6 m-5">
+        <div class=" card" style="margin-left:250px; width:550px">
+            <div class="card-body m-2">
+                <div class="p-3">
+                    <h4 class="text-muted font-18 m-b-5 text-center">Welcome</h4>
+                    <p class="text-muted text-center">Change Password Leave Request System.</p>
+
+                    <form id="roleform">
+                        <div class="mb-3">
+                            <label for="nik">NIK</label>
+                            <input type="text" id="nik" class="form-control" name="nik">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email">Old Password</label>
+                            <input type="text" id="oldpassword" class="form-control" name="oldpassword">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pass">Password</label>
+                            <input type="password" id="password" class="form-control" name="pass">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pass">Confirm Password</label>
+                            <input type="password" id="confirmpassword" class="form-control" name="pass">
+                        </div>
+                        
+                        <button type="button" class="btn btn-primary mt-3" onclick="ChangePassword()">Change Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function ChangePassword() {
+        var ChangePassword = new Object();
+        ChangePassword.OldPassword = $("#oldpassword").val();
+        ChangePassword.NIK = $("#nik").val();
+        ChangePassword.Password = $("#password").val();
+        ChangePassword.confirmpassword = $("#confirmpassword").val();
+        console.log(ChangePassword);
+        $.ajax({
+            type: 'put',
+            url: '/ChangePassword/ChangePassword',
+            data: ChangePassword
+        }).done((result) => {
+            console.log(result);
+            if (result == 200) {
+                alert("Successed to Change Password!");
+            }
+        }).fail((result) => {
+            alert("Failed to Login");
+        })
+    }
+    
+</script>

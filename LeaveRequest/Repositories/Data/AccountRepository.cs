@@ -32,10 +32,10 @@ namespace LeaveRequest.Repositories.Data
             this.Configuration = configuration;
         }
 
-        public int ChangePassword(string NIK, string password)
+        public int ChangePassword(ChangePasswordVM changePasswordVM)
         {
-            Account acc = myContext.Accounts.Where(a => a.NIK == NIK).FirstOrDefault();
-            acc.Password = Hashing.HashPassword(password);
+            Account acc = myContext.Accounts.Where(a => a.NIK == changePasswordVM.NIK).FirstOrDefault();
+            acc.Password = Hashing.HashPassword(changePasswordVM.NewPassword);
             myContext.Entry(acc).State = EntityState.Modified;
             var result = myContext.SaveChanges();
             return result;

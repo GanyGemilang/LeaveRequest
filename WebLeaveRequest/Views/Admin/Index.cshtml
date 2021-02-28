@@ -1,4 +1,184 @@
-﻿<div class="p-3">
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Overtime Request Application</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="#" class="brand-link">
+                <img src="dist/img/Logo_Mii.png" alt="MII Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">Leave Request System</span>
+            </a>
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index"><i class="nav-icon fas fa-th"></i>Manage Role Form</a>
+                    </li>
+                    @*       <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Role" asp-action="Index"><i class="nav-icon fas fa-th"></i>Manage Role</a>
+                        </li>*@
+                    @* <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Check Request Leave Request
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right"></span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="pages/layout/top-nav.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Actual</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>History</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>*@
+                    @* <li class="nav-item" id="reportItem">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Report
+                                </p>
+                            </a>
+                        </li>*@
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-copy"></i>
+                            <p>
+                                Employees Leave Request
+                                <i class="fas fa-angle-left right"></i>
+                                <span class="badge badge-info right"></span>m
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="pages/layout/top-nav.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Actual</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>History</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-table"></i>
+                            <p>
+                                Profile
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Authentication" asp-action="Index">Change Password</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+            <!-- /.sidebar -->
+        </aside>
+        <!-- ./wrapper -->
+        <!-- jQuery -->
+        <script src="plugins/jquery/jquery.min.js"></script>
+        <!-- jQuery UI 1.11.4 -->
+        <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>$.widget.bridge('uibutton', $.ui.button)</script>
+        <!-- Bootstrap 4 -->
+        <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- ChartJS -->
+        <script src="plugins/chart.js/Chart.min.js"></script>
+        <!-- Sparkline -->
+        <script src="plugins/sparklines/sparkline.js"></script>
+        <!-- JQVMap -->
+        <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+        <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+        <!-- daterangepicker -->
+        <script src="plugins/moment/moment.min.js"></script>
+        <script src="plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+        <!-- Summernote -->
+        <script src="plugins/summernote/summernote-bs4.min.js"></script>
+        <!-- overlayScrollbars -->
+        <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="dist/js/adminlte.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="dist/js/demo.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="dist/js/pages/dashboard.js"></script>
+</body>
+</html>
+
+<script>
+    var role = document.cookie;
+    console.log("role", role);
+    if (role == "employee") {
+        document.getElementById("reportItem").style.visibility = "hidden";
+    }
+
+    function ChangePassword() {
+        console.log("test");
+        $.ajax({
+            type: 'get',
+            url: '/Dashboard/Logout'
+        })
+    }
+</script>
+
+<div class="p-3" style="margin-left:150px;margin-bottom:150px">
     <h4 class="text-muted font-18 m-b-5 text-center">Welcome</h4>
     <p class="text-muted text-center">Manage Role Leave Request.</p>
 
@@ -95,144 +275,144 @@
 @section scripts
 {
     <script>
-            var table = null;
-            $(document).ready(function () {
-                table = $("#myTable").DataTable({
-                    "filter": true,
-                    "orderMulti": false,
-                    "ajax": {
-                        "url": "https://localhost:44330/api/user",
-                        "type": "get",
-                        "datatype": "json",
-                        "dataSrc": "data"
-                    },
-                    "columnDefs": [
-                        {
-                            "targets": [4, 7, 8],
-                            "visible": false,
+        var table = null;
+        $(document).ready(function () {
+            table = $("#myTable").DataTable({
+                "filter": true,
+                "orderMulti": false,
+                "ajax": {
+                    "url": "https://localhost:44330/api/user",
+                    "type": "get",
+                    "datatype": "json",
+                    "dataSrc": "data"
+                },
+                "columnDefs": [
+                    {
+                        "targets": [4, 7, 8],
+                        "visible": false,
 
-                        },
-                        {
-                            "targets": [0, 2],
-                            "searchable": true
-                        },
-                        {
-                            "targets": [3],
-                            "searchable": false,
-                            "orderable": false
-                        },
-                    ],
-                    "columns": [
-                        {
-                            "data": null,
-                            "render": function (data, type, row, meta) {
-                                return meta.row + meta.settings._iDisplayStart + 1;
+                    },
+                    {
+                        "targets": [0, 2],
+                        "searchable": true
+                    },
+                    {
+                        "targets": [3],
+                        "searchable": false,
+                        "orderable": false
+                    },
+                ],
+                "columns": [
+                    {
+                        "data": null,
+                        "render": function (data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                    },
+                    {
+                        "data": 'nik'
+                    },
+                    {
+                        "data": 'firstName'
+                    },
+                    {
+                        "data": 'lastName'
+                    },
+                    {
+                        "data": 'birthDate'
+                    },
+                    {
+                        "data": 'gender'
+                    },
+                    {
+                        "data": 'position'
+                    },
+                    {
+                        "data": 'address'
+                    },
+                    {
+                        "data": 'phoneNumber'
+                    },
+                    {
+                        "data": 'email'
+                    },
+                    {
+                        "data": 'roleId',
+                        "render": function (roleId) {
+                            if (roleId == "1" || roleId == "Admin") {
+                                return "Admin";
                             }
-                        },
-                        {
-                            "data": 'nik'
-                        },
-                        {
-                            "data": 'firstName'
-                        },
-                        {
-                            "data": 'lastName'
-                        },
-                        {
-                            "data": 'birthDate'
-                        },
-                        {
-                            "data": 'gender'
-                        },
-                        {
-                            "data": 'position'
-                        },
-                        {
-                            "data": 'address'
-                        },
-                        {
-                            "data": 'phoneNumber'
-                        },
-                        {
-                            "data": 'email'
-                        },
-                        {
-                            "data": 'roleId',
-                            "render": function (roleId) {
-                                if (roleId == "1" || roleId == "Admin") {
-                                    return "Admin";
-                                }
-                                else if (roleId == "2" || roleId == "HRD") {
-                                    return "HRD";
-                                }
-                                else if (roleId == "3" || roleId == "Manager") {
-                                    return "Manager";
-                                }
-                                else if (roleId == "4" || roleId == "Employee") {
-                                    return "Employee";
-                                }
+                            else if (roleId == "2" || roleId == "HRD") {
+                                return "HRD";
                             }
-                        },
-                        {
-                            "data": 'nik',
-                            "render": function (data, type, row, meta) {
-                                return '<a href="javascript:void(0)" class="far fa-edit table-action text-dark" data-toggle="tooltip" data-placement="top" title="Edit" onclick="Get(\'' + row['nik'] + '\')"></a> '
-                                  
+                            else if (roleId == "3" || roleId == "Manager") {
+                                return "Manager";
+                            }
+                            else if (roleId == "4" || roleId == "Employee") {
+                                return "Employee";
                             }
                         }
-                    ]
-                });
-            });
+                    },
+                    {
+                        "data": 'nik',
+                        "render": function (data, type, row, meta) {
+                            return '<a href="javascript:void(0)" class="far fa-edit table-action text-dark" data-toggle="tooltip" data-placement="top" title="Edit" onclick="Get(\'' + row['nik'] + '\')"></a> '
 
-            function Get(id) {
-                console.log(id);
-                $.ajax({
-                    url: "/admin/Get",
-                    data: { id: id }
-                }).done((result) => {
-                    console.log(result);
-                    var obj = JSON.parse(result);
-                    $("#addModal").modal("show");
+                        }
+                    }
+                ]
+            });
+        });
+
+        function Get(id) {
+            console.log(id);
+            $.ajax({
+                url: "/admin/Get",
+                data: { id: id }
+            }).done((result) => {
+                console.log(result);
+                var obj = JSON.parse(result);
+                $("#addModal").modal("show");
+                $("#nik").val(obj.data.nik);
+                $("#firstName").val(obj.data.firstName);
+                $("#lastName").val(obj.data.lastName);
+                $("#email").val(obj.data.email);
+                $("#roleId").val(obj.data.roleId);
+            }).fail((error) => {
+                console.log(error);
+            })
+        }
+
+        function Update(nik) {
+            var user = new Object();
+            user.nik = $('#nik').val();
+            user.firstName = $('#firstName').val();
+            user.lastName = $('#lastName').val();
+            user.email = $('#email').val();
+            user.roleId = $('#roleId').val();
+            $.ajax({
+                type: "PUT",
+                url: '/admin/Update',
+                data: user
+            }).done((result) => {
+                console.log(result, "Ok")
+                if (result == 200) {
+                    swal('Success', 'Update Successfully', 'success');
+                    table.ajax.reload();
+                    $('#addModal').modal('hide');
                     $("#nik").val(obj.data.nik);
                     $("#firstName").val(obj.data.firstName);
                     $("#lastName").val(obj.data.lastName);
                     $("#email").val(obj.data.email);
                     $("#roleId").val(obj.data.roleId);
-                }).fail((error) => {
-                    console.log(error);
-                })
-            }
-
-            function Update(nik) {
-                var user = new Object();
-                user.nik = $('#nik').val();
-                user.firstName = $('#firstName').val();
-                user.lastName = $('#lastName').val();
-                user.email = $('#email').val();
-                user.roleId = $('#roleId').val();
-                $.ajax({
-                    type: "PUT",
-                    url: '/admin/Update',
-                    data: user
-                }).done((result) => {
-                    console.log(result, "Ok")
-                    if (result == 200) {
-                        swal('Success', 'Update Successfully', 'success');
-                        table.ajax.reload();
-                        $('#addModal').modal('hide');
-                        $("#nik").val(obj.data.nik);
-                        $("#firstName").val(obj.data.firstName);
-                        $("#lastName").val(obj.data.lastName);
-                        $("#email").val(obj.data.email);
-                        $("#roleId").val(obj.data.roleId);
-                    }
-                    else {
-                        console.log(result, "gagal")
-                        swal('Error', 'Something Went Wrong', 'error');
-                    }
-                }).fail((error) => {
-                    console.log(error)
-                });
-            }
+                }
+                else {
+                    console.log(result, "gagal")
+                    swal('Error', 'Something Went Wrong', 'error');
+                }
+            }).fail((error) => {
+                console.log(error)
+            });
+        }
     </script>
 }
