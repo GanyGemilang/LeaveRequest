@@ -32,7 +32,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="#" class="brand-link">
-                <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="dist/img/Logo_Mii.png" alt="MII Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Leave Request System</span>
             </a>
             <!-- Sidebar Menu -->
@@ -45,10 +45,10 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-area="" asp-controller="Request" asp-action="Index"><i class="nav-icon fas fa-th"></i>Apply Leave Request</a>
                     </li>
-                    <li class="nav-item">
+             @*       <li class="nav-item">
                         <a class="nav-link" asp-area="" asp-controller="Role" asp-action="Index"><i class="nav-icon fas fa-th"></i>Manage Role</a>
-                    </li>
-                    <li class="nav-item">
+                    </li>*@
+                   @* <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-copy"></i>
                             <p>
@@ -71,22 +71,22 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
-                    <li class="nav-item">
+                    </li>*@
+                   @* <li class="nav-item" id="reportItem">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-chart-pie"></i>
                             <p>
                                 Report
                             </p>
                         </a>
-                    </li>
-                    <li class="nav-item">
+                    </li>*@
+                    <li class="nav-item" >
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-copy"></i>
                             <p>
                                 Employees Leave Request
                                 <i class="fas fa-angle-left right"></i>
-                                <span class="badge badge-info right"></span>
+                                <span class="badge badge-info right"></span>m
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
@@ -114,10 +114,10 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="ChangePassword" asp-action="Index">Change Password</a>
+                                <a class="nav-link" asp-area="" asp-controller="Authentication" asp-action="Index">Change Password</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Register" asp-action="Index">Logout</a>
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -136,12 +136,12 @@
                         <div class="col-sm-6">
                             <h1 class="m-0">Dashboard</h1>
                         </div><!-- /.col -->
-                        <div class="col-sm-6">
+                        <!--<div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item active">Dashboard v1</li>
                             </ol>
-                        </div><!-- /.col -->
+                        </div>--><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -300,6 +300,12 @@
 </html>
 
 <script>
+    var role = document.cookie;
+    console.log("role", role);
+    if (role == "employee") {
+        document.getElementById("reportItem").style.visibility = "hidden";
+    }
+
     function ChangePassword() {
         console.log("test");
         $.ajax({
@@ -308,4 +314,3 @@
         })
     }
 </script>
-

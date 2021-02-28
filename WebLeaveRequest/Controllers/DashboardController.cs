@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using LeaveRequest.Context;
+using LeaveRequest.Models;
+using LeaveRequest.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +22,7 @@ namespace WebLeaveRequest.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("index", "login");
         }
+
+
     }
 }

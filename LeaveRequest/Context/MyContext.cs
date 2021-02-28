@@ -12,25 +12,25 @@ namespace LeaveRequest.Context
         public MyContext() { }
         public MyContext(DbContextOptions<MyContext> options) : base(options) { }
 
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Account> Accounts { get; set; }
-        public DbSet<Request> Requests { get; set; }
-        /*public DbSet<RequestHistory> RequestHistories { get; set; }*/
-        public DbSet<Parameter> Parameters { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Request> Requests { get; set; }
+        public virtual DbSet<Parameter> Parameters { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Account>().HasOne(a => a.User).WithOne(b => b.Account).HasForeignKey<Account>(a => a.NIK);
             modelBuilder.Entity<User>().HasOne(x => x.Role);
             modelBuilder.Entity<Request>().HasOne(x => x.User);
-            /* modelBuilder.Entity<RequestHistory>().HasOne(x => x.User);
-             modelBuilder.Entity<RequestHistory>().HasOne(x => x.Request);*/
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseLazyLoadingProxies();
+            /*optionsBuilder.UseSqlServer("server=localhost;port=44349;user=sa;password=sapassword;database=LeaveRequest");*/
         }
     }
 }
