@@ -3,6 +3,7 @@ using LeaveRequest.Handler;
 using LeaveRequest.Models;
 using LeaveRequest.Repositories.Data;
 using LeaveRequest.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace LeaveRequest.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AccountController : BaseController<Account, AccountRepository, string>
@@ -46,6 +48,7 @@ namespace LeaveRequest.Controllers
             }
             return NotFound();
         }
+
         [HttpPost("Register")]
         public ActionResult Register(RegisterVM registerVM)
         {
@@ -72,7 +75,8 @@ namespace LeaveRequest.Controllers
         {
             var data = accountRepository.ResetPassword(registerVM.Email);
             return (data > 0) ? (ActionResult)Ok(new { message = "Email has been Sent, password changed", status = "Ok" }) : NotFound(new { message = "Data not exist in our database, please register first", status = 404 });
-
         }
+
+        
     }
 }

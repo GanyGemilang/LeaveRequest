@@ -42,7 +42,7 @@ namespace LeaveRequest.Repositories.Data
             };
 
             myContext.Add(request);
-            var resRequest = myContext.SaveChanges();
+            
             
             RequestVM result5 = null;
             string connectStr5 = Configuration.GetConnectionString("MyConnection");
@@ -141,7 +141,7 @@ namespace LeaveRequest.Repositories.Data
             }
             //End Condition For ReasionRequest
 
-
+            var resRequest = myContext.SaveChanges();
             if (resRequest > 0)
             {
                 sendEmail.SendRequestEmployee(result.Email);
@@ -156,7 +156,7 @@ namespace LeaveRequest.Repositories.Data
 
         public int Approved(ApproveRequestVM input)
         {
-            var data = myContext.Requests.Where(e => e.Id == input.IdRequest).FirstOrDefault();
+            var data = myContext.Requests.Where(e => e.Id == input.Id).FirstOrDefault();
             if (data == null)
             {
                 return 0;
@@ -170,7 +170,7 @@ namespace LeaveRequest.Repositories.Data
                 return 0;
             }
 
-            User dataUser = userRepository.GetDataByEmail(input.Email);
+            /*User dataUser = userRepository.GetDataByEmail(input.Email);
             if (dataUser == null)
             {
                 return 0;
@@ -178,11 +178,11 @@ namespace LeaveRequest.Repositories.Data
             if (data.NIK == dataUser.NIK || (data.ApprovedHRD != null && data.ApprovedHRD == dataUser.NIK)) //biar tidak bisa mengapproved data diri sendiri 
             {
                 return 0;
-            }
-            if (data.Status == Status.Waiting && dataUser.Role.Name == "HRD")
+            }*/
+            if (data.Status == Status.Waiting)
             {
                 data.Status = Status.ApprovedByHRD;
-                data.ApprovedHRD = dataUser.NIK;
+                //data.ApprovedHRD = dataUser.NIK;
                 myContext.Update(data);
 
                 RequestVM result2 = null;
@@ -193,29 +193,29 @@ namespace LeaveRequest.Repositories.Data
                     var parameter2 = new { RoleId = 3 };
                     result2 = db.Query<RequestVM>(readSp, parameter2, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 }
-                sendEmail.SendApproveHRD(result2.Email,input.IdRequest);
+                sendEmail.SendApproveHRD(result2.Email,input.Id);
             }
-            else if (data.Status == Status.ApprovedByHRD && dataUser.Role.Name == "Manager")
+            else if (data.Status == Status.ApprovedByHRD)
             {
                 var TotalDay = (data.EndDate - data.StartDate).TotalDays;
                 userRepository.UpdateRemainingLeave(data.NIK, TotalDay);
                 data.Status = Status.ApprovedByManager;
-                data.ApprovedManager = dataUser.NIK;
+                //data.ApprovedManager = dataUser.NIK;
 
 
                 ApproveRequestVM result3 = null;
                 string connectStr3 = Configuration.GetConnectionString("MyConnection");
-                var userCondition3 = myContext.Requests.Where(b => b.Id == input.IdRequest).FirstOrDefault();
+                var userCondition3 = myContext.Requests.Where(b => b.Id == input.Id).FirstOrDefault();
                 if (userCondition3 != null)
                 {
                     using (IDbConnection db = new SqlConnection(connectStr3))
                     {
                         string readSp = "sp_email_approveManager";
-                        var parameter3 = new { IdRequest = input.IdRequest };
+                        var parameter3 = new { IdRequest = input.Id };
                         result3 = db.Query<ApproveRequestVM>(readSp, parameter3, commandType: CommandType.StoredProcedure).FirstOrDefault();
                     }
                 }
-                sendEmail.SendApproveManager(result3.Email, input.IdRequest);
+                sendEmail.SendApproveManager(result3.Email, input.Id);
                 myContext.Update(data);
             }
             else
@@ -228,7 +228,7 @@ namespace LeaveRequest.Repositories.Data
 
         public int Reject(ApproveRequestVM input)
         {
-            var data = myContext.Requests.Where(e => e.Id == input.IdRequest).FirstOrDefault();
+            var data = myContext.Requests.Where(e => e.Id == input.Id).FirstOrDefault();
             if (data == null)
             {
                 return 0;
@@ -242,7 +242,7 @@ namespace LeaveRequest.Repositories.Data
                 return 0;
             }
 
-            User dataUser = userRepository.GetDataByEmail(input.Email);
+            /*User dataUser = userRepository.GetDataByEmail(input.Email);
             if (dataUser == null)
             {
                 return 0;
@@ -250,47 +250,49 @@ namespace LeaveRequest.Repositories.Data
             if (data.NIK == dataUser.NIK || (data.ApprovedHRD != null && data.ApprovedHRD == dataUser.NIK)) //biar tidak bisa mengapproved data diri sendiri 
             {
                 return 0;
-            }
-            if (data.Status == Status.Waiting && dataUser.Role.Name == "HRD")
+            }*/
+            //if (data.Status == Status.Waiting && dataUser.Role.Name == "HRD")
+            if (data.Status == Status.Waiting)
             {
                 data.Status = Status.RejectByManager;
-                data.ApprovedHRD = dataUser.NIK;
-                data.ApprovedManager = dataUser.NIK;
+                //data.ApprovedHRD = dataUser.NIK;
+                //data.ApprovedManager = dataUser.NIK;
                 myContext.Update(data);
 
                 ApproveRequestVM result4 = null;
                 string connectStr4 = Configuration.GetConnectionString("MyConnection");
-                var userCondition4 = myContext.Requests.Where(b => b.Id == input.IdRequest).FirstOrDefault();
+                var userCondition4 = myContext.Requests.Where(b => b.Id == input.Id).FirstOrDefault();
                 if (userCondition4 != null)
                 {
                     using (IDbConnection db = new SqlConnection(connectStr4))
                     {
                         string readSp = "sp_email_approveManager";
-                        var parameter4 = new { IdRequest = input.IdRequest };
+                        var parameter4 = new { IdRequest = input.Id };
                         result4 = db.Query<ApproveRequestVM>(readSp, parameter4, commandType: CommandType.StoredProcedure).FirstOrDefault();
                     }
                 }
-                sendEmail.SendReject(result4.Email, input.IdRequest);
+                sendEmail.SendReject(result4.Email, input.Id);
             }
-            else if (data.Status == Status.ApprovedByHRD && dataUser.Role.Name == "Manager")
+            //else if (data.Status == Status.ApprovedByHRD && dataUser.Role.Name == "Manager")
+            else if (data.Status == Status.ApprovedByHRD)
             {
                 data.Status = Status.RejectByManager;
-                data.ApprovedManager = dataUser.NIK;
+                //data.ApprovedManager = dataUser.NIK;
                 myContext.Update(data);
                 
                 ApproveRequestVM result4 = null;
                 string connectStr4 = Configuration.GetConnectionString("MyConnection");
-                var userCondition4 = myContext.Requests.Where(b => b.Id == input.IdRequest).FirstOrDefault();
+                var userCondition4 = myContext.Requests.Where(b => b.Id == input.Id).FirstOrDefault();
                 if (userCondition4 != null)
                 {
                     using (IDbConnection db = new SqlConnection(connectStr4))
                     {
                         string readSp = "sp_email_approveManager";
-                        var parameter4 = new { IdRequest = input.IdRequest };
+                        var parameter4 = new { Id = input.Id };
                         result4 = db.Query<ApproveRequestVM>(readSp, parameter4, commandType: CommandType.StoredProcedure).FirstOrDefault();
                     }
                 }
-                sendEmail.SendReject(result4.Email, input.IdRequest);
+                sendEmail.SendReject(result4.Email, input.Id);
 
             }
             else

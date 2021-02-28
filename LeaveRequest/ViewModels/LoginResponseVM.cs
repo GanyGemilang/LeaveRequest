@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace LeaveRequest.ViewModels
 {
-    public class ApproveRequestVM
+    public class LoginResponseVM
     {
-        public int Id { get; set; }
+
         public string Email { get; set; }
-        public Boolean IsApproved { get; set; } 
+        public string Role { get; set; }
+        public string Token { get; set; }
     }
 }

@@ -47,6 +47,7 @@ namespace LeaveRequest.Handler
             return "";
         }
     }
+
     public interface IJWTAuthenticationManager
     {
         string Generate(LoginVM loginVM);

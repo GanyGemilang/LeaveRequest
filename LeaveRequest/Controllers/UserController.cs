@@ -2,6 +2,7 @@
 using LeaveRequest.Handler;
 using LeaveRequest.Models;
 using LeaveRequest.Repositories.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,16 +12,14 @@ using System.Threading.Tasks;
 
 namespace LeaveRequest.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : BaseController<User, UserRepository,string>
     {
-       /* private readonly IJWTAuthenticationManager jwtAuthenticationManager;
-        private readonly UserRepository userRepository;*/
         public UserController(UserRepository userRepository) : base(userRepository)
         {
-        /*    this.jwtAuthenticationManager = jwtAuthenticationManager;*/
-            //this.userRepository = userRepository;
+
         }
     }
 }
