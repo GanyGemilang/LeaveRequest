@@ -170,7 +170,8 @@
                 window.location.href = "https://localhost:44349/approve";
             } else if (obj.role == 'Employee') {
                 alert("Successed to Login");
-                window.location.href = "https://localhost:44349/request";
+                document.cookie = "employee";
+                window.location.href = "https://localhost:44349/dashboard";
             }
             else {
                 alert("Failed to Login");

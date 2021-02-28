@@ -30,8 +30,8 @@ namespace WebLeaveRequest.Controllers
         {
             var httpclient = new HttpClient();
             StringContent stringContent = new StringContent(JsonConvert.SerializeObject(loginVM), Encoding.UTF8, "application/json");
-            var result = httpclient.PostAsync("https://localhost:44330/api/auth/authenticate/", stringContent).Result;
-            return result.StatusCode;
+           /* var result = httpclient.PostAsync("https://localhost:44330/api/auth/authenticate/", stringContent).Result;
+            return result.StatusCode;*/
 
             var result = httpclient.PostAsync("https://localhost:44330/api/Auth/Login/", stringContent).Result;
             return result.Content.ReadAsStringAsync().Result;
