@@ -16,7 +16,7 @@ namespace LeaveRequest.Repositories.Data
 {
     public class AccountRepository : GeneralRepository<Account, MyContext, string>
     {
-        private DbSet<Account> accounts;
+        //private DbSet<Account> accounts;
         private readonly MyContext myContext;
         private readonly SendEmail sendEmail = new SendEmail();
         private readonly UserRepository userRepository;
@@ -68,6 +68,7 @@ namespace LeaveRequest.Repositories.Data
             Parameter parameter = parameterRepository.getByName("Quota Leave Yearly");
             var user = new User()
             {
+                RoleId = 4,
                 NIK = registerVM.NIK,
                 FirstName = registerVM.FirstName,
                 LastName = registerVM.LastName, 
@@ -78,8 +79,7 @@ namespace LeaveRequest.Repositories.Data
                 Address = registerVM.Address,
                 PhoneNumber = registerVM.PhoneNumber,
                 RemainingQuota = parameter.Value,
-                Email = registerVM.Email,
-                RoleId = 4
+                Email = registerVM.Email       
             };
 
             var account = new Account()

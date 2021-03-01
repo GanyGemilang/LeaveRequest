@@ -16,7 +16,7 @@ namespace LeaveRequest.Controllers
     //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : BaseController<User, UserRepository,string>
+    public class UserController : BaseController<User, UserRepository, string>
     {
         private readonly UserRepository userRepository;
         public UserController(UserRepository userRepository) : base(userRepository)

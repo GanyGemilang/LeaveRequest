@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Overtime Request Application</title>
+    <title>Leave Request System</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -33,26 +33,90 @@
             <!-- Brand Logo -->
             <a href="#" class="brand-link">
                 <img src="dist/img/Logo_Mii.png" alt="MII Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Leave Request System</span>
+                <span class="brand-text font-weight-light">Leave Request</span>
             </a>
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-                    <li class="nav-item">
+                    <li class="nav-item" id="dashboard">
                         <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index"><i class="nav-icon fas fa-th"></i>Manage Role Form</a>
+                    <li class="nav-item" id="request">
+                        <a class="nav-link" asp-area="" asp-controller="Request" asp-action="Index"><i class="nav-icon fas fa-th"></i>Apply Leave Request</a>
                     </li>
-                    @*       <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Role" asp-action="Index"><i class="nav-icon fas fa-th"></i>Manage Role</a>
+                    <li class="nav-item" id="manage-role">
+                        <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index"><i class="nav-icon fas fa-th"></i>Manage Role</a>
+                    </li>
+                    <li class="nav-item" id="approve-hrd">
+                        <a class="nav-link" asp-area="" asp-controller="ApproveHRD" asp-action="Index"><i class="nav-icon fas fa-th"></i>Form Approve HRD</a>
+                    </li>
+                    <li class="nav-item" id="approve-manager">
+                        <a class="nav-link" asp-area="" asp-controller="ApproveManager" asp-action="Index"><i class="nav-icon fas fa-th"></i>Form Approve Manager</a>
+                    </li>
+                    <!--<li class="nav-item" id="approve-hrd">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-copy"></i>
+                            <p>
+                                Approve Leave Request
+                                <i class="fas fa-angle-left right"></i>
+                                <span class="badge badge-info right"></span>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">-->
+                    @*<a href="pages/layout/top-nav.html" class="nav-link">*@
+                    <!--<a href="pages/layout/top-nav.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Actual</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>History</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" id="approve-manager">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-copy"></i>
+                            <p>
+                                Approve Leave Request
+                                <i class="fas fa-angle-left right"></i>
+                                <span class="badge badge-info right"></span>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">-->
+                    @*<a href="pages/layout/top-nav.html" class="nav-link">*@
+                    <!--<a href="pages/layout/top-nav.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Actual</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>History</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>-->
+                    @*<li class="nav-item" id="report">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Report
+                                </p>
+                            </a>
                         </li>*@
-                    @* <li class="nav-item">
+                    @*<li class="nav-item" id="request-emp">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    Check Request Leave Request
+                                    Employees Request Overtime
                                     <i class="fas fa-angle-left right"></i>
                                     <span class="badge badge-info right"></span>
                                 </p>
@@ -72,39 +136,7 @@
                                 </li>
                             </ul>
                         </li>*@
-                    @* <li class="nav-item" id="reportItem">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Report
-                                </p>
-                            </a>
-                        </li>*@
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
-                            <p>
-                                Employees Leave Request
-                                <i class="fas fa-angle-left right"></i>
-                                <span class="badge badge-info right"></span>m
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="pages/layout/top-nav.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Actual</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>History</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="profile">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-table"></i>
                             <p>
@@ -114,10 +146,11 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Authentication" asp-action="Index">Change Password</a>
+                                @*<a class="nav-link" asp-area="" asp-controller="ChangePass" asp-action="Index">Change Password</a>*@
+                                <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#changepassword">Change Password</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+                                <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Logout">Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -126,6 +159,262 @@
             <!-- /.sidebar-menu -->
             <!-- /.sidebar -->
         </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <!--<div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Dashboard</h1>
+                        </div>-->
+                    <!-- /.col -->
+                    <!--</div>--><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+            <div class="p-3">
+                <h4 class="text-muted font-18 m-b-5 text-center">Welcome to</h4>
+                <p class="text-muted text-center">Manage Role Leave Request by Admin</p>
+
+                <div class="container-fluid mt-5">
+                    <table id="myTable" class="table table-striped table-bordered dataTable" style="width:100%">
+                        <thead class="thead-light">
+                            <tr role="row">
+                                <th>No</th>
+                                <th>NIK</th>
+                                <th>Name</th>
+                                <th>LastName</th>
+                                <th>BirthDate</th>
+                                <th>Gender</th>
+                                <th>Position</th>
+                                <th>Address</th>
+                                <th>PhoneNumber</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>No</th>
+                                <th>NIK</th>
+                                <th>Name</th>
+                                <th>LastName</th>
+                                <th>BirthDate</th>
+                                <th>Gender</th>
+                                <th>Position</th>
+                                <th>Address</th>
+                                <th>PhoneNumber</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addModalLabel">Update Role</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formrole">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group" hidden>
+                                            <label for="name" class="col-form-label">First Name:</label>
+                                            <input type="date" class="form-control" id="firstName" name="firstName">
+                                        </div>
+                                        <div class="form-group" hidden>
+                                            <label for="name" class="col-form-label">Last Name:</label>
+                                            <input type="text" class="form-control" id="lastName" name="lastName">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group" hidden>
+                                            <label for="name" class="col-form-label">Email:</label>
+                                            <input type="date" class="form-control" id="email" name="email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="id" class="col-form-label">NIK:</label>
+                                    <input disabled type="text" class="form-control" id="nik" name="nik">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name" class="col-form-label">Role Id:</label>
+                                    <select id="roleId" class="form-control" name="roleId">
+                                        <option value="1">Admin</option>
+                                        <option value="2">HRD</option>
+                                        <option value="3">Manager</option>
+                                        <option value="4">Employee</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="buttonsubmit" onclick="Update()">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @section scripts
+{
+                <script>
+                    var table = null;
+                    $(document).ready(function () {
+                        table = $("#myTable").DataTable({
+                            "filter": true,
+                            "orderMulti": false,
+                            "ajax": {
+                                "url": "https://localhost:44330/api/user",
+                                "type": "get",
+                                "datatype": "json",
+                                "dataSrc": "data"
+                            },
+                            "columnDefs": [
+                                {
+                                    "targets": [3, 7, 8, 9],
+                                    "visible": false,
+                                },
+                                {
+                                    "targets": [0, 2],
+                                    "searchable": true
+                                },
+                                {
+                                    "targets": [3],
+                                    "searchable": false,
+                                    "orderable": false
+                                },
+                            ],
+                            "columns": [
+                                {
+                                    "data": null,
+                                    "render": function (data, type, row, meta) {
+                                        return meta.row + meta.settings._iDisplayStart + 1;
+                                    }
+                                },
+                                {
+                                    "data": 'nik'
+                                },
+                                {
+                                    "data": 'firstName'
+                                },
+                                {
+                                    "data": 'lastName'
+                                },
+                                {
+                                    "data": 'birthDate'
+                                },
+                                {
+                                    "data": 'gender'
+                                },
+                                {
+                                    "data": 'position'
+                                },
+                                {
+                                    "data": 'address'
+                                },
+                                {
+                                    "data": 'phoneNumber'
+                                },
+                                {
+                                    "data": 'email'
+                                },
+                                {
+                                    "data": 'roleId',
+                                    "render": function (roleId) {
+                                        if (roleId == "1" || roleId == "Admin") {
+                                            return "Admin";
+                                        }
+                                        else if (roleId == "2" || roleId == "HRD") {
+                                            return "HRD";
+                                        }
+                                        else if (roleId == "3" || roleId == "Manager") {
+                                            return "Manager";
+                                        }
+                                        else if (roleId == "4" || roleId == "Employee") {
+                                            return "Employee";
+                                        }
+                                    }
+                                },
+                                {
+                                    "data": 'nik',
+                                    "render": function (data, type, row, meta) {
+                                        return '<a href="javascript:void(0)" class="far fa-edit table-action text-dark" data-toggle="tooltip" data-placement="top" title="Edit" onclick="Get(\'' + row['nik'] + '\')"></a> '
+                                    }
+                                }
+                            ]
+                        });
+                    });
+                    function Get(id) {
+                        console.log(id);
+                        $.ajax({
+                            url: "/admin/Get",
+                            data: { id: id }
+                        }).done((result) => {
+                            console.log(result);
+                            var obj = JSON.parse(result);
+                            $("#addModal").modal("show");
+                            $("#nik").val(obj.data.nik);
+                            $("#firstName").val(obj.data.firstName);
+                            $("#lastName").val(obj.data.lastName);
+                            $("#email").val(obj.data.email);
+                            $("#roleId").val(obj.data.roleId);
+                        }).fail((error) => {
+                            console.log(error);
+                        })
+                    }
+                    function Update(nik) {
+                        var user = new Object();
+                        user.nik = $('#nik').val();
+                        user.firstName = $('#firstName').val();
+                        user.lastName = $('#lastName').val();
+                        user.email = $('#email').val();
+                        user.roleId = $('#roleId').val();
+                        $.ajax({
+                            type: "PUT",
+                            url: '/admin/Update',
+                            data: user
+                        }).done((result) => {
+                            console.log(result, "Ok")
+                            if (result == 200) {
+                                swal('Success', 'Update Successfully', 'success');
+                                table.ajax.reload();
+                                $('#addModal').modal('hide');
+                                $("#nik").val(obj.data.nik);
+                                $("#firstName").val(obj.data.firstName);
+                                $("#lastName").val(obj.data.lastName);
+                                $("#email").val(obj.data.email);
+                                $("#roleId").val(obj.data.roleId);
+                            }
+                            else {
+                                console.log(result, "gagal")
+                                swal('Error', 'Something Went Wrong', 'error');
+                            }
+                        }).fail((error) => {
+                            console.log(error)
+                        });
+                    }
+                </script>
+            }
+            <!-- /.content-wrapper -->
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+        </div>
         <!-- ./wrapper -->
         <!-- jQuery -->
         <script src="plugins/jquery/jquery.min.js"></script>
@@ -159,260 +448,132 @@
         <script src="dist/js/demo.js"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="dist/js/pages/dashboard.js"></script>
+
+        @*//Donut Chart
+            <script>
+                $(function () {
+                    //-------------
+                    //- PIE CHART -
+                    //-------------
+                    // Get context with jQuery - using jQuery's .get() method.
+                    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+                    var pieChart = new Chart(pieChartCanvas)
+                    var PieData = [
+                        {
+                            value: 700,
+                            color: '#f56954',
+                            highlight: '#f56954',
+                            label: 'Chrome'
+                        },
+                        {
+                            value: 500,
+                            color: '#00a65a',
+                            highlight: '#00a65a',
+                            label: 'IE'
+                        },
+                        {
+                            value: 400,
+                            color: '#f39c12',
+                            highlight: '#f39c12',
+                            label: 'FireFox'
+                        },
+                        {
+                            value: 600,
+                            color: '#00c0ef',
+                            highlight: '#00c0ef',
+                            label: 'Safari'
+                        },
+                        {
+                            value: 300,
+                            color: '#3c8dbc',
+                            highlight: '#3c8dbc',
+                            label: 'Opera'
+                        },
+                        {
+                            value: 100,
+                            color: '#d2d6de',
+                            highlight: '#d2d6de',
+                            label: 'Navigator'
+                        }
+                    ]
+                    var pieOptions = {
+                        //Boolean - Whether we should show a stroke on each segment
+                        segmentShowStroke: true,
+                        //String - The colour of each segment stroke
+                        segmentStrokeColor: '#fff',
+                        //Number - The width of each segment stroke
+                        segmentStrokeWidth: 2,
+                        //Number - The percentage of the chart that we cut out of the middle
+                        percentageInnerCutout: 50, // This is 0 for Pie charts
+                        //Number - Amount of animation steps
+                        animationSteps: 100,
+                        //String - Animation easing effect
+                        animationEasing: 'easeOutBounce',
+                        //Boolean - Whether we animate the rotation of the Doughnut
+                        animateRotate: true,
+                        //Boolean - Whether we animate scaling the Doughnut from the centre
+                        animateScale: false,
+                        //Boolean - whether to make the chart responsive to window resizing
+                        responsive: true,
+                        // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+                        maintainAspectRatio: true,
+                        //String - A legend template
+                        legendTemplate: '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
+                    }
+                });
+            </script>*@
+        <script>
+            var role = document.cookie;
+            var nik = sessionStorage.getItem("nik");
+            console.log("role : ", role);
+            console.log("nik : ", nik);
+            if (role == "admin") {
+                document.getElementById("request").style.display = "none";
+                document.getElementById("approve-hrd").style.display = "none";
+                document.getElementById("approve-manager").style.display = "none";
+            }
+            else if (role == "hrd") {
+                document.getElementById("request").style.display = "none";
+                document.getElementById("manage-role").style.display = "none";
+                document.getElementById("approve-manager").style.display = "none";
+            }
+            else if (role == "manager") {
+                document.getElementById("request").style.display = "none";
+                document.getElementById("manage-role").style.display = "none";
+                document.getElementById("approve-hrd").style.display = "none";
+            }
+            else if (role == "employee") {
+                document.getElementById("manage-role").style.display = "none";
+                document.getElementById("approve-hrd").style.display = "none";
+                document.getElementById("approve-manager").style.display = "none";
+            }
+
+            function ChangePassword() {
+                console.log("test");
+                var Account = new Object();
+                Account.NIK = nik;
+                Account.NewPassword = $("#newpassword").val();
+                Account.OldPassword = $("#oldpassword").val();
+                Account.ConfirmPassword = $("#confirmpassword").val();
+                $.ajax({
+                    type: 'PUT',
+                    url: '/authentication/changepassword/',
+                    data: Account
+                }).done((result) => {
+                    console.log(result);
+                    if (result == 200) {
+                        alert("Your Password has been Changed!");
+                        //$("#nikchange").val(null);
+                        $("#newpassword").val(null);
+                        $("#oldpassword").val(null);
+                        $("#confirmpassword").val(null);
+                    }
+                }).fail((result) => {
+                    console.log(result);
+                    alert("Can Not Change Your Password");
+                })
+            }
+        </script>
 </body>
 </html>
 
-<script>
-    var role = document.cookie;
-    console.log("role", role);
-    if (role == "employee") {
-        document.getElementById("reportItem").style.visibility = "hidden";
-    }
-
-    function ChangePassword() {
-        console.log("test");
-        $.ajax({
-            type: 'get',
-            url: '/Dashboard/Logout'
-        })
-    }
-</script>
-
-<div class="p-3" style="margin-left:150px;margin-bottom:150px">
-    <h4 class="text-muted font-18 m-b-5 text-center">Welcome</h4>
-    <p class="text-muted text-center">Manage Role Leave Request</p>
-
-    <div class="container-fluid mt-5">
-        <table id="myTable" class="table table-striped table-bordered dataTable" style="width:100%">
-            <thead class="thead-light">
-                <tr role="row">
-                    <th>No</th>
-                    <th>NIK</th>
-                    <th>FirstName</th>
-                    <th>LastName</th>
-                    <th>BirthDate</th>
-                    <th>Gender</th>
-                    <th>Position</th>
-                    <th>Address</th>
-                    <th>PhoneNumber</th>
-                    <th>Email</th>
-                    <th>RoleId</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                    <th>No</th>
-                    <th>NIK</th>
-                    <th>FirstName</th>
-                    <th>LastName</th>
-                    <th>BirthDate</th>
-                    <th>Gender</th>
-                    <th>Position</th>
-                    <th>Address</th>
-                    <th>PhoneNumber</th>
-                    <th>Email</th>
-                    <th>RoleId</th>
-                    <th>Action</th>
-                </tr>
-            </tfoot>
-            <tbody></tbody>
-        </table>
-    </div>
-</div>
-
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addModalLabel">Update Role</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="formrole">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group" hidden>
-                                <label for="name" class="col-form-label">First Name:</label>
-                                <input type="date" class="form-control" id="firstName" name="firstName">
-                            </div>
-                            <div class="form-group" hidden>
-                                <label for="name" class="col-form-label">Last Name:</label>
-                                <input type="text" class="form-control" id="lastName" name="lastName">
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group" hidden>
-                                <label for="name" class="col-form-label">Email:</label>
-                                <input type="date" class="form-control" id="email" name="email">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="id" class="col-form-label">NIK:</label>
-                        <input disabled type="text" class="form-control" id="nik" name="nik">
-                    </div>
-                    <div class="form-group">
-                        <label for="name" class="col-form-label">Role Id:</label>
-                        <select id="roleId" class="form-control" name="roleId">
-                            <option value="1">Admin</option>
-                            <option value="2">HRD</option>
-                            <option value="3">Manager</option>
-                            <option value="4">Employee</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="buttonsubmit" onclick="Update()">Submit</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-@section scripts
-{
-    <script>
-        var table = null;
-        $(document).ready(function () {
-            table = $("#myTable").DataTable({
-                "filter": true,
-                "orderMulti": false,
-                "ajax": {
-                    "url": "https://localhost:44330/api/user",
-                    "type": "get",
-                    "datatype": "json",
-                    "dataSrc": "data"
-                },
-                "columnDefs": [
-                    {
-                        "targets": [4, 7, 8],
-                        "visible": false,
-
-                    },
-                    {
-                        "targets": [0, 2],
-                        "searchable": true
-                    },
-                    {
-                        "targets": [3],
-                        "searchable": false,
-                        "orderable": false
-                    },
-                ],
-                "columns": [
-                    {
-                        "data": null,
-                        "render": function (data, type, row, meta) {
-                            return meta.row + meta.settings._iDisplayStart + 1;
-                        }
-                    },
-                    {
-                        "data": 'nik'
-                    },
-                    {
-                        "data": 'firstName'
-                    },
-                    {
-                        "data": 'lastName'
-                    },
-                    {
-                        "data": 'birthDate'
-                    },
-                    {
-                        "data": 'gender'
-                    },
-                    {
-                        "data": 'position'
-                    },
-                    {
-                        "data": 'address'
-                    },
-                    {
-                        "data": 'phoneNumber'
-                    },
-                    {
-                        "data": 'email'
-                    },
-                    {
-                        "data": 'roleId',
-                        "render": function (roleId) {
-                            if (roleId == "1" || roleId == "Admin") {
-                                return "Admin";
-                            }
-                            else if (roleId == "2" || roleId == "HRD") {
-                                return "HRD";
-                            }
-                            else if (roleId == "3" || roleId == "Manager") {
-                                return "Manager";
-                            }
-                            else if (roleId == "4" || roleId == "Employee") {
-                                return "Employee";
-                            }
-                        }
-                    },
-                    {
-                        "data": 'nik',
-                        "render": function (data, type, row, meta) {
-                            return '<a href="javascript:void(0)" class="far fa-edit table-action text-dark" data-toggle="tooltip" data-placement="top" title="Edit" onclick="Get(\'' + row['nik'] + '\')"></a> '
-
-                        }
-                    }
-                ]
-            });
-        });
-
-        function Get(id) {
-            console.log(id);
-            $.ajax({
-                url: "/admin/Get",
-                data: { id: id }
-            }).done((result) => {
-                console.log(result);
-                var obj = JSON.parse(result);
-                $("#addModal").modal("show");
-                $("#nik").val(obj.data.nik);
-                $("#firstName").val(obj.data.firstName);
-                $("#lastName").val(obj.data.lastName);
-                $("#email").val(obj.data.email);
-                $("#roleId").val(obj.data.roleId);
-            }).fail((error) => {
-                console.log(error);
-            })
-        }
-
-        function Update(nik) {
-            var user = new Object();
-            user.nik = $('#nik').val();
-            user.firstName = $('#firstName').val();
-            user.lastName = $('#lastName').val();
-            user.email = $('#email').val();
-            user.roleId = $('#roleId').val();
-            $.ajax({
-                type: "PUT",
-                url: '/admin/Update',
-                data: user
-            }).done((result) => {
-                console.log(result, "Ok")
-                if (result == 200) {
-                    swal('Success', 'Update Successfully', 'success');
-                    table.ajax.reload();
-                    $('#addModal').modal('hide');
-                    $("#nik").val(obj.data.nik);
-                    $("#firstName").val(obj.data.firstName);
-                    $("#lastName").val(obj.data.lastName);
-                    $("#email").val(obj.data.email);
-                    $("#roleId").val(obj.data.roleId);
-                }
-                else {
-                    console.log(result, "gagal")
-                    swal('Error', 'Something Went Wrong', 'error');
-                }
-            }).fail((error) => {
-                console.log(error)
-            });
-        }
-    </script>
-}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Overtime Request Application</title>
+    <title>Leave Request System</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -33,65 +33,40 @@
             <!-- Brand Logo -->
             <a href="#" class="brand-link">
                 <img src="dist/img/Logo_Mii.png" alt="MII Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Leave Request System</span>
+                <span class="brand-text font-weight-light">Leave Request</span>
             </a>
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-                    <li class="nav-item">
+                    <li class="nav-item" id="dashboard">
                         <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="request">
                         <a class="nav-link" asp-area="" asp-controller="Request" asp-action="Index"><i class="nav-icon fas fa-th"></i>Apply Leave Request</a>
                     </li>
-             @*       <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Role" asp-action="Index"><i class="nav-icon fas fa-th"></i>Manage Role</a>
-                    </li>*@
-                   @* <li class="nav-item">
+                    <li class="nav-item" id="manage-role">
+                        <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index"><i class="nav-icon fas fa-th"></i>Manage Role</a>
+                    </li>
+                    <li class="nav-item" id="approve-hrd">
+                        <a class="nav-link" asp-area="" asp-controller="ApproveHRD" asp-action="Index"><i class="nav-icon fas fa-th"></i>Form Approve HRD</a>
+                    </li>
+                    <li class="nav-item" id="approve-manager">
+                        <a class="nav-link" asp-area="" asp-controller="ApproveManager" asp-action="Index"><i class="nav-icon fas fa-th"></i>Form Approve Manager</a>
+                    </li>
+                    <!--<li class="nav-item" id="approve-hrd">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-copy"></i>
                             <p>
-                                Check Request Leave Request
+                                Approve Leave Request
                                 <i class="fas fa-angle-left right"></i>
                                 <span class="badge badge-info right"></span>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="pages/layout/top-nav.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Actual</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>History</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>*@
-                   @* <li class="nav-item" id="reportItem">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-chart-pie"></i>
-                            <p>
-                                Report
-                            </p>
-                        </a>
-                    </li>*@
-                    <li class="nav-item" >
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
-                            <p>
-                                Employees Leave Request
-                                <i class="fas fa-angle-left right"></i>
-                                <span class="badge badge-info right"></span>m
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="pages/layout/top-nav.html" class="nav-link">
+                            <li class="nav-item">-->
+                    @*<a href="pages/layout/top-nav.html" class="nav-link">*@
+                    <!--<a href="pages/layout/top-nav.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Actual</p>
                                 </a>
@@ -104,7 +79,64 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="approve-manager">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-copy"></i>
+                            <p>
+                                Approve Leave Request
+                                <i class="fas fa-angle-left right"></i>
+                                <span class="badge badge-info right"></span>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">-->
+                    @*<a href="pages/layout/top-nav.html" class="nav-link">*@
+                    <!--<a href="pages/layout/top-nav.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Actual</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>History</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>-->
+                    @*<li class="nav-item" id="report">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Report
+                                </p>
+                            </a>
+                        </li>*@
+                    @*<li class="nav-item" id="request-emp">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Employees Request Overtime
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right"></span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="pages/layout/top-nav.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Actual</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>History</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>*@
+                    <li class="nav-item" id="profile">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-table"></i>
                             <p>
@@ -114,10 +146,11 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Authentication" asp-action="Index">Change Password</a>
+                                @*<a class="nav-link" asp-area="" asp-controller="ChangePass" asp-action="Index">Change Password</a>*@
+                                <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#changepassword">Change Password</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+                                <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Logout">Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -136,12 +169,6 @@
                         <div class="col-sm-6">
                             <h1 class="m-0">Dashboard</h1>
                         </div><!-- /.col -->
-                        <!--<div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v1</li>
-                            </ol>
-                        </div>--><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -156,8 +183,7 @@
                             <div class="small-box bg-info">
                                 <div class="inner">
                                     <h3>150</h3>
-
-                                    <p>New Orders</p>
+                                    <p>Waiting</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
@@ -171,8 +197,7 @@
                             <div class="small-box bg-success">
                                 <div class="inner">
                                     <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                                    <p>Bounce Rate</p>
+                                    <p>Approve</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
@@ -186,26 +211,10 @@
                             <div class="small-box bg-warning">
                                 <div class="inner">
                                     <h3>44</h3>
-
-                                    <p>User Registrations</p>
+                                    <p>Reject</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person-add"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-danger">
-                                <div class="inner">
-                                    <h3>65</h3>
-
-                                    <p>Unique Visitors</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
                                 </div>
                                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
@@ -215,41 +224,126 @@
                     <!-- /.row -->
                     <!-- Main row -->
                     <div class="row">
-                        <!-- Left col -->
-                        <section class="col-lg-7 connectedSortable">
-                            <!-- Custom tabs (Charts with tabs)-->
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">
-                                        <i class="fas fa-chart-pie mr-1"></i>
-                                        Sales
-                                    </h3>
-                                    <div class="card-tools">
-                                        <ul class="nav nav-pills ml-auto">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div><!-- /.card-header -->
-                                <div class="card-body">
-                                    <div class="tab-content p-0">
-                                        <!-- Morris chart - Sales -->
-                                        <div class="chart tab-pane active" id="revenue-chart"
-                                             style="position: relative; height: 300px;">
-                                            <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
-                                        </div>
-                                        <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                                            <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
-                                        </div>
-                                    </div>
-                                </div><!-- /.card-body -->
+                        <div class="card card-danger">
+                            <div class="card-header">
+                                <h3 class="card-title">Leave Request Chart</h3>
                             </div>
-                        </section>
+                            <div class="card-body">
+                                <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+
+
+                        <!-- Left col -->
+                        @*Donut Chart*@
+                        <!--<section class="col-lg-7 connectedSortable">-->
+                        <!-- Custom tabs (Charts with tabs)-->
+                        <!-- DONUT CHART -->
+                        <!--<div class="box box-danger">-->
+                        @*   <div class="box-header with-border">
+                                <h3 class="box-title">Leave Request Chart</h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>*@
+                        <!--<div class="box-body chart-responsive">
+                            <div class="chart" id="leave-chart" style="height: 300px; position: relative;"></div>
+                        </div>-->
+                        <!-- /.box-body -->
+                        <!--</div>-->
+                        <!-- /.nav-tabs-custom -->
+                        <!--</section>-->
+                        <!--<section class="col-lg-7 connectedSortable">
+                        <!-- Custom tabs (Charts with tabs)-->
+                        <!--<div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-chart-pie mr-1"></i>
+                                Data Leave Request
+                            </h3>-->
+                        @*<div class="card-tools">
+                                <ul class="nav nav-pills ml-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
+                                    </li>
+                                </ul>
+                            </div>*@
+                        @*</div>*@
+                        <!-- /.card-header -->
+                        <!--<div class="card-body">
+                        <div class="tab-content p-0">-->
+                        <!-- Morris chart - Sales -->
+                        <!--<div class="chart tab-pane active" id="revenue-chart"
+                                     style="position: relative; height: 300px;">
+                                    <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
+                                </div>
+                                <div class="chart tab-pane" id="leave-chart" style="position: relative; height: 300px;">
+                                    <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
+                                </div>
+                            </div>
+                        </div>-->
+                        <!-- /.card-body -->
+                        <!--</div>
+                        </section>-->
                         <!-- /.Left col -->
+                    </div>
+
+                    <div class="modal fade" id="changepassword" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addModalLabel">Change Password</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="changepass">
+                                        <!--<div class="input-group mb-3">
+                                            <input disabled value="@ViewData["NIKValue"]" id="nik" class="form-control" placeholder="NIK">-->
+                                        @*<input type="text" id="nikchange" class="form-control" placeholder="NIK">*@
+                                        <!--<div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fas fa-envelope"></span>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                        <div class="input-group mb-3">
+                                            <input type="password" id="oldpassword" class="form-control" placeholder="Old Password">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fas fa-lock"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input type="password" id="newpassword" class="form-control" placeholder="New Password">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fas fa-lock"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input type="password" id="confirmpassword" class="form-control" placeholder="Confirm New Password">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fas fa-lock"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <button type="button" onclick="ChangePassword()">Submit</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- /.row (main row) -->
                 </div><!-- /.container-fluid -->
@@ -296,21 +390,131 @@
     <script src="dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="dist/js/pages/dashboard.js"></script>
+
+    @*//Donut Chart
+        <script>
+            $(function () {
+                //-------------
+                //- PIE CHART -
+                //-------------
+                // Get context with jQuery - using jQuery's .get() method.
+                var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+                var pieChart = new Chart(pieChartCanvas)
+                var PieData = [
+                    {
+                        value: 700,
+                        color: '#f56954',
+                        highlight: '#f56954',
+                        label: 'Chrome'
+                    },
+                    {
+                        value: 500,
+                        color: '#00a65a',
+                        highlight: '#00a65a',
+                        label: 'IE'
+                    },
+                    {
+                        value: 400,
+                        color: '#f39c12',
+                        highlight: '#f39c12',
+                        label: 'FireFox'
+                    },
+                    {
+                        value: 600,
+                        color: '#00c0ef',
+                        highlight: '#00c0ef',
+                        label: 'Safari'
+                    },
+                    {
+                        value: 300,
+                        color: '#3c8dbc',
+                        highlight: '#3c8dbc',
+                        label: 'Opera'
+                    },
+                    {
+                        value: 100,
+                        color: '#d2d6de',
+                        highlight: '#d2d6de',
+                        label: 'Navigator'
+                    }
+                ]
+                var pieOptions = {
+                    //Boolean - Whether we should show a stroke on each segment
+                    segmentShowStroke: true,
+                    //String - The colour of each segment stroke
+                    segmentStrokeColor: '#fff',
+                    //Number - The width of each segment stroke
+                    segmentStrokeWidth: 2,
+                    //Number - The percentage of the chart that we cut out of the middle
+                    percentageInnerCutout: 50, // This is 0 for Pie charts
+                    //Number - Amount of animation steps
+                    animationSteps: 100,
+                    //String - Animation easing effect
+                    animationEasing: 'easeOutBounce',
+                    //Boolean - Whether we animate the rotation of the Doughnut
+                    animateRotate: true,
+                    //Boolean - Whether we animate scaling the Doughnut from the centre
+                    animateScale: false,
+                    //Boolean - whether to make the chart responsive to window resizing
+                    responsive: true,
+                    // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+                    maintainAspectRatio: true,
+                    //String - A legend template
+                    legendTemplate: '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
+                }
+            });
+        </script>*@
+    <script>
+        var role = document.cookie;
+        var nik = sessionStorage.getItem("nik");
+        console.log("role : ", role);
+        console.log("nik : ", nik);
+        if (role == "admin") {
+            document.getElementById("request").style.display = "none";
+            document.getElementById("approve-hrd").style.display = "none";
+            document.getElementById("approve-manager").style.display = "none";
+        }
+        else if (role == "hrd") {
+            document.getElementById("request").style.display = "none";
+            document.getElementById("manage-role").style.display = "none";
+            document.getElementById("approve-manager").style.display = "none";
+        }
+        else if (role == "manager") {
+            document.getElementById("request").style.display = "none";
+            document.getElementById("manage-role").style.display = "none";
+            document.getElementById("approve-hrd").style.display = "none";
+        }
+        else if (role == "employee") {
+            document.getElementById("manage-role").style.display = "none";
+            document.getElementById("approve-hrd").style.display = "none";
+            document.getElementById("approve-manager").style.display = "none";
+        }
+
+        function ChangePassword() {
+            console.log("test");
+            var Account = new Object();
+            Account.NIK = nik;
+            Account.NewPassword = $("#newpassword").val();
+            Account.OldPassword = $("#oldpassword").val();
+            Account.ConfirmPassword = $("#confirmpassword").val();
+            $.ajax({
+                type: 'PUT',
+                url: '/authentication/changepassword/',
+                data: Account
+            }).done((result) => {
+                console.log(result);
+                if (result == 200) {
+                    alert("Your Password has been Changed!");
+                    //$("#nikchange").val(null);
+                    $("#newpassword").val(null);
+                    $("#oldpassword").val(null);
+                    $("#confirmpassword").val(null);
+                }
+            }).fail((result) => {
+                console.log(result);
+                alert("Can Not Change Your Password");
+            })
+        }
+    </script>
 </body>
 </html>
-
-<script>
-    var role = document.cookie;
-    console.log("role", role);
-    if (role == "employee") {
-        document.getElementById("reportItem").style.visibility = "hidden";
-    }
-
-    function ChangePassword() {
-        console.log("test");
-        $.ajax({
-            type: 'get',
-            url: '/Dashboard/Logout'
-        })
-    }
-</script>

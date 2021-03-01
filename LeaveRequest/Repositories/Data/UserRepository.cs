@@ -69,7 +69,7 @@ namespace LeaveRequest.Repositories.Data
             myContext.SaveChanges();
             return 1;
         }
-
+        
         /*    public User getByNIK(string NIK)
             {
                 var result = myContext.Users.Where(value => value.NIK == NIK).FirstOrDefault();

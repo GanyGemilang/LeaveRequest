@@ -1,4 +1,5 @@
 ﻿using LeaveRequest.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -16,6 +17,12 @@ namespace WebLeaveRequest.Controllers
         public IActionResult Index()
         {
             return View();
+            /*if (HttpContext.Session.GetString("email") != null)
+            {
+                return View();
+            }
+            return RedirectToAction("index", "Home");*/
+
         }
 
         public IActionResult requestAction()
