@@ -46,9 +46,15 @@
                         <a class="nav-link" asp-area="" asp-controller="Request" asp-action="Index"><i class="nav-icon fas fa-th"></i>Apply Leave Request</a>
                     </li>
                     <li class="nav-item" id="manage-role">
-                        <a class="nav-link" asp-area="" asp-controller="ManageRole" asp-action="Index"><i class="nav-icon fas fa-th"></i>Manage Role</a>
+                        <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index"><i class="nav-icon fas fa-th"></i>Manage Role</a>
                     </li>
                     <li class="nav-item" id="approve-hrd">
+                        <a class="nav-link" asp-area="" asp-controller="ApproveHRD" asp-action="Index"><i class="nav-icon fas fa-th"></i>Form Approve HRD</a>
+                    </li>
+                    <li class="nav-item" id="approve-manager">
+                        <a class="nav-link" asp-area="" asp-controller="ApproveManager" asp-action="Index"><i class="nav-icon fas fa-th"></i>Form Approve Manager</a>
+                    </li>
+                    <!--<li class="nav-item" id="approve-hrd">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-copy"></i>
                             <p>
@@ -58,9 +64,9 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                @*<a href="pages/layout/top-nav.html" class="nav-link">*@
-                                <a href="pages/layout/top-nav.html" class="nav-link">
+                            <li class="nav-item">-->
+                    @*<a href="pages/layout/top-nav.html" class="nav-link">*@
+                    <!--<a href="pages/layout/top-nav.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Actual</p>
                                 </a>
@@ -83,9 +89,9 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                @*<a href="pages/layout/top-nav.html" class="nav-link">*@
-                                <a href="pages/layout/top-nav.html" class="nav-link">
+                            <li class="nav-item">-->
+                    @*<a href="pages/layout/top-nav.html" class="nav-link">*@
+                    <!--<a href="pages/layout/top-nav.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Actual</p>
                                 </a>
@@ -97,7 +103,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li>-->
                     @*<li class="nav-item" id="report">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -236,56 +242,56 @@
                         <!-- DONUT CHART -->
                         <!--<div class="box box-danger">-->
                         @*   <div class="box-header with-border">
-                <h3 class="box-title">Leave Request Chart</h3>
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                        <i class="fa fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
-            </div>*@
+                                <h3 class="box-title">Leave Request Chart</h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>*@
                         <!--<div class="box-body chart-responsive">
-            <div class="chart" id="leave-chart" style="height: 300px; position: relative;"></div>
-        </div>-->
+                            <div class="chart" id="leave-chart" style="height: 300px; position: relative;"></div>
+                        </div>-->
                         <!-- /.box-body -->
                         <!--</div>-->
                         <!-- /.nav-tabs-custom -->
                         <!--</section>-->
                         <!--<section class="col-lg-7 connectedSortable">
-        <!-- Custom tabs (Charts with tabs)-->
+                        <!-- Custom tabs (Charts with tabs)-->
                         <!--<div class="card">
-        <div class="card-header">
-            <h3 class="card-title">
-                <i class="fas fa-chart-pie mr-1"></i>
-                Data Leave Request
-            </h3>-->
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-chart-pie mr-1"></i>
+                                Data Leave Request
+                            </h3>-->
                         @*<div class="card-tools">
-                <ul class="nav nav-pills ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                    </li>
-                </ul>
-            </div>*@
+                                <ul class="nav nav-pills ml-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
+                                    </li>
+                                </ul>
+                            </div>*@
                         @*</div>*@
                         <!-- /.card-header -->
                         <!--<div class="card-body">
-        <div class="tab-content p-0">-->
+                        <div class="tab-content p-0">-->
                         <!-- Morris chart - Sales -->
                         <!--<div class="chart tab-pane active" id="revenue-chart"
-                     style="position: relative; height: 300px;">
-                    <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
-                </div>
-                <div class="chart tab-pane" id="leave-chart" style="position: relative; height: 300px;">
-                    <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
-                </div>
-            </div>
-        </div>-->
+                                     style="position: relative; height: 300px;">
+                                    <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
+                                </div>
+                                <div class="chart tab-pane" id="leave-chart" style="position: relative; height: 300px;">
+                                    <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
+                                </div>
+                            </div>
+                        </div>-->
                         <!-- /.card-body -->
                         <!--</div>
-        </section>-->
+                        </section>-->
                         <!-- /.Left col -->
                     </div>
 
@@ -302,8 +308,8 @@
                                     <form id="changepass">
                                         <!--<div class="input-group mb-3">
                                             <input disabled value="@ViewData["NIKValue"]" id="nik" class="form-control" placeholder="NIK">-->
-                                            @*<input type="text" id="nikchange" class="form-control" placeholder="NIK">*@
-                                            <!--<div class="input-group-append">
+                                        @*<input type="text" id="nikchange" class="form-control" placeholder="NIK">*@
+                                        <!--<div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-envelope"></span>
                                                 </div>
@@ -458,16 +464,15 @@
                 }
             });
         </script>*@
-<script>
-    var role = document.cookie;
-    var nik = sessionStorage.getItem("nik");
-    console.log("role : ", role);
-    console.log("nik : ", nik);
+    <script>
+        var role = document.cookie;
+        var nik = sessionStorage.getItem("nik");
+        console.log("role : ", role);
+        console.log("nik : ", nik);
         if (role == "admin") {
             document.getElementById("request").style.display = "none";
             document.getElementById("approve-hrd").style.display = "none";
             document.getElementById("approve-manager").style.display = "none";
-            document.getElementById("profile").style.display = "none";
         }
         else if (role == "hrd") {
             document.getElementById("request").style.display = "none";
@@ -510,6 +515,6 @@
                 alert("Can Not Change Your Password");
             })
         }
-</script>
+    </script>
 </body>
 </html>

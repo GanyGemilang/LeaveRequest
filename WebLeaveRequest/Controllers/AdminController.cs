@@ -1,4 +1,5 @@
 ﻿using LeaveRequest.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -15,6 +16,11 @@ namespace WebLeaveRequest.Controllers
     {
         public IActionResult Index()
         {
+            /* if (HttpContext.Session.GetString("email") != null)
+             {
+                 return View();
+             }
+             return RedirectToAction("index", "Home");*/
             return View();
         }
 
@@ -32,7 +38,7 @@ namespace WebLeaveRequest.Controllers
         {
             var httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(registerVM), Encoding.UTF8, "application/json");
-            var result = httpClient.PutAsync("https://localhost:44330/api/User/", content).Result;
+            var result = httpClient.PutAsync("https://localhost:44330/api/User/SubmitAdminRole/", content).Result;
             return result.StatusCode;
         }
     }

@@ -245,7 +245,6 @@ F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razo
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_MainMenu.cshtml.g.cs
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
-F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.RazorTargetAssemblyInfo.cache
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.RazorTargetAssemblyInfo.cs
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.Views.pdb
@@ -254,5 +253,4 @@ F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebL
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\ApproveHRD\Index.cshtml.g.cs
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\ApproveManager\Index.cshtml.g.cs
 F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Index.cshtml.g.cs
-F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Request\requestAction.cshtml.g.cs
-F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Request\requestHistory.cshtml.g.cs
+F:\Kerja\Final Project\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\_ViewStart.cshtml.g.cs

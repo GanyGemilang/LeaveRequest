@@ -58,9 +58,9 @@ namespace LeaveRequest.Controllers
 
             HttpContext.Session.SetString("nik", response.NIK);
             string valuenik = HttpContext.Session.GetString("nik");
-            //HttpContext.Session.SetString("name", tempResult.Name);
-            //HttpContext.Session.SetString("email", loginViewModels.Email);
-            //HttpContext.Session.SetString("rolename", tempResult.RoleName);
+            //HttpContext.Session.SetString("name", response.Name);
+            //HttpContext.Session.SetString("email", response.Email);
+            //HttpContext.Session.SetString("rolename", response.RoleName);
 
             return result;
         }

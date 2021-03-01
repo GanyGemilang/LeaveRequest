@@ -4,11 +4,14 @@
 
 <div class="container-fluid ">
     <div class="col-lg-6 m-5">
-        <div class=" card" style="margin-left:250px; width:550px">
+        <div class="card" style="margin-left:250px; width:550px">
             <div class="card-body m-2">
                 <div class="p-3">
-                    <h4 class="text-muted font-18 m-b-5 text-center">Welcome</h4>
-                    <p class="text-muted text-center">Sign in to continue to Leave Request System.</p>
+                    <center>
+                        <img src="~/dist/img/Logo_Mii.png" class="rounded-circle" height="100" width="100" asp-append-version="true" />
+                    </center>
+                    <h4 class="text-muted font-18 m-b-5 text-center">Welcome,</h4>
+                    <p class="text-muted text-center">Sign In to continue Leave Request System</p>
 
                     <form id="roleform">
 
@@ -23,7 +26,7 @@
                         </div>
                         <div class="mb-1 d-flex">
                             <a href="javascript:void(0)" data-toggle="modal" data-target="#forgotpassword">
-                            <small class="m-3">Forgot Password?</small>
+                                <small class="m-3">Forgot Password?</small>
                             </a>
                             <a href="javascript:void(0)" data-toggle="modal" data-target="#Register">
                                 <small class="m-3">Register</small>
@@ -231,6 +234,7 @@
             if (result == 200) {
                 alert("Successed to Add Data!");
                 $('#Register').modal('hide');
+                $("#nik").val(null);
                 $("#firstname").val(null);
                 $("#lastname").val(null);
                 $("#birthdate").val(null);
