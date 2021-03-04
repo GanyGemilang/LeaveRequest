@@ -8,6 +8,7 @@ namespace LeaveRequest.ViewModels
     public class ApproveRequestVM
     {
         public int Id { get; set; }
+        public string NIK { get; set; }
         public string Email { get; set; }
         public Boolean IsApproved { get; set; } 
     }

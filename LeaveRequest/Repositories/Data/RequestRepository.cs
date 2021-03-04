@@ -117,10 +117,15 @@ namespace LeaveRequest.Repositories.Data
             }
             else if (requestVM.ReasonRequest == "Married")
             {
-                if (TotalDay != 3)
+                if (TotalDay != 3 )
                 {
                     return 4;
                 }
+                if(result.MarriedStatus != "Single")
+                {
+                    return 0;
+                }
+
             }
             else if (requestVM.ReasonRequest == "Marry or Circumcise or Baptize Children" ||
                 requestVM.ReasonRequest == "Wife gave birth or had a miscarriage" ||
@@ -170,6 +175,25 @@ namespace LeaveRequest.Repositories.Data
                 return 0;
             }
 
+            RequestVM result = null;
+            string connectStr = Configuration.GetConnectionString("MyConnection");
+            var userCondition = myContext.Users.Where(b => b.NIK == input.NIK).FirstOrDefault();
+
+            if (userCondition != null)
+            {
+                using (IDbConnection db = new SqlConnection(connectStr))
+                {
+                    string readSp = "sp_email_employee";
+                    var parameter = new { NIK = input.NIK };
+                    result = db.Query<RequestVM>(readSp, parameter, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+            }
+            var TotalDay = (data.EndDate - data.StartDate).TotalDays;
+            if (TotalDay > result.RemainingQuota)
+            {
+                return 2;
+            }   
+
             if (data.Status == Status.Waiting)
             {
                 data.Status = Status.ApprovedByHRD;
@@ -209,11 +233,29 @@ namespace LeaveRequest.Repositories.Data
             {
                 return 0;
             }
+            RequestVM result = null;
+            string connectStr = Configuration.GetConnectionString("MyConnection");
+            var userCondition = myContext.Users.Where(b => b.NIK == input.NIK).FirstOrDefault();
+
+            if (userCondition != null)
+            {
+                using (IDbConnection db = new SqlConnection(connectStr))
+                {
+                    string readSp = "sp_email_employee";
+                    var parameter = new { NIK = input.NIK };
+                    result = db.Query<RequestVM>(readSp, parameter, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+            }
+            var TotalDay = (data.EndDate - data.StartDate).TotalDays;
+            if (TotalDay > result.RemainingQuota)
+            {
+                return 2;
+            }
 
             if (data.Status == Status.ApprovedByHRD)
             {
-                var TotalDay = (data.EndDate - data.StartDate).TotalDays;
-                userRepository.UpdateRemainingLeave(data.NIK, TotalDay);
+                var TotalDay1 = (data.EndDate - data.StartDate).TotalDays;
+                userRepository.UpdateRemainingLeave(data.NIK, TotalDay1);
                 data.Status = Status.ApprovedByManager;
                 
                 ApproveRequestVM result3 = null;
@@ -312,7 +354,7 @@ namespace LeaveRequest.Repositories.Data
                     using (IDbConnection db = new SqlConnection(connectStr4))
                     {
                         string readSp = "sp_email_approveManager";
-                        var parameter4 = new { Id = input.Id };
+                        var parameter4 = new { IdRequest = input.Id };
                         result4 = db.Query<ApproveRequestVM>(readSp, parameter4, commandType: CommandType.StoredProcedure).FirstOrDefault();
                     }
                 }

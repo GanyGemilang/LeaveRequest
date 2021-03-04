@@ -10,21 +10,25 @@ using System.Threading.Tasks;
 using LeaveRequest.Context;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using Dapper;
 
 namespace LeaveRequest.Controllers
-{  
+{
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
         private readonly AccountRepository accountRepository;
         private readonly IJWTAuthenticationManager jWTAuthenticationManager;
-        private IConfiguration iconfiguration;
-        public AuthController(IJWTAuthenticationManager jWTAuthenticationManager, AccountRepository accountRepository, IConfiguration iconfiguration)
+        private IConfiguration Configuration;
+        public AuthController(IJWTAuthenticationManager jWTAuthenticationManager, AccountRepository accountRepository, IConfiguration configuration)
         {
             this.accountRepository = accountRepository;
 
             this.jWTAuthenticationManager = jWTAuthenticationManager;
+            this.Configuration = configuration;
         }
 /*
         [HttpPost("Login")]
@@ -58,7 +62,21 @@ namespace LeaveRequest.Controllers
 
             HttpContext.Session.SetString("nik", response.NIK);
             string valuenik = HttpContext.Session.GetString("nik");
-            //HttpContext.Session.SetString("name", response.Name);
+
+            /*LoginVM result1 = null;
+
+            string connectStr = Configuration.GetConnectionString("MyConnection");
+            using (IDbConnection db = new SqlConnection(connectStr))
+            {
+                string readSp = "sp_retrieve_login";
+                var parameter = new { Email = login.Email, Password = login.Password };
+                result1 = db.Query<LoginVM>(readSp, parameter, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+            HttpContext.Session.SetString("gender", result1.Gender);
+            string valuegender = HttpContext.Session.GetString("gender");
+*/
+
+            //HttpContext.Session.SetString("remainingquota", response.RemainingQuota);
             //HttpContext.Session.SetString("email", response.Email);
             //HttpContext.Session.SetString("rolename", response.RoleName);
 

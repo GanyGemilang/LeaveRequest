@@ -67,6 +67,10 @@ namespace LeaveRequest.Controllers
             {
                 return Ok(new { status = "Approved success" });
             }
+            else if (data == 2)
+            {
+                return StatusCode(400, new { status = "Approved Failed" });
+            }
             else
             {
                 return StatusCode(500, new { status = "Internal Server Error" });
@@ -96,6 +100,10 @@ namespace LeaveRequest.Controllers
             if (data == 1)
             {
                 return Ok(new { status = "Approved success" });
+            }
+            else if (data == 2)
+            {
+                return StatusCode(400, new { status = "Approved Failed" });
             }
             else
             {

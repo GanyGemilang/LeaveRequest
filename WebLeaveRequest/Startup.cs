@@ -22,7 +22,7 @@ namespace WebLeaveRequest
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        /*public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
             services.Configure<CookiePolicyOptions>(options =>
@@ -35,17 +35,6 @@ namespace WebLeaveRequest
                 options.Cookie.IsEssential = true;
             });
             //services.AddRazorPages(); //add razor page
-        }*/
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllersWithViews();
-            services.AddDistributedMemoryCache();
-            services.AddSession(options => {
-                options.IdleTimeout = TimeSpan.FromHours(12);//You can set Time
-            });
-            services.AddMvc(option => option.EnableEndpointRouting = false);
-            //services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,24 +52,21 @@ namespace WebLeaveRequest
             }
             app.UseSession();
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseSession();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseStaticFiles();       
+            
             app.UseRouting();
 
+            //to be add for razor
             app.UseAuthorization();
+           //app.UseAuthentication(); //to call razor useauthentication function inside configure method
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                //to be added
+                //endpoints.MapRazorPages();
             });
         }
     }

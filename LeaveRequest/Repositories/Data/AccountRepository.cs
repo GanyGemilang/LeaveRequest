@@ -16,7 +16,7 @@ namespace LeaveRequest.Repositories.Data
 {
     public class AccountRepository : GeneralRepository<Account, MyContext, string>
     {
-        //private DbSet<Account> accounts;
+         //private DbSet<Account> accounts;
         private readonly MyContext myContext;
         private readonly SendEmail sendEmail = new SendEmail();
         private readonly UserRepository userRepository;
@@ -32,10 +32,10 @@ namespace LeaveRequest.Repositories.Data
             this.Configuration = configuration;
         }
 
-        public int ChangePassword(ChangePasswordVM changePasswordVM)
+        public int ChangePassword(string NIK, string password)
         {
-            Account acc = myContext.Accounts.Where(a => a.NIK == changePasswordVM.NIK).FirstOrDefault();
-            acc.Password = Hashing.HashPassword(changePasswordVM.NewPassword);
+            Account acc = myContext.Accounts.Where(a => a.NIK == NIK).FirstOrDefault();
+            acc.Password = Hashing.HashPassword(password);
             myContext.Entry(acc).State = EntityState.Modified;
             var result = myContext.SaveChanges();
             return result;

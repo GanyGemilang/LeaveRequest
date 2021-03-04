@@ -314,7 +314,10 @@
                                     "data": 'lastName'
                                 },
                                 {
-                                    "data": 'birthDate'
+                                    "data": 'birthDate',
+                                    "render": function (birthDate) {
+                                        return moment(birthDate, 'YYYY-MM-DD').format('DD MMMM YYYY');
+                                    }
                                 },
                                 {
                                     "data": 'gender'
@@ -562,7 +565,13 @@
                 }).done((result) => {
                     console.log(result);
                     if (result == 200) {
-                        alert("Your Password has been Changed!");
+                        swal({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Your Password has been Changed!',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
                         //$("#nikchange").val(null);
                         $("#newpassword").val(null);
                         $("#oldpassword").val(null);
@@ -570,7 +579,13 @@
                     }
                 }).fail((result) => {
                     console.log(result);
-                    alert("Can Not Change Your Password");
+                    swal({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Can Not Change Your Password',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
                 })
             }
         </script>

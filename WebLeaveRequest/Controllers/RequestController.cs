@@ -16,6 +16,8 @@ namespace WebLeaveRequest.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["RemainingQuotaValue"] = HttpContext.Session.GetString("remainingquota");
+            ViewData["GenderValue"] = HttpContext.Session.GetString("gender");
             return View();
             /*if (HttpContext.Session.GetString("email") != null)
             {

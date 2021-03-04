@@ -30,15 +30,15 @@ namespace LeaveRequest.Controllers
             this.Configuration = Configuration;
         }
 
-        [HttpPut("ChangePassword")]
-        public ActionResult ChangePassword(ChangePasswordVM changePasswordVM)
+        [HttpPut("ChangePassword/{NIK}")]
+        public ActionResult ChangePassword(string NIK, ChangePasswordVM changePasswordVM)
         {
-            var acc = accountRepository.Get(changePasswordVM.NIK);
+            var acc = accountRepository.Get(NIK);
             if (acc != null)
             {
                 if (Hashing.ValidatePassword(changePasswordVM.OldPassword, acc.Password))
                 {
-                    var data = accountRepository.ChangePassword(changePasswordVM);
+                    var data = accountRepository.ChangePassword(NIK, changePasswordVM.NewPassword);
                     return Ok(new { message = "Password Changed", status = "Ok" });
                 }
                 else

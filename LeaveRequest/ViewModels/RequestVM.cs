@@ -28,6 +28,7 @@ namespace LeaveRequest.ViewModels
         public string UploadProof { get; set; }
         public string Email { get; set; }
         public string Username { get; set; }
+        public string MarriedStatus { get; set; }
         public int RoleId { get; set; }
         public int IdRequest { get; set; }
         public int RemainingQuota { get; set; }

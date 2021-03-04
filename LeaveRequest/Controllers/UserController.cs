@@ -23,7 +23,6 @@ namespace LeaveRequest.Controllers
         {
             this.userRepository = userRepository;
         }
-
         [HttpPut("SubmitAdminRole")]
         public ActionResult SubmitAdminRole(RegisterVM registerVM)
         {

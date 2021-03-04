@@ -2,7 +2,7 @@
 
 namespace LeaveRequest.Migrations
 {
-    public partial class addModel7 : Migration
+    public partial class addModel11 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

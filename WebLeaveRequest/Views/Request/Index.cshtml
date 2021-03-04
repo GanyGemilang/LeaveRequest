@@ -166,9 +166,10 @@
             <div class="content-header">
                 <div class="container-fluid">
                     <!--<div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
-                        </div>--><!-- /.col -->
+            <div class="col-sm-6">
+                <h1 class="m-0">Dashboard</h1>
+            </div>-->
+                    <!-- /.col -->
                     <!--</div>--><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -226,6 +227,10 @@
                                 <form id="formrole">
                                     <div class="row">
                                         <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="name" class="col-form-label">Remaining Qouta:</label>
+                                                <input disabled type="text" value="@ViewData["RemainingQuotaValue"]" class="form-control" id="remainingqouta" name="remainingqouta">
+                                            </div>
                                             <div class="form-group" hidden>
                                                 <label for="id" class="col-form-label">NIK:</label>
                                                 <input type="text" class="form-control" id="nik" name="nik">
@@ -234,19 +239,77 @@
                                                 <label for="name" class="col-form-label">Start Date:</label>
                                                 <input type="date" class="form-control" id="startdate" name="startdate">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="name" class="col-form-label">End Date:</label>
-                                                <input type="date" class="form-control" id="enddate" name="enddate">
-                                            </div>
-                                            @*<div class="form-group">
-                                                <label for="name" class="col-form-label">Remaining Qouta:</label>
-                                                <input type="text" class="form-control" id="remainingqouta" name="remainingqouta">
-                                            </div>*@
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="name" class="col-form-label">Reason Request:</label>
                                                 <select id="reasonrequest" class="form-control" name="reasonrequest">
+                                                    <option value="Normal leave">Normal leave</option>
+                                                    <option value="Married">Married</option>
+                                                    <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
+                                                    <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
+                                                    <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
+                                                    <option value="Family member in one house died">Family member in one house died</option>
+                                                </select>
+                                                @*<select id="reasonrequest2" class="form-control" name="reasonrequest">
+                                                <option value="Normal leave">Normal leave</option>
+                                                <option value="Maternity leave">Maternity leave</option>
+                                                <option value="Married">Married</option>
+                                                <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
+                                                <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
+                                                <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
+                                                <option value="Family member in one house died">Family member in one house died</option>
+                                            </select>*@
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="col-form-label">End Date:</label>
+                                                <input type="date" class="form-control" id="enddate" name="enddate">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name" class="col-form-label">Notes:</label>
+                                        <textarea type="text" class="form-control" id="notes" name="notes"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" onclick="SubmitRequest()">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="Request1" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addModalLabel">Add Request</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="formrole">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="name" class="col-form-label">Remaining Qouta:</label>
+                                                <input disabled type="text" value="@ViewData["RemainingQuotaValue"]" class="form-control" id="remainingqouta" name="remainingqouta">
+                                            </div>
+                                            <div class="form-group" hidden>
+                                                <label for="id" class="col-form-label">NIK:</label>
+                                                <input type="text" class="form-control" id="nik1" name="nik1">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="col-form-label">Start Date:</label>
+                                                <input type="date" class="form-control" id="startdate1" name="startdate1">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="name" class="col-form-label">Reason Request:</label>
+                                                <select id="reasonrequest1" class="form-control" name="reasonrequest1">
                                                     <option value="Normal leave">Normal leave</option>
                                                     <option value="Maternity leave">Maternity leave</option>
                                                     <option value="Married">Married</option>
@@ -255,12 +318,25 @@
                                                     <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
                                                     <option value="Family member in one house died">Family member in one house died</option>
                                                 </select>
+                                                @*<select id="reasonrequest2" class="form-control" name="reasonrequest">
+                                                <option value="Normal leave">Normal leave</option>
+                                                <option value="Maternity leave">Maternity leave</option>
+                                                <option value="Married">Married</option>
+                                                <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
+                                                <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
+                                                <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
+                                                <option value="Family member in one house died">Family member in one house died</option>
+                                            </select>*@
                                             </div>
                                             <div class="form-group">
-                                                <label for="name" class="col-form-label">Notes:</label>
-                                                <textarea type="text" class="form-control" id="notes" name="notes"></textarea>
+                                                <label for="name" class="col-form-label">End Date:</label>
+                                                <input type="date" class="form-control" id="enddate1" name="enddate1">
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name" class="col-form-label">Notes:</label>
+                                        <textarea type="text" class="form-control" id="notes1" name="notes1"></textarea>
                                     </div>
                                 </form>
                             </div>
@@ -275,6 +351,7 @@
 
             @section scripts
 {
+
                 <script>
                     var table = null;
                     $(document).ready(function () {
@@ -320,10 +397,16 @@
                                     "data": 'reasonRequest'
                                 },
                                 {
-                                    "data": 'startDate'
+                                    "data": 'startDate',
+                                    "render": function (startDate) {
+                                        return moment(startDate, 'YYYY-MM-DD').format('DD MMMM YYYY');
+                                    }
                                 },
                                 {
-                                    "data": 'endDate'
+                                    "data": 'endDate',
+                                    "render": function (endDate) {
+                                        return moment(endDate, 'YYYY-MM-DD').format('DD MMMM YYYY');
+                                    }
                                 },
                                 {
                                     "data": 'user.remainingQuota'
@@ -357,7 +440,6 @@
                             ]
                         });
                     });
-
                     function Get(id) {
                         console.log(id);
                         $.ajax({
@@ -370,24 +452,24 @@
                             $("#nik").val(obj.data.nik);
                             $("#id").val(obj.data.id);
                             $("#reasonrequest").val(obj.data.reasonRequest);
+                            $("#remainingquota").val(obj.data.remainingQouta);
                             $("#startdate").val(obj.data.startDate);
                             $("#enddate").val(obj.data.endDate);
                             $("#notes").val(obj.data.notes);
                             $("#ApprovedHRD").val(obj.data.approvedHRD);
                             $("#ApprovedManager").val(obj.data.approvedManager);
-                            $("#RemainingQouta").val(obj.data.remainingQouta);
                         }).fail((error) => {
                             console.log(error);
                         })
                     }
                     var role = document.cookie;
                     var nik = sessionStorage.getItem("nik");
-                    //var RemainingQouta = sessionStorage.getItem("remainingQuota");
+                    var remainingqouta = sessionStorage.getItem("remainingquota");
                     function SubmitRequest() {
                         console.log("ok");
                         var Request = new Object();
                         Request.nik = nik;
-                        //Request.RemainingQouta = RemainingQouta
+                        Request.RemainingQouta = remainingqouta;
                         Request.reasonrequest = $('#reasonrequest').val();
                         Request.startdate = $('#startdate').val();
                         Request.enddate = $('#enddate').val();
@@ -398,7 +480,13 @@
                             data: Request
                         }).done((result) => {
                             if (result == 200) {
-                                swal('Success', 'Request Has Been Added, Cek Your Email', 'success');
+                                swal({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'Request Has Been Added, Cek Your Email',
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                });
                                 $('#Request').modal('hide');
                                 $("#nik").val(null);
                                 $("#id").val(null);
@@ -411,13 +499,19 @@
                                 table.ajax.reload();
                             }
                             else {
-                                swal('Error', 'Something Went Wrong', 'error');
+                                swal({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Something Went Wrong',
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                });
                             }
                         }).fail((error) => {
                             console.log(error)
                         });
                     }
-                </script>
+        </script>
             }
 
             <!-- /.content-wrapper -->
@@ -427,165 +521,177 @@
             </aside>
             <!-- /.control-sidebar -->
         </div>
-    <!-- ./wrapper -->
-    <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>$.widget.bridge('uibutton', $.ui.button)</script>
-    <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- ChartJS -->
-    <script src="plugins/chart.js/Chart.min.js"></script>
-    <!-- Sparkline -->
-    <script src="plugins/sparklines/sparkline.js"></script>
-    <!-- JQVMap -->
-    <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-    <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-    <!-- daterangepicker -->
-    <script src="plugins/moment/moment.min.js"></script>
-    <script src="plugins/daterangepicker/daterangepicker.js"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- Summernote -->
-    <script src="plugins/summernote/summernote-bs4.min.js"></script>
-    <!-- overlayScrollbars -->
-    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="dist/js/demo.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="dist/js/pages/dashboard.js"></script>
+        <!-- ./wrapper -->
+        <!-- jQuery -->
+        <script src="plugins/jquery/jquery.min.js"></script>
+        <!-- jQuery UI 1.11.4 -->
+        <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>$.widget.bridge('uibutton', $.ui.button)</script>
+        <!-- Bootstrap 4 -->
+        <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- ChartJS -->
+        <script src="plugins/chart.js/Chart.min.js"></script>
+        <!-- Sparkline -->
+        <script src="plugins/sparklines/sparkline.js"></script>
+        <!-- JQVMap -->
+        <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+        <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+        <!-- daterangepicker -->
+        <script src="plugins/moment/moment.min.js"></script>
+        <script src="plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+        <!-- Summernote -->
+        <script src="plugins/summernote/summernote-bs4.min.js"></script>
+        <!-- overlayScrollbars -->
+        <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="dist/js/adminlte.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="dist/js/demo.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="dist/js/pages/dashboard.js"></script>
 
-    @*//Donut Chart
-        <script>
-            $(function () {
-                //-------------
-                //- PIE CHART -
-                //-------------
-                // Get context with jQuery - using jQuery's .get() method.
-                var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-                var pieChart = new Chart(pieChartCanvas)
-                var PieData = [
-                    {
-                        value: 700,
-                        color: '#f56954',
-                        highlight: '#f56954',
-                        label: 'Chrome'
-                    },
-                    {
-                        value: 500,
-                        color: '#00a65a',
-                        highlight: '#00a65a',
-                        label: 'IE'
-                    },
-                    {
-                        value: 400,
-                        color: '#f39c12',
-                        highlight: '#f39c12',
-                        label: 'FireFox'
-                    },
-                    {
-                        value: 600,
-                        color: '#00c0ef',
-                        highlight: '#00c0ef',
-                        label: 'Safari'
-                    },
-                    {
-                        value: 300,
-                        color: '#3c8dbc',
-                        highlight: '#3c8dbc',
-                        label: 'Opera'
-                    },
-                    {
-                        value: 100,
-                        color: '#d2d6de',
-                        highlight: '#d2d6de',
-                        label: 'Navigator'
+        @*//Donut Chart
+            <script>
+                $(function () {
+                    //-------------
+                    //- PIE CHART -
+                    //-------------
+                    // Get context with jQuery - using jQuery's .get() method.
+                    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+                    var pieChart = new Chart(pieChartCanvas)
+                    var PieData = [
+                        {
+                            value: 700,
+                            color: '#f56954',
+                            highlight: '#f56954',
+                            label: 'Chrome'
+                        },
+                        {
+                            value: 500,
+                            color: '#00a65a',
+                            highlight: '#00a65a',
+                            label: 'IE'
+                        },
+                        {
+                            value: 400,
+                            color: '#f39c12',
+                            highlight: '#f39c12',
+                            label: 'FireFox'
+                        },
+                        {
+                            value: 600,
+                            color: '#00c0ef',
+                            highlight: '#00c0ef',
+                            label: 'Safari'
+                        },
+                        {
+                            value: 300,
+                            color: '#3c8dbc',
+                            highlight: '#3c8dbc',
+                            label: 'Opera'
+                        },
+                        {
+                            value: 100,
+                            color: '#d2d6de',
+                            highlight: '#d2d6de',
+                            label: 'Navigator'
+                        }
+                    ]
+                    var pieOptions = {
+                        //Boolean - Whether we should show a stroke on each segment
+                        segmentShowStroke: true,
+                        //String - The colour of each segment stroke
+                        segmentStrokeColor: '#fff',
+                        //Number - The width of each segment stroke
+                        segmentStrokeWidth: 2,
+                        //Number - The percentage of the chart that we cut out of the middle
+                        percentageInnerCutout: 50, // This is 0 for Pie charts
+                        //Number - Amount of animation steps
+                        animationSteps: 100,
+                        //String - Animation easing effect
+                        animationEasing: 'easeOutBounce',
+                        //Boolean - Whether we animate the rotation of the Doughnut
+                        animateRotate: true,
+                        //Boolean - Whether we animate scaling the Doughnut from the centre
+                        animateScale: false,
+                        //Boolean - whether to make the chart responsive to window resizing
+                        responsive: true,
+                        // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+                        maintainAspectRatio: true,
+                        //String - A legend template
+                        legendTemplate: '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
                     }
-                ]
-                var pieOptions = {
-                    //Boolean - Whether we should show a stroke on each segment
-                    segmentShowStroke: true,
-                    //String - The colour of each segment stroke
-                    segmentStrokeColor: '#fff',
-                    //Number - The width of each segment stroke
-                    segmentStrokeWidth: 2,
-                    //Number - The percentage of the chart that we cut out of the middle
-                    percentageInnerCutout: 50, // This is 0 for Pie charts
-                    //Number - Amount of animation steps
-                    animationSteps: 100,
-                    //String - Animation easing effect
-                    animationEasing: 'easeOutBounce',
-                    //Boolean - Whether we animate the rotation of the Doughnut
-                    animateRotate: true,
-                    //Boolean - Whether we animate scaling the Doughnut from the centre
-                    animateScale: false,
-                    //Boolean - whether to make the chart responsive to window resizing
-                    responsive: true,
-                    // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-                    maintainAspectRatio: true,
-                    //String - A legend template
-                    legendTemplate: '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
-                }
-            });
-        </script>*@
-    <script>
-        var role = document.cookie;
-        var nik = sessionStorage.getItem("nik");
-        console.log("role : ", role);
-        console.log("nik : ", nik);
-        if (role == "admin") {
-            document.getElementById("request").style.display = "none";
-            document.getElementById("approve-hrd").style.display = "none";
-            document.getElementById("approve-manager").style.display = "none";
-        }
-        else if (role == "hrd") {
-            document.getElementById("request").style.display = "none";
-            document.getElementById("manage-role").style.display = "none";
-            document.getElementById("approve-manager").style.display = "none";
-        }
-        else if (role == "manager") {
-            document.getElementById("request").style.display = "none";
-            document.getElementById("manage-role").style.display = "none";
-            document.getElementById("approve-hrd").style.display = "none";
-        }
-        else if (role == "employee") {
-            document.getElementById("manage-role").style.display = "none";
-            document.getElementById("approve-hrd").style.display = "none";
-            document.getElementById("approve-manager").style.display = "none";
-        }
+                });
+            </script>*@
+        <script>
+            var role = document.cookie;
+            var nik = sessionStorage.getItem("nik");
+            console.log("role : ", role);
+            console.log("nik : ", nik);
+            if (role == "admin") {
+                document.getElementById("request").style.display = "none";
+                document.getElementById("approve-hrd").style.display = "none";
+                document.getElementById("approve-manager").style.display = "none";
+            }
+            else if (role == "hrd") {
+                document.getElementById("request").style.display = "none";
+                document.getElementById("manage-role").style.display = "none";
+                document.getElementById("approve-manager").style.display = "none";
+            }
+            else if (role == "manager") {
+                document.getElementById("request").style.display = "none";
+                document.getElementById("manage-role").style.display = "none";
+                document.getElementById("approve-hrd").style.display = "none";
+            }
+            else if (role == "employee") {
+                document.getElementById("manage-role").style.display = "none";
+                document.getElementById("approve-hrd").style.display = "none";
+                document.getElementById("approve-manager").style.display = "none";
+            }
 
-        function ChangePassword() {
-            console.log("test");
-            var Account = new Object();
-            Account.NIK = nik;
-            Account.NewPassword = $("#newpassword").val();
-            Account.OldPassword = $("#oldpassword").val();
-            Account.ConfirmPassword = $("#confirmpassword").val();
-            $.ajax({
-                type: 'PUT',
-                url: '/authentication/changepassword/',
-                data: Account
-            }).done((result) => {
-                console.log(result);
-                if (result == 200) {
-                    alert("Your Password has been Changed!");
-                    //$("#nikchange").val(null);
-                    $("#newpassword").val(null);
-                    $("#oldpassword").val(null);
-                    $("#confirmpassword").val(null);
-                }
-            }).fail((result) => {
-                console.log(result);
-                alert("Can Not Change Your Password");
-            })
-        }
-    </script>
+            function ChangePassword() {
+                console.log("test");
+                var Account = new Object();
+                Account.NIK = nik;
+                Account.NewPassword = $("#newpassword").val();
+                Account.OldPassword = $("#oldpassword").val();
+                Account.ConfirmPassword = $("#confirmpassword").val();
+                $.ajax({
+                    type: 'PUT',
+                    url: '/authentication/changepassword/',
+                    data: Account
+                }).done((result) => {
+                    console.log(result);
+                    if (result == 200) {
+                        swal({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Your Password has been Changed!',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                        //$("#nikchange").val(null);
+                        $("#newpassword").val(null);
+                        $("#oldpassword").val(null);
+                        $("#confirmpassword").val(null);
+                    }
+                }).fail((result) => {
+                    console.log(result);
+                    swal({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Can Not Change Your Password',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                })
+            }
+        </script>
 </body>
 </html>
 
