@@ -166,9 +166,9 @@
             <div class="content-header">
                 <div class="container-fluid">
                     <!--<div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Dashboard</h1>
-            </div>-->
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Dashboard</h1>
+                    </div>-->
                     <!-- /.col -->
                     <!--</div>--><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -213,7 +213,6 @@
                         <tbody></tbody>
                     </table>
                 </div>
-
                 <div class="modal fade" id="Request" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -224,46 +223,64 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form id="formrole">
+                                <form id="formrole"> 
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="name" class="col-form-label">Remaining Qouta:</label>
                                                 <input disabled type="text" value="@ViewData["RemainingQuotaValue"]" class="form-control" id="remainingqouta" name="remainingqouta">
                                             </div>
-                                            <div class="form-group" hidden>
+                                            @*<div class="form-group" hidden>
+                                                    <label for="id" class="col-form-label">NIK:</label>
+                                                    <input type="text" class="form-control" id="nik" name="nik">
+                                                </div>*@
+                                            <div class="form-group">
                                                 <label for="id" class="col-form-label">NIK:</label>
-                                                <input type="text" class="form-control" id="nik" name="nik">
+                                                <input type="text" value="@ViewData["GenderValue"]" class="form-control" id="nik" name="nik">
                                             </div>
                                             <div class="form-group">
                                                 <label for="name" class="col-form-label">Start Date:</label>
-                                                <input type="date" class="form-control" id="startdate" name="startdate">
+                                                <input type="date" class="form-control" id="startdate" name="startdate" onchange="changeEndDate()" format="yyyy-MM-dd">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="name" class="col-form-label">Reason Request:</label>
-                                                <select id="reasonrequest" class="form-control" name="reasonrequest">
-                                                    <option value="Normal leave">Normal leave</option>
-                                                    <option value="Married">Married</option>
-                                                    <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
-                                                    <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
-                                                    <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
-                                                    <option value="Family member in one house died">Family member in one house died</option>
-                                                </select>
+                                                @if (@ViewData["GenderValue"] == "Male")
+                                                {
+                                                    <select id="reasonrequest" class="form-control" name="reasonrequest" onchange="clearDate()">
+                                                        <option value="Normal leave">Normal leave</option>
+                                                        <option value="Married">Married</option>
+                                                        <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
+                                                        <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
+                                                        <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
+                                                        <option value="Family member in one house died">Family member in one house died</option>
+                                                    </select>
+                                                }
+                                                else
+                                                {
+                                                    <select id="reasonrequest" class="form-control" name="reasonrequest" onchange="clearDate()">
+                                                        <option value="Normal leave">TEST INI PEREMPUAN</option>
+                                                        <option value="Married">Married</option>
+                                                        <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
+                                                        <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
+                                                        <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
+                                                        <option value="Family member in one house died">Family member in one house died</option>
+                                                    </select>
+                                                }
                                                 @*<select id="reasonrequest2" class="form-control" name="reasonrequest">
-                                                <option value="Normal leave">Normal leave</option>
-                                                <option value="Maternity leave">Maternity leave</option>
-                                                <option value="Married">Married</option>
-                                                <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
-                                                <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
-                                                <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
-                                                <option value="Family member in one house died">Family member in one house died</option>
-                                            </select>*@
+            <option value="Normal leave">Normal leave</option>
+            <option value="Maternity leave">Maternity leave</option>
+            <option value="Married">Married</option>
+            <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
+            <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
+            <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
+            <option value="Family member in one house died">Family member in one house died</option>
+        </select>*@
                                             </div>
                                             <div class="form-group">
                                                 <label for="name" class="col-form-label">End Date:</label>
-                                                <input type="date" class="form-control" id="enddate" name="enddate">
+                                                <input type="date" class="form-control" id="enddate" name="enddate" disabled="disabled">
                                             </div>
                                         </div>
                                     </div>
@@ -279,6 +296,7 @@
                         </div>
                     </div>
                 </div>
+
 
                 <div class="modal fade" id="Request1" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -297,9 +315,13 @@
                                                 <label for="name" class="col-form-label">Remaining Qouta:</label>
                                                 <input disabled type="text" value="@ViewData["RemainingQuotaValue"]" class="form-control" id="remainingqouta" name="remainingqouta">
                                             </div>
+                                            @*<div class="form-group" hidden>
+                                                    <label for="id" class="col-form-label">NIK:</label>
+                                                    <input type="text" class="form-control" id="nik1" name="nik1">
+                                                </div>*@
                                             <div class="form-group" hidden>
-                                                <label for="id" class="col-form-label">NIK:</label>
-                                                <input type="text" class="form-control" id="nik1" name="nik1">
+                                                <label for="id" class="col-form-label">Gender:</label>
+                                                <input type="text" value="@ViewData["RemainingQuotaValue"]" class="form-control" id="nik1" name="nik1">
                                             </div>
                                             <div class="form-group">
                                                 <label for="name" class="col-form-label">Start Date:</label>
@@ -319,14 +341,14 @@
                                                     <option value="Family member in one house died">Family member in one house died</option>
                                                 </select>
                                                 @*<select id="reasonrequest2" class="form-control" name="reasonrequest">
-                                                <option value="Normal leave">Normal leave</option>
-                                                <option value="Maternity leave">Maternity leave</option>
-                                                <option value="Married">Married</option>
-                                                <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
-                                                <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
-                                                <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
-                                                <option value="Family member in one house died">Family member in one house died</option>
-                                            </select>*@
+                                                        <option value="Normal leave">Normal leave</option>
+                                                        <option value="Maternity leave">Maternity leave</option>
+                                                        <option value="Married">Married</option>
+                                                        <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
+                                                        <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
+                                                        <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
+                                                        <option value="Family member in one house died">Family member in one house died</option>
+                                                    </select>*@
                                             </div>
                                             <div class="form-group">
                                                 <label for="name" class="col-form-label">End Date:</label>
@@ -352,7 +374,7 @@
             @section scripts
 {
 
-                <script>
+                        <script>
                     var table = null;
                     $(document).ready(function () {
                         table = $("#myTable").DataTable({
@@ -448,7 +470,7 @@
                         }).done((result) => {
                             console.log(result);
                             var obj = JSON.parse(result);
-                            $("#Request").modal("show");
+                            $("#Request1").modal("show");
                             $("#nik").val(obj.data.nik);
                             $("#id").val(obj.data.id);
                             $("#reasonrequest").val(obj.data.reasonRequest);
@@ -511,7 +533,7 @@
                             console.log(error)
                         });
                     }
-        </script>
+                        </script>
             }
 
             <!-- /.content-wrapper -->
@@ -652,6 +674,17 @@
                 document.getElementById("manage-role").style.display = "none";
                 document.getElementById("approve-hrd").style.display = "none";
                 document.getElementById("approve-manager").style.display = "none";
+            }
+
+            function changeEndDate() {
+                console.log($("#startdate").val());
+                console.log(date);
+                $("#enddate").val("2021-03-05");
+            }
+
+            function clearDate() {
+                $("#enddate").val(null);
+                $("#startdate").val(null);
             }
 
             function ChangePassword() {

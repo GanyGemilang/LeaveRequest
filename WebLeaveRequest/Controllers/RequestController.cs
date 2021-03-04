@@ -18,6 +18,10 @@ namespace WebLeaveRequest.Controllers
         {
             ViewData["RemainingQuotaValue"] = HttpContext.Session.GetString("remainingquota");
             ViewData["GenderValue"] = HttpContext.Session.GetString("gender");
+            /*if (HttpContext.Session.GetString("gender") == "Male")
+            {
+
+            }*/
             return View();
             /*if (HttpContext.Session.GetString("email") != null)
             {
