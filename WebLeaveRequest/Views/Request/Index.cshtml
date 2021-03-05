@@ -223,7 +223,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form id="formrole"> 
+                                <form id="formrole">
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
@@ -231,10 +231,10 @@
                                                 <input disabled type="text" value="@ViewData["RemainingQuotaValue"]" class="form-control" id="remainingqouta" name="remainingqouta">
                                             </div>
                                             @*<div class="form-group" hidden>
-                                                    <label for="id" class="col-form-label">NIK:</label>
-                                                    <input type="text" class="form-control" id="nik" name="nik">
-                                                </div>*@
-                                            <div class="form-group">
+            <label for="id" class="col-form-label">NIK:</label>
+            <input type="text" class="form-control" id="nik" name="nik">
+        </div>*@
+                                            <div class="form-group" hidden>
                                                 <label for="id" class="col-form-label">NIK:</label>
                                                 <input type="text" value="@ViewData["GenderValue"]" class="form-control" id="nik" name="nik">
                                             </div>
@@ -242,14 +242,20 @@
                                                 <label for="name" class="col-form-label">Start Date:</label>
                                                 <input type="date" class="form-control" id="startdate" name="startdate" onchange="changeEndDate()" format="yyyy-MM-dd">
                                             </div>
+                                            <div id="disclaimer1" style="color: red; font-size: 15px; display: none;">Input Total Day Request 3 day!!</div>
+                                            <div id="disclaimer2" style="color: red; font-size: 15px; display: none;">Input Total Day Request 2 day!!</div>
+                                            <div id="disclaimer3" style="color: red; font-size: 15px; display: none;">Input Total Day Request 1 day!!</div>
+                                            <div id="disclaimer4" style="color: red; font-size: 15px; display: none;">Input Total Day Request 90 day!!</div>
+                                            <div id="disclaimer5" style="color: red; font-size: 15px; display: none;">Input Total Day Request less than Remaining Quota And Less Than 5 day!!</div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="name" class="col-form-label">Reason Request:</label>
-                                                @if (@ViewData["GenderValue"] == "Male")
+                                                @if (@ViewData["GenderValue"] == "Female")
                                                 {
                                                     <select id="reasonrequest" class="form-control" name="reasonrequest" onchange="clearDate()">
                                                         <option value="Normal leave">Normal leave</option>
+                                                        <option value="Maternity leave">Maternity leave</option>
                                                         <option value="Married">Married</option>
                                                         <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
                                                         <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
@@ -260,7 +266,7 @@
                                                 else
                                                 {
                                                     <select id="reasonrequest" class="form-control" name="reasonrequest" onchange="clearDate()">
-                                                        <option value="Normal leave">TEST INI PEREMPUAN</option>
+                                                        <option value="Normal leave">Normal leave</option>
                                                         <option value="Married">Married</option>
                                                         <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
                                                         <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
@@ -268,97 +274,16 @@
                                                         <option value="Family member in one house died">Family member in one house died</option>
                                                     </select>
                                                 }
-                                                @*<select id="reasonrequest2" class="form-control" name="reasonrequest">
-            <option value="Normal leave">Normal leave</option>
-            <option value="Maternity leave">Maternity leave</option>
-            <option value="Married">Married</option>
-            <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
-            <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
-            <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
-            <option value="Family member in one house died">Family member in one house died</option>
-        </select>*@
                                             </div>
                                             <div class="form-group">
                                                 <label for="name" class="col-form-label">End Date:</label>
-                                                <input type="date" class="form-control" id="enddate" name="enddate" disabled="disabled">
+                                                <input type="date" class="form-control" id="enddate" name="enddate">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="name" class="col-form-label">Notes:</label>
                                         <textarea type="text" class="form-control" id="notes" name="notes"></textarea>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" onclick="SubmitRequest()">Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="modal fade" id="Request1" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="addModalLabel">Add Request</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form id="formrole">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label for="name" class="col-form-label">Remaining Qouta:</label>
-                                                <input disabled type="text" value="@ViewData["RemainingQuotaValue"]" class="form-control" id="remainingqouta" name="remainingqouta">
-                                            </div>
-                                            @*<div class="form-group" hidden>
-                                                    <label for="id" class="col-form-label">NIK:</label>
-                                                    <input type="text" class="form-control" id="nik1" name="nik1">
-                                                </div>*@
-                                            <div class="form-group" hidden>
-                                                <label for="id" class="col-form-label">Gender:</label>
-                                                <input type="text" value="@ViewData["RemainingQuotaValue"]" class="form-control" id="nik1" name="nik1">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="name" class="col-form-label">Start Date:</label>
-                                                <input type="date" class="form-control" id="startdate1" name="startdate1">
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label for="name" class="col-form-label">Reason Request:</label>
-                                                <select id="reasonrequest1" class="form-control" name="reasonrequest1">
-                                                    <option value="Normal leave">Normal leave</option>
-                                                    <option value="Maternity leave">Maternity leave</option>
-                                                    <option value="Married">Married</option>
-                                                    <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
-                                                    <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
-                                                    <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
-                                                    <option value="Family member in one house died">Family member in one house died</option>
-                                                </select>
-                                                @*<select id="reasonrequest2" class="form-control" name="reasonrequest">
-                                                        <option value="Normal leave">Normal leave</option>
-                                                        <option value="Maternity leave">Maternity leave</option>
-                                                        <option value="Married">Married</option>
-                                                        <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
-                                                        <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
-                                                        <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
-                                                        <option value="Family member in one house died">Family member in one house died</option>
-                                                    </select>*@
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="name" class="col-form-label">End Date:</label>
-                                                <input type="date" class="form-control" id="enddate1" name="enddate1">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name" class="col-form-label">Notes:</label>
-                                        <textarea type="text" class="form-control" id="notes1" name="notes1"></textarea>
                                     </div>
                                 </form>
                             </div>
@@ -489,6 +414,46 @@
                     var remainingqouta = sessionStorage.getItem("remainingquota");
                     function SubmitRequest() {
                         console.log("ok");
+                        var totalOvertime = moment($('#startdate').val(), 'yyyy:mm:dd').diff(moment($('#enddate').val(), 'yyyy:mm:dd'), 'days');
+                        var reasonrequest = $('#reasonrequest').val();
+                        var remainingquota = $('#remainingqouta').val();
+                        if (totalOvertime != 3 && reasonrequest == "Married") {
+                            document.getElementById("disclaimer1").style.display = "block";
+                            document.getElementById("disclaimer2").style.display = "none";
+                            document.getElementById("disclaimer3").style.display = "none"
+                            document.getElementById("disclaimer4").style.display = "none"
+                            document.getElementById("disclaimer5").style.display = "none"
+                        } else if (totalOvertime != 2 && reasonrequest == "Marry or Circumcise or Baptize Children" || reasonrequest == "Wife gave birth or had a miscarriage" || reasonrequest == "Husband or Wife Parents or In laws Children or Son In law have passed away" ) {
+                            document.getElementById("disclaimer2").style.display = "block";  
+                            document.getElementById("disclaimer1").style.display = "none";
+                            document.getElementById("disclaimer3").style.display = "none";
+                            document.getElementById("disclaimer4").style.display = "none";
+                            document.getElementById("disclaimer5").style.display = "none";
+                        } else if (totalOvertime != 2 && reasonrequest == "Family member in one house died") {
+                            document.getElementById("disclaimer3").style.display = "block";  
+                            document.getElementById("disclaimer1").style.display = "none";
+                            document.getElementById("disclaimer2").style.display = "none";
+                            document.getElementById("disclaimer4").style.display = "none";
+                            document.getElementById("disclaimer5").style.display = "none";
+                        } else if (totalOvertime != 90 && reasonrequest == "Maternity leave") {
+                            document.getElementById("disclaimer4").style.display = "block";  
+                            document.getElementById("disclaimer1").style.display = "none";
+                            document.getElementById("disclaimer2").style.display = "none";
+                            document.getElementById("disclaimer3").style.display = "none";
+                            document.getElementById("disclaimer5").style.display = "none";
+                        } else if (totalOvertime > remainingquota && totalOvertime > 5 && reasonrequest == "Normal leave") {
+                            document.getElementById("disclaimer5").style.display = "block";  
+                            document.getElementById("disclaimer1").style.display = "none";
+                            document.getElementById("disclaimer2").style.display = "none";
+                            document.getElementById("disclaimer3").style.display = "none";
+                            document.getElementById("disclaimer4").style.display = "none";
+                        }else {
+                            document.getElementById("disclaimer1").style.display = "none";
+                            document.getElementById("disclaimer2").style.display = "none";
+                            document.getElementById("disclaimer3").style.display = "none";
+                            document.getElementById("disclaimer4").style.display = "none";
+                            document.getElementById("disclaimer5").style.display = "none";
+                        }
                         var Request = new Object();
                         Request.nik = nik;
                         Request.RemainingQouta = remainingqouta;
@@ -519,21 +484,21 @@
                                 $("#ApprovedHRD").val(null);
                                 $("#ApprovedManager").val(null);
                                 table.ajax.reload();
-                            }
-                            else {
+                            } else if (result == 400) {
                                 swal({
                                     position: 'top-end',
                                     icon: 'error',
-                                    title: 'Something Went Wrong',
-                                    showConfirmButton: false,
-                                    timer: 2000
+                                    title: 'Input Total Day Request less than Remaining Quota And Less Than 5 day',
                                 });
                             }
+                           
                         }).fail((error) => {
                             console.log(error)
                         });
                     }
-                        </script>
+                  </script>
+                  <script src="https://momentjs.com/downloads/moment.js"</script>
+
             }
 
             <!-- /.content-wrapper -->
@@ -678,7 +643,7 @@
 
             function changeEndDate() {
                 console.log($("#startdate").val());
-                console.log(date);
+                //console.log(date);
                 $("#enddate").val("2021-03-05");
             }
 
