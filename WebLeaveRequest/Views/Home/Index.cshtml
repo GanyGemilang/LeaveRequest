@@ -166,27 +166,63 @@
             console.log("login nik : ", obj.email);
             sessionStorage.setItem("nik", obj.email);
             if (obj.role == 'Admin') {
-                alert("Successed to Login");
+                swal({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Successed to Login',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
                 document.cookie = "admin";
                 window.location.href = "https://localhost:44349/dashboard";
             } else if (obj.role == 'HRD') {
-                alert("Successed to Login");
+                swal({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Successed to Login',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
                 document.cookie = "hrd";
                 window.location.href = "https://localhost:44349/dashboard";
             } else if (obj.role == 'Manager') {
-                alert("Successed to Login");
+                swal({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Successed to Login',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
                 document.cookie = "manager";
                 window.location.href = "https://localhost:44349/dashboard";
             } else if (obj.role == 'Employee') {
-                alert("Successed to Login");
+                swal({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Successed to Login',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
                 document.cookie = "employee";
                 window.location.href = "https://localhost:44349/dashboard";
             }
             else {
-                alert("Failed to Login");
+                swal({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Failed to Login',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
             }
         }).fail((result) => {
-                alert("Failed to Login");
+            swal({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Failed to Login',
+                showConfirmButton: false,
+                timer: 2000
+            });
         })
     }
 
@@ -200,13 +236,25 @@
         }).done((result) => {
             console.log("ok");
             if (result == 200) {
-                alert("Check Your Email for New Password!");
+                swal({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Check Your Email for New Password!',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
                 $('#forgotpassword').modal('hide');
                 $("#emailforgot").val(null);
             }
         }).fail((result) => {
             console.log(result);
-            alert("Failed to Send Email!");
+            swal({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Failed to Send Email!',
+                showConfirmButton: false,
+                timer: 2000
+            });
             $('#forgotpassword').modal('hide');
             $("#emailforgot").val(null);
         })
@@ -232,7 +280,13 @@
         }).done((result) => {
             console.log(result);
             if (result == 200) {
-                alert("Successed to Add Data!");
+                swal({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Successed to Add Data!',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
                 $('#Register').modal('hide');
                 $("#nik").val(null);
                 $("#firstname").val(null);
@@ -248,7 +302,13 @@
             }
         }).fail((result) => {
             console.log(result);
-            alert("Failed to Add Data!");
+            swal({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Failed to Add Data!',
+                showConfirmButton: false,
+                timer: 2000
+            });
         })
     }
 </script>

@@ -2,7 +2,7 @@
 
 namespace LeaveRequest.Migrations
 {
-    public partial class addSPRetriveLogin : Migration
+    public partial class addModelLeaveReq : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

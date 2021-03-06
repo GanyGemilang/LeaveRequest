@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LeaveRequest.Migrations
 {
-    public partial class addModel : Migration
+    public partial class addModelLeaveRequest : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,27 +19,6 @@ namespace LeaveRequest.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TB_M_Parameter", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "TB_M_Request",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    NIK = table.Column<string>(nullable: true),
-                    ReasonRequest = table.Column<string>(nullable: false),
-                    StartDate = table.Column<DateTime>(nullable: false),
-                    EndDate = table.Column<DateTime>(nullable: false),
-                    Status = table.Column<int>(nullable: false),
-                    Notes = table.Column<string>(nullable: false),
-                    UploadProof = table.Column<string>(nullable: true),
-                    ApprovedHRD = table.Column<string>(nullable: true),
-                    ApprovedManager = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TB_M_Request", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -100,6 +79,38 @@ namespace LeaveRequest.Migrations
                         principalColumn: "NIK",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "TB_M_Request",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ReasonRequest = table.Column<string>(nullable: false),
+                    StartDate = table.Column<DateTime>(nullable: false),
+                    EndDate = table.Column<DateTime>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    Notes = table.Column<string>(nullable: false),
+                    UploadProof = table.Column<string>(nullable: true),
+                    ApprovedHRD = table.Column<string>(nullable: true),
+                    ApprovedManager = table.Column<string>(nullable: true),
+                    NIK = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TB_M_Request", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TB_M_Request_TB_M_User_NIK",
+                        column: x => x.NIK,
+                        principalTable: "TB_M_User",
+                        principalColumn: "NIK",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TB_M_Request_NIK",
+                table: "TB_M_Request",
+                column: "NIK");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TB_M_User_RoleId",

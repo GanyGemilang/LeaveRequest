@@ -15,5 +15,7 @@ namespace LeaveRequest.ViewModels
         public string Role { get; set; }
 
         public string NIK { get; set; }
+        public string RemainingQuota { get; set; }
+        public string Gender { get; set; }
     }
 }

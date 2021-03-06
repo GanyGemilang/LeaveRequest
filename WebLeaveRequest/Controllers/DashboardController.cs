@@ -23,6 +23,7 @@ namespace WebLeaveRequest.Controllers
              return View(dashboard);*/
             ViewData["NIKValue"] = HttpContext.Session.GetString("nik");
             string viewdata = HttpContext.Session.GetString("nik");
+            ViewData["GenderValue"] = HttpContext.Session.GetString("gender");
             return View();
         }
 

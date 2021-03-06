@@ -16,7 +16,7 @@ namespace LeaveRequest.Repositories.Data
 {
     public class AccountRepository : GeneralRepository<Account, MyContext, string>
     {
-        //private DbSet<Account> accounts;
+         //private DbSet<Account> accounts;
         private readonly MyContext myContext;
         private readonly SendEmail sendEmail = new SendEmail();
         private readonly UserRepository userRepository;

@@ -261,8 +261,8 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" onclick="approve()">Approve</button>
-                            <button type="button" class="btn btn-primary" onclick="reject()">Reject</button>
+                            <button type="button" class="btn btn-primary" style="background-color : green" onclick="approve()">Approve</button>
+                            <button type="button" class="btn btn-primary" style="background-color : red" onclick="reject()">Reject</button>
                         </div>
                     </div>
                 </div>
@@ -319,10 +319,16 @@
                                     "data": 'reasonRequest'
                                 },
                                 {
-                                    "data": 'startDate'
+                                    "data": 'startDate',
+                                    "render": function (startDate) {
+                                        return moment(startDate, 'YYYY-MM-DD').format('DD MMMM YYYY');
+                                    }
                                 },
                                 {
-                                    "data": 'endDate'
+                                    "data": 'endDate',
+                                    "render": function (endDate) {
+                                        return moment(endDate, 'YYYY-MM-DD').format('DD MMMM YYYY');
+                                    }
                                 },
                                 {
                                     "data": 'status',
@@ -362,6 +368,7 @@
 
                     function approve() {
                         var id = $('#id').val();
+                        var nik = $('#nik').val();
                         console.log("put accessed");
                         Approve(id);
                     }
@@ -398,6 +405,7 @@
                     function Approve(id) {
                         var approve = new Object();
                         approve.id = $('#id').val();
+                        approve.nik = $('#nik').val();
                         $.ajax({
                             type: "PUT",
                             url: '/approveHRD/ApproveHRD',
@@ -405,7 +413,13 @@
                         }).done((result) => {
                             console.log("ok");
                             if (result == 200) {
-                                swal('Success', 'Update Successfully', 'success');
+                                swal({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'Update Successfully',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
                                 $('#Request').modal('hide');
                                 $("#nik").val(null);
                                 $("#id").val(null);
@@ -417,8 +431,22 @@
                                 $("#ApprovedManager").val(null);
                                 table.ajax.reload();
                             }
+                            else if (result == 400) {
+                                swal({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Update Filed Because Remaining Quota Insufficient, Please Reject Request',
+                                    showConfirmButton: false
+                                });
+                            }
                             else {
-                                swal('Error', 'Something Went Wrong', 'error');
+                                swal({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Something Went Wrong',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
                                 $('#Request').modal('hide');
                                 $("#nik").val(null);
                                 $("#id").val(null);
@@ -445,7 +473,13 @@
                         }).done((result) => {
 
                             if (result == 200) {
-                                swal('Success', 'Update Successfully', 'success');
+                                swal({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'Update Successfully',
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                });
                                 $('#Request').modal('hide');
                                 $("#nik").val(null);
                                 $("#id").val(null);
@@ -458,7 +492,23 @@
                                 table.ajax.reload();
                             }
                             else {
-                                swal('Error', 'Something Went Wrong', 'error');
+                                swal({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Something Went Wrong',
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                });
+                                $('#Request').modal('hide');
+                                $("#nik").val(null);
+                                $("#id").val(null);
+                                $("#reasonrequest").val(null);
+                                $("#startdate").val(null);
+                                $("#enddate").val(null);
+                                $("#notes").val(null);
+                                $("#ApprovedHRD").val(null);
+                                $("#ApprovedManager").val(null);
+                                table.ajax.reload();
                             }
                         }).fail((error) => {
                             console.log(error)
@@ -479,7 +529,13 @@
                             data: Request
                         }).done((result) => {
                             if (result == 200) {
-                                swal('Success', 'Request Has Been Added, Cek Your Email', 'success');
+                                swal({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'Request Has Been Added, Cek Your Email',
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                });
                                 $('#Request').modal('hide');
                                 $("#nik").val(null);
                                 $("#id").val(null);
@@ -492,7 +548,23 @@
                                 table.ajax.reload();
                             }
                             else {
-                                swal('Error', 'Something Went Wrong', 'error');
+                                swal({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Something Went Wrong',
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                });
+                                $('#Request').modal('hide');
+                                $("#nik").val(null);
+                                $("#id").val(null);
+                                $("#reasonrequest").val(null);
+                                $("#startdate").val(null);
+                                $("#enddate").val(null);
+                                $("#notes").val(null);
+                                $("#ApprovedHRD").val(null);
+                                $("#ApprovedManager").val(null);
+                                table.ajax.reload();
                             }
                         }).fail((error) => {
                             console.log(error)
@@ -714,7 +786,13 @@
             }).done((result) => {
                 console.log(result);
                 if (result == 200) {
-                    alert("Your Password has been Changed!");
+                    swal({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Your Password has been Changed!',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
                     //$("#nikchange").val(null);
                     $("#newpassword").val(null);
                     $("#oldpassword").val(null);
@@ -722,7 +800,13 @@
                 }
             }).fail((result) => {
                 console.log(result);
-                alert("Can Not Change Your Password");
+                swal({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Can Not Change Your Password',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
             })
         }
     </script>
