@@ -49,6 +49,7 @@ namespace WebLeaveRequest.Controllers
             }
             HttpContext.Session.SetString("remainingquota", result1.RemainingQuota);
             HttpContext.Session.SetString("gender", result1.Gender);
+            HttpContext.Session.SetString("nikvalue", result1.NIK);
             string valuegender = HttpContext.Session.GetString("gender");
 
             var httpclient = new HttpClient();

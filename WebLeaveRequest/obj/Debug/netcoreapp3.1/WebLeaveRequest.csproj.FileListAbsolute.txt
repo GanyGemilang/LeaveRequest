@@ -255,3 +255,177 @@ C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\D
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Index.cshtml.g.cs
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_MainMenu.cshtml.g.cs
 C:\Users\asus\Documents\GitHub\TALeaveRequest\LeaveRequest\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\_ViewStart.cshtml.g.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\appsettings.Development.json
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\appsettings.json
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\LeaveRequest.exe
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.exe
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.deps.json
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.runtimeconfig.json
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.runtimeconfig.dev.json
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.pdb
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.Views.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.Views.pdb
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\DevOne.Security.Cryptography.BCrypt.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\BCrypt.Net.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Castle.Core.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Dapper.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\LeaveRequest.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\bin\Debug\netcoreapp3.1\LeaveRequest.pdb
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.csprojAssemblyReference.cache
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.AssemblyInfoInputs.cache
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.AssemblyInfo.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.csproj.CoreCompileInputs.cache
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.MvcApplicationPartsAssemblyInfo.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.MvcApplicationPartsAssemblyInfo.cache
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.RazorAssemblyInfo.cache
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.RazorAssemblyInfo.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\staticwebassets\WebLeaveRequest.StaticWebAssets.Manifest.cache
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\staticwebassets\WebLeaveRequest.StaticWebAssets.xml
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\scopedcss\bundle\WebLeaveRequest.styles.css
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.TagHelpers.input.cache
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.TagHelpers.output.cache
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.RazorCoreGenerate.cache
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\ApproveHRD\Index.cshtml.g.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\ApproveManager\Index.cshtml.g.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Index.cshtml.g.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Request\Index.cshtml.g.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_MainMenu.cshtml.g.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\_ViewStart.cshtml.g.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.RazorTargetAssemblyInfo.cache
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.RazorTargetAssemblyInfo.cs
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.Views.pdb
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.csproj.CopyComplete
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.dll
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.pdb
+F:\Kerja\Gany\LeaveRequest-gany\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.genruntimeconfig.cache
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\LeaveRequest.exe
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\appsettings.json
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.exe
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.deps.json
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.runtimeconfig.json
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.runtimeconfig.dev.json
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.pdb
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.Views.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\WebLeaveRequest.Views.pdb
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\DevOne.Security.Cryptography.BCrypt.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\BCrypt.Net.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Castle.Core.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Dapper.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\LeaveRequest.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\bin\Debug\netcoreapp3.1\LeaveRequest.pdb
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.csprojAssemblyReference.cache
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.AssemblyInfoInputs.cache
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.AssemblyInfo.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.csproj.CoreCompileInputs.cache
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.MvcApplicationPartsAssemblyInfo.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.MvcApplicationPartsAssemblyInfo.cache
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.RazorAssemblyInfo.cache
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.RazorAssemblyInfo.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\staticwebassets\WebLeaveRequest.StaticWebAssets.Manifest.cache
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\staticwebassets\WebLeaveRequest.StaticWebAssets.xml
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\scopedcss\bundle\WebLeaveRequest.styles.css
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.TagHelpers.input.cache
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.TagHelpers.output.cache
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.RazorCoreGenerate.cache
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\ApproveHRD\Index.cshtml.g.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\ApproveManager\Index.cshtml.g.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Index.cshtml.g.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Request\Index.cshtml.g.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_MainMenu.cshtml.g.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\Razor\_ViewStart.cshtml.g.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.RazorTargetAssemblyInfo.cache
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.RazorTargetAssemblyInfo.cs
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.Views.pdb
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.csproj.CopyComplete
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.dll
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.pdb
+D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\WebLeaveRequest\obj\Debug\netcoreapp3.1\WebLeaveRequest.genruntimeconfig.cache

@@ -30,7 +30,6 @@ namespace LeaveRequest.Repositories.Data
         public int Request(RequestVM requestVM)
         {
             var TotalDay = (requestVM.EndDate - requestVM.StartDate).TotalDays;
-            var TotalDay1 = (requestVM.StartDate - requestVM.EndDate).TotalDays;
             var request = new Request()
             {
                 NIK = requestVM.NIK,
@@ -58,12 +57,7 @@ namespace LeaveRequest.Repositories.Data
                     result5 = db.Query<RequestVM>(readSp, parameter5, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 }
             }
-            if (TotalDay > result5.RemainingQuota )
-            {
-                return 0;
-            }
-            
-            if (TotalDay < 0)
+            if (TotalDay > result5.RemainingQuota)
             {
                 return 0;
             }
@@ -127,10 +121,10 @@ namespace LeaveRequest.Repositories.Data
                 {
                     return 4;
                 }
-                if(result.MarriedStatus != "Single")
-                {
-                    return 0;
-                }
+                //if(result.MarriedStatus != "Single")
+                //{
+                //    return 0;
+                //}
 
             }
             else if (requestVM.ReasonRequest == "Marry or Circumcise or Baptize Children" ||

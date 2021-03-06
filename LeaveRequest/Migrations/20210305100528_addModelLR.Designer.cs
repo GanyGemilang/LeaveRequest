@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LeaveRequest.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210228085053_addSPRetriveLoginn")]
-    partial class addSPRetriveLoginn
+    [Migration("20210305100528_addModelLR")]
+    partial class addModelLR
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
