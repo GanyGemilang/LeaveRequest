@@ -226,68 +226,55 @@
                                 <form id="formrole"> 
                                     <div class="row">
                                         <div class="col-6">
+                                            <div class="form-group" >
+                                                <label for="id" class="col-form-label">NIK:</label>
+                                                <input disabled type="text" value="@ViewData["NIK"]" class="form-control" id="nik" name="nik">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="col-form-label">Reason Request:</label>
+                                                @if (@ViewData["GenderValue"].ToString() == "Male")
+                                                {
+                                        <select id="reasonrequest" class="form-control" name="reasonrequest" onchange="clearDate()">
+                                            <option value="Normal leave">Normal leave</option>
+                                            <option value="Married">Married</option>
+                                            <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
+                                            <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
+                                            <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
+                                            <option value="Family member in one house died">Death of a family member</option>
+                                        </select> }
+                                    else if (@ViewData["GenderValue"].ToString() == "Female")
+                                    {
+                                            <select id="reasonrequest" class="form-control" name="reasonrequest" onchange="clearDate()">
+                                                <option value="Normal leave">Normal leave</option>
+                                                <option value="Maternity leave">Maternity leave</option>
+                                                <option value="Married">Married</option>
+                                                <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
+                                                <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
+                                                <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
+                                                <option value="Family member in one house died">Death of a family member</option>
+                                            </select>}
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="col-form-label">Notes:</label>
+                                                <textarea type="text" class="form-control" id="notes" name="notes"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
                                             <div class="form-group">
                                                 <label for="name" class="col-form-label">Remaining Qouta:</label>
                                                 <input disabled type="text" value="@ViewData["RemainingQuotaValue"]" class="form-control" id="remainingqouta" name="remainingqouta">
-                                            </div>
-                                            @*<div class="form-group" hidden>
-                                                    <label for="id" class="col-form-label">NIK:</label>
-                                                    <input type="text" class="form-control" id="nik" name="nik">
-                                                </div>*@
-                                            <div class="form-group">
-                                                <label for="id" class="col-form-label">NIK:</label>
-                                                <input type="text" value="@ViewData["NIK"]" class="form-control" id="nik" name="nik">
                                             </div>
                                             <div class="form-group">
                                                 <label for="name" class="col-form-label">Start Date:</label>
                                                 <input type="date" class="form-control" id="startdate" name="startdate" onchange="changeEndDate()" format="yyyy-MM-dd">
                                                 @*<input type="date" class="form-control" id="startdate" name="startdate" format="yyyy-MM-dd">*@
                                             </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label for="name" class="col-form-label">Reason Request:</label>
-                                                @if (@ViewData["GenderValue"].ToString() == "Male")
-                                                {
-                                                    <select id="reasonrequest" class="form-control" name="reasonrequest" onchange="clearDate()">
-                                                        <option value="Normal leave">Normal leave</option>
-                                                        <option value="Married">Married</option>
-                                                        <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
-                                                        <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
-                                                        <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
-                                                        <option value="Family member in one house died">Death of a family member</option>
-                                                    </select>
-                                                }
-                                                else
-                                                {
-                                                    <select id="reasonrequest" class="form-control" name="reasonrequest" onchange="clearDate()">
-                                                        <option value="Married">Married</option>
-                                                        <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
-                                                        <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
-                                                        <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
-                                                        <option value="Family member in one house died">Death of a family member</option>
-                                                    </select>
-                                                }
-                                                @*<select id="reasonrequest2" class="form-control" name="reasonrequest">
-            <option value="Normal leave">Normal leave</option>
-            <option value="Maternity leave">Maternity leave</option>
-            <option value="Married">Married</option>
-            <option value="Marry or Circumcise or Baptize Children">Marry or Circumcise or Baptize Children</option>
-            <option value="Wife gave birth or had a miscarriage">Wife gave birth or had a miscarriage</option>
-            <option value="Husband or Wife Parents or In laws Children or Son In law have passed away">Husband or Wife Parents or In laws Children or Son In law have passed away</option>
-            <option value="Family member in one house died">Family member in one house died</option>
-        </select>*@
-                                            </div>
                                             <div class="form-group">
                                                 <label for="name" class="col-form-label">End Date:</label>
-                                                <input type="date" class="form-control" id="enddate" name="enddate" disabled="disabled">
+                                                <input type="date" class="form-control" id="enddate" name="enddate">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name" class="col-form-label">Notes:</label>
-                                        <textarea type="text" class="form-control" id="notes" name="notes"></textarea>
-                                    </div>
+                                    </div>   
                                 </form>
                             </div>
                             <div class="modal-footer">
@@ -708,9 +695,9 @@
                     console.log("Date 2 : ", startdate.getFullYear() + "-" + startdate.getMonth() + "-" + day);
                     $("#enddate").val(startdate.getFullYear() + "-" + month + "-" + day);
                 }
-                else if (reasonrequest == "Normal leave"){
+                else if (reasonrequest == "Marry or Circumcise or Baptize Children" || reasonrequest == "Wife gave birth or had a miscarriage" || reasonrequest == "Husband or Wife Parents or In laws Children or Son In law have passed away"){
                     var month = startdate.getMonth() + 1;
-                    var day = startdate.getDate() + 5; //ganti disini
+                    var day = startdate.getDate() + 2; //ganti disini
                     if (month < 10) {
                         month = "0" + month;
                     }
@@ -719,6 +706,33 @@
                     }
                     console.log("Date 2 : ", startdate.getFullYear() + "-" + startdate.getMonth() + "-" + day);
                     $("#enddate").val(startdate.getFullYear() + "-" + month + "-" + day);
+                }
+                else if (reasonrequest == "Family member in one house died") {
+                    var month = startdate.getMonth() + 1;
+                    var day = startdate.getDate() + 1; //ganti disini
+                    if (month < 10) {
+                        month = "0" + month;
+                    }
+                    if (day < 10) {
+                        day = "0" + day;
+                    }
+                    console.log("Date 2 : ", startdate.getFullYear() + "-" + startdate.getMonth() + "-" + day);
+                    $("#enddate").val(startdate.getFullYear() + "-" + month + "-" + day);
+                }
+                else if (reasonrequest == "Maternity leave") {
+                    var month = startdate.getMonth() + 4;
+                    var day = startdate.getDate() + 0; //ganti disini
+                    if (month < 10) {
+                        month = "0" + month;
+                    }
+                    if (day < 10) {
+                        day = "0" + day;
+                    }
+                    console.log("Date 2 : ", startdate.getFullYear() + "-" + startdate.getMonth() + "-" + day);
+                    $("#enddate").val(startdate.getFullYear() + "-" + month + "-" + day);
+                }
+                else if (reasonrequest == "Normal leave") {
+                    $("#enddate").val();
                 }
 
             }
