@@ -289,7 +289,6 @@ F:\Kerja\Gany\LeaveRequest-gany\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveReques
 F:\Kerja\Gany\LeaveRequest-gany\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.dll
 F:\Kerja\Gany\LeaveRequest-gany\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.pdb
 F:\Kerja\Gany\LeaveRequest-gany\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.genruntimeconfig.cache
-F:\Kerja\Final Project\LeaveRequest\LeaveRequest\obj\Debug\netcoreapp3.1\LeaveRequest.csprojAssemblyReference.cache
 D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\LeaveRequest\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\LeaveRequest\bin\Debug\netcoreapp3.1\appsettings.json
 D:\MCC\TA\LeaveRequest-panji (1)\LeaveRequest-panji\LeaveRequest\bin\Debug\netcoreapp3.1\LeaveRequest.exe
